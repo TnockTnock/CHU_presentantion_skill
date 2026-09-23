@@ -16,12 +16,13 @@ def verify(spec, pptx):
     if report['non_golos_explicit_declarations']:errors.append('Unexpected fonts')
     checks=[]
     skill=Path(__file__).resolve().parents[1]
-    adapter=json.loads((skill/'references/template-adapter.json').read_text())
+    adapter=json.loads((skill/'design-system/layouts.json').read_text())
     expected_logos={}
     with ZipFile(skill/adapter['template']) as source:
-        for kind,page in adapter['roles'].items():
+        for layout in adapter['layouts']:
+            kind,page=layout['kind'],layout['source_slide']
             part=f'ppt/slides/slide{page}.xml'; rels=relationships(source,part)
-            root=ET.fromstring(source.read(part)); ids={'cover':['43','44'],'cards':['24','25']}.get(kind,['48','49'])
+            root=ET.fromstring(source.read(part)); ids=layout['logo_shape_ids']
             hashes=set()
             for shape in root.findall('.//p:sp',NS):
                 info=shape.find('.//p:cNvPr',NS)
@@ -43,8 +44,9 @@ def verify(spec, pptx):
             names={e.get('id'):e.get('name') for e in root.findall('.//p:cNvPr',NS)}
             text=' '.join(t.text or '' for t in root.findall('.//a:t',NS))
             if spec.get('demo') and 'ДЕМОНСТРАЦИОННЫЕ ДАННЫЕ' not in text:errors.append(desc['id']+': demo disclosure missing')
-            if desc['kind'] in ('process','diagram'):
-                expected=[('node-step-'+str(i),'node-step-'+str(i+1)) for i in range(len(desc['steps'])-1)] if desc['kind']=='process' else [('node-'+e['from'],'node-'+e['to']) for e in desc['edges']]
+            if desc['kind'] in ('process','diagram','roadmap'):
+                prefix='node-roadmap-' if desc['kind']=='roadmap' else 'node-step-'
+                expected=[(prefix+str(i),prefix+str(i+1)) for i in range(len(desc['steps'])-1)] if desc['kind']!='diagram' else [('node-'+e['from'],'node-'+e['to']) for e in desc['edges']]
                 actual=[]
                 for conn in root.findall('.//p:cxnSp',NS):
                     start,end=conn.find('.//a:stCxn',NS),conn.find('.//a:endCxn',NS)
@@ -54,7 +56,26 @@ def verify(spec, pptx):
                     tail=conn.find('.//a:tailEnd',NS)
                     if tail is None or tail.get('type')!='triangle':errors.append(desc['id']+': target arrowhead missing')
                 if sorted(actual)!=sorted(expected):errors.append(desc['id']+': node/edge mismatch')
+                for j,edge in enumerate(desc.get('edges',[])):
+                    if edge.get('label'):
+                        labels=[sp for sp in root.findall('.//p:sp',NS) if sp.find('.//p:cNvPr',NS).get('name')=='edge-label-'+str(j)]
+                        if len(labels)!=1 or ''.join(t.text or '' for t in labels[0].findall('.//a:t',NS))!=edge['label']:errors.append(desc['id']+': edge label missing')
                 checks.append({'slide':desc['id'],'native_connectors':len(actual)})
+            if desc['kind'] in ('kpi_grid','comparison','roadmap'):
+                expected_text={}
+                if desc['kind']=='kpi_grid':
+                    expected_text={f'metric-{field}-{j}':item[field] for j,item in enumerate(desc['items']) for field in ('value','label','detail')}
+                elif desc['kind']=='comparison':
+                    for j,col in enumerate(desc['columns']):
+                        expected_text['comparison-title-'+str(j)]=col['title']
+                        expected_text.update({f'comparison-item-{j}-{k}':v for k,v in enumerate(col['items'])})
+                else:
+                    for j,step in enumerate(desc['steps']):
+                        expected_text.update({f'roadmap-period-{j}':step['period'],f'node-roadmap-{j}':step['title'],f'roadmap-body-{j}':step['body']})
+                actual_text={sp.find('.//p:cNvPr',NS).get('name'):''.join(t.text or '' for t in sp.findall('.//a:t',NS)) for sp in root.findall('.//p:sp',NS)}
+                for name,value in expected_text.items():
+                    if actual_text.get(name)!=value:errors.append(desc['id']+': native text mismatch '+name)
+                checks.append({'slide':desc['id'],'native_text_fields':len(expected_text)})
             elif desc['kind']=='chart':
                 rels=relationships(z,item['part'])
                 chartparts=[r['target'] for r in rels.values() if r['type']=='chart']

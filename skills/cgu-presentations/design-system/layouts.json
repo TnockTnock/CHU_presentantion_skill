@@ -1,0 +1,398 @@
+{
+  "version": 2,
+  "template": "assets/templates/cgu-short.pptx",
+  "template_sha256": "fc652b5d027a01dd07bcd6c57c6a863c3b4a49620882e2e7e9d05aedb31c04c2",
+  "slide_size_px": [
+    1920,
+    1080
+  ],
+  "layouts": [
+    {
+      "key": "short-cover",
+      "kind": "cover",
+      "source_slide": 6,
+      "source_part": "ppt/slides/slide6.xml",
+      "binding_status": "implemented",
+      "visual_status": "verified-demo",
+      "powerpoint_status": "not-tested",
+      "slots": {
+        "title": "40",
+        "subtitle": "41",
+        "department": "38",
+        "year": "39"
+      },
+      "keep_shape_ids": null,
+      "remove_shape_ids": [
+        "42"
+      ],
+      "logo_shape_ids": [
+        "43",
+        "44"
+      ],
+      "content_bounds_px": [
+        100,
+        270,
+        1720,
+        650
+      ],
+      "preview": "previews/cover.png",
+      "capacity": "title 85; subtitle 180 characters",
+      "layout_part": "ppt/slideLayouts/slideLayout65.xml",
+      "master_part": "ppt/slideMasters/slideMaster10.xml",
+      "preview_basis": "Synthetic example rendered with bundled LibreOffice and reviewed; not a PowerPoint certification"
+    },
+    {
+      "key": "short-cards",
+      "kind": "cards",
+      "source_slide": 8,
+      "source_part": "ppt/slides/slide8.xml",
+      "binding_status": "implemented",
+      "visual_status": "verified-demo",
+      "powerpoint_status": "not-tested",
+      "slots": {
+        "title": "6",
+        "cards": [
+          {
+            "title": "8",
+            "body": "10",
+            "number": "9"
+          },
+          {
+            "title": "12",
+            "body": "14",
+            "number": "13"
+          },
+          {
+            "title": "16",
+            "body": "18",
+            "number": "17"
+          },
+          {
+            "title": "20",
+            "body": "22",
+            "number": "21"
+          }
+        ]
+      },
+      "keep_shape_ids": null,
+      "remove_shape_ids": [],
+      "logo_shape_ids": [
+        "24",
+        "25"
+      ],
+      "content_bounds_px": [
+        100,
+        270,
+        1720,
+        650
+      ],
+      "preview": "previews/cards.png",
+      "capacity": "4 items; title 42; body 160",
+      "layout_part": "ppt/slideLayouts/slideLayout65.xml",
+      "master_part": "ppt/slideMasters/slideMaster10.xml",
+      "preview_basis": "Synthetic example rendered with bundled LibreOffice and reviewed; not a PowerPoint certification"
+    },
+    {
+      "key": "short-kpi",
+      "kind": "kpi",
+      "source_slide": 15,
+      "source_part": "ppt/slides/slide15.xml",
+      "binding_status": "implemented",
+      "visual_status": "verified-demo",
+      "powerpoint_status": "not-tested",
+      "slots": {
+        "title": "33",
+        "label": "3",
+        "value": "4"
+      },
+      "keep_shape_ids": [
+        "33",
+        "48",
+        "49",
+        "2",
+        "3",
+        "4"
+      ],
+      "remove_shape_ids": [],
+      "logo_shape_ids": [
+        "48",
+        "49"
+      ],
+      "content_bounds_px": [
+        100,
+        270,
+        1720,
+        650
+      ],
+      "preview": "previews/kpi.png",
+      "capacity": "value 9; label 130; detail 350",
+      "layout_part": "ppt/slideLayouts/slideLayout65.xml",
+      "master_part": "ppt/slideMasters/slideMaster10.xml",
+      "preview_basis": "Synthetic example rendered with bundled LibreOffice and reviewed; not a PowerPoint certification"
+    },
+    {
+      "key": "short-text",
+      "kind": "text",
+      "source_slide": 14,
+      "source_part": "ppt/slides/slide14.xml",
+      "binding_status": "implemented",
+      "visual_status": "verified-demo",
+      "powerpoint_status": "not-tested",
+      "slots": {
+        "title": "33"
+      },
+      "keep_shape_ids": [
+        "33",
+        "48",
+        "49"
+      ],
+      "remove_shape_ids": [],
+      "logo_shape_ids": [
+        "48",
+        "49"
+      ],
+      "content_bounds_px": [
+        100,
+        270,
+        1720,
+        650
+      ],
+      "preview": "previews/text.png",
+      "capacity": "body 650",
+      "layout_part": "ppt/slideLayouts/slideLayout65.xml",
+      "master_part": "ppt/slideMasters/slideMaster10.xml",
+      "preview_basis": "Synthetic example rendered with bundled LibreOffice and reviewed; not a PowerPoint certification"
+    },
+    {
+      "key": "short-process",
+      "kind": "process",
+      "source_slide": 14,
+      "source_part": "ppt/slides/slide14.xml",
+      "binding_status": "implemented",
+      "visual_status": "verified-demo",
+      "powerpoint_status": "not-tested",
+      "slots": {
+        "title": "33"
+      },
+      "keep_shape_ids": [
+        "33",
+        "48",
+        "49"
+      ],
+      "remove_shape_ids": [],
+      "logo_shape_ids": [
+        "48",
+        "49"
+      ],
+      "content_bounds_px": [
+        100,
+        270,
+        1720,
+        650
+      ],
+      "preview": "previews/process.png",
+      "capacity": "2–5 steps",
+      "layout_part": "ppt/slideLayouts/slideLayout65.xml",
+      "master_part": "ppt/slideMasters/slideMaster10.xml",
+      "preview_basis": "Synthetic example rendered with bundled LibreOffice and reviewed; not a PowerPoint certification"
+    },
+    {
+      "key": "short-diagram",
+      "kind": "diagram",
+      "source_slide": 14,
+      "source_part": "ppt/slides/slide14.xml",
+      "binding_status": "implemented",
+      "visual_status": "verified-demo",
+      "powerpoint_status": "not-tested",
+      "slots": {
+        "title": "33"
+      },
+      "keep_shape_ids": [
+        "33",
+        "48",
+        "49"
+      ],
+      "remove_shape_ids": [],
+      "logo_shape_ids": [
+        "48",
+        "49"
+      ],
+      "content_bounds_px": [
+        100,
+        270,
+        1720,
+        650
+      ],
+      "preview": "previews/diagram.png",
+      "capacity": "2–8 nodes; labels use explicit boxes",
+      "layout_part": "ppt/slideLayouts/slideLayout65.xml",
+      "master_part": "ppt/slideMasters/slideMaster10.xml",
+      "preview_basis": "Synthetic example rendered with bundled LibreOffice and reviewed; not a PowerPoint certification"
+    },
+    {
+      "key": "short-chart",
+      "kind": "chart",
+      "source_slide": 14,
+      "source_part": "ppt/slides/slide14.xml",
+      "binding_status": "implemented",
+      "visual_status": "verified-demo",
+      "powerpoint_status": "not-tested",
+      "slots": {
+        "title": "33"
+      },
+      "keep_shape_ids": [
+        "33",
+        "48",
+        "49"
+      ],
+      "remove_shape_ids": [],
+      "logo_shape_ids": [
+        "48",
+        "49"
+      ],
+      "content_bounds_px": [
+        100,
+        270,
+        1720,
+        650
+      ],
+      "preview": "previews/chart.png",
+      "capacity": "2–10 categories; 1–3 series",
+      "layout_part": "ppt/slideLayouts/slideLayout65.xml",
+      "master_part": "ppt/slideMasters/slideMaster10.xml",
+      "preview_basis": "Synthetic example rendered with bundled LibreOffice and reviewed; not a PowerPoint certification"
+    },
+    {
+      "key": "short-table",
+      "kind": "table",
+      "source_slide": 14,
+      "source_part": "ppt/slides/slide14.xml",
+      "binding_status": "implemented",
+      "visual_status": "verified-demo",
+      "powerpoint_status": "not-tested",
+      "slots": {
+        "title": "33"
+      },
+      "keep_shape_ids": [
+        "33",
+        "48",
+        "49"
+      ],
+      "remove_shape_ids": [],
+      "logo_shape_ids": [
+        "48",
+        "49"
+      ],
+      "content_bounds_px": [
+        100,
+        270,
+        1720,
+        650
+      ],
+      "preview": "previews/table.png",
+      "capacity": "See spec.py row/column limits",
+      "layout_part": "ppt/slideLayouts/slideLayout65.xml",
+      "master_part": "ppt/slideMasters/slideMaster10.xml",
+      "preview_basis": "Synthetic example rendered with bundled LibreOffice and reviewed; not a PowerPoint certification"
+    },
+    {
+      "key": "short-kpi_grid",
+      "kind": "kpi_grid",
+      "source_slide": 14,
+      "source_part": "ppt/slides/slide14.xml",
+      "binding_status": "implemented",
+      "visual_status": "verified-demo",
+      "powerpoint_status": "not-tested",
+      "slots": {
+        "title": "33"
+      },
+      "keep_shape_ids": [
+        "33",
+        "48",
+        "49"
+      ],
+      "remove_shape_ids": [],
+      "logo_shape_ids": [
+        "48",
+        "49"
+      ],
+      "content_bounds_px": [
+        100,
+        270,
+        1720,
+        650
+      ],
+      "preview": "previews/kpi_grid.png",
+      "capacity": "2–4 indicators with period and context",
+      "layout_part": "ppt/slideLayouts/slideLayout65.xml",
+      "master_part": "ppt/slideMasters/slideMaster10.xml",
+      "preview_basis": "Synthetic example rendered with bundled LibreOffice and reviewed; not a PowerPoint certification"
+    },
+    {
+      "key": "short-comparison",
+      "kind": "comparison",
+      "source_slide": 14,
+      "source_part": "ppt/slides/slide14.xml",
+      "binding_status": "implemented",
+      "visual_status": "verified-demo",
+      "powerpoint_status": "not-tested",
+      "slots": {
+        "title": "33"
+      },
+      "keep_shape_ids": [
+        "33",
+        "48",
+        "49"
+      ],
+      "remove_shape_ids": [],
+      "logo_shape_ids": [
+        "48",
+        "49"
+      ],
+      "content_bounds_px": [
+        100,
+        270,
+        1720,
+        650
+      ],
+      "preview": "previews/comparison.png",
+      "capacity": "Two columns, 2–4 matched criteria",
+      "layout_part": "ppt/slideLayouts/slideLayout65.xml",
+      "master_part": "ppt/slideMasters/slideMaster10.xml",
+      "preview_basis": "Synthetic example rendered with bundled LibreOffice and reviewed; not a PowerPoint certification"
+    },
+    {
+      "key": "short-roadmap",
+      "kind": "roadmap",
+      "source_slide": 14,
+      "source_part": "ppt/slides/slide14.xml",
+      "binding_status": "implemented",
+      "visual_status": "verified-demo",
+      "powerpoint_status": "not-tested",
+      "slots": {
+        "title": "33"
+      },
+      "keep_shape_ids": [
+        "33",
+        "48",
+        "49"
+      ],
+      "remove_shape_ids": [],
+      "logo_shape_ids": [
+        "48",
+        "49"
+      ],
+      "content_bounds_px": [
+        100,
+        270,
+        1720,
+        650
+      ],
+      "preview": "previews/roadmap.png",
+      "capacity": "3–6 steps; periods are text, positions do not encode duration",
+      "layout_part": "ppt/slideLayouts/slideLayout65.xml",
+      "master_part": "ppt/slideMasters/slideMaster10.xml",
+      "preview_basis": "Synthetic example rendered with bundled LibreOffice and reviewed; not a PowerPoint certification"
+    }
+  ]
+}

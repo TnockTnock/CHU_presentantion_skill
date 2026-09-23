@@ -17,7 +17,9 @@ const {FileBlob,Presentation,PresentationFile}=await import(pathToFileURL(requir
 const {finalizePresentation,applyPresentationChartFont}=await import(pathToFileURL(path.join(presentationSkill,'container_tools/artifact_tool_utils.mjs')).href);
 const spec=JSON.parse(await fs.readFile(specFile,'utf8'));
 const manifest=JSON.parse(await fs.readFile(path.join(skill,'assets/templates/manifest.json'),'utf8'));
-const adapter=JSON.parse(await fs.readFile(path.join(skill,'references/template-adapter.json'),'utf8'));
+const adapter=JSON.parse(await fs.readFile(path.join(skill,'design-system/layouts.json'),'utf8'));
+const tokens=JSON.parse(await fs.readFile(path.join(skill,'design-system/tokens.json'),'utf8'));
+const layouts=Object.fromEntries(adapter.layouts.map(x=>[x.kind,x]));
 const template=path.join(skill,adapter.template);
 const hash=createHash('sha256').update(await fs.readFile(template)).digest('hex');
 if(hash!==adapter.template_sha256 || hash!==manifest.templates.find(x=>x.file===adapter.template).sha256) throw Error('Template hash mismatch: adapter must be revalidated');
@@ -32,20 +34,20 @@ const inspection=await imported.inspect({kind:'slide,layout,textbox,image,shape'
 await fs.writeFile(path.join(scratch,'template-inspection.ndjson'),inspection.ndjson);
 const proto=imported.toProto();
 // Verified against cgu-short.pptx hash in manifest. One slide-level adapter per role.
-const templates=adapter.roles;
-const map=spec.slides.map((s,i)=>({id:s.id,kind:s.kind,source_slide:templates[s.kind],template_sha256:hash}));
+const templates=Object.fromEntries(adapter.layouts.map(x=>[x.kind,x.source_slide]));
+const map=spec.slides.map((s,i)=>({id:s.id,kind:s.kind,source_slide:templates[s.kind],layout_key:layouts[s.kind].key,template_sha256:hash}));
 proto.slides=spec.slides.map((s,i)=>{
  const p=structuredClone(proto.slides[templates[s.kind]-1]);p.id='cgu_'+i;p.index=i;
- if(s.kind==='kpi')p.elements=p.elements.filter(e=>['33','48','49','2','3','4'].includes(e.id));
- else if(!['cover','cards'].includes(s.kind))p.elements=p.elements.filter(e=>['33','48','49'].includes(e.id));
- if(s.kind==='cover')p.elements=p.elements.filter(e=>e.id!=='42');
+ const layout=layouts[s.kind];
+ if(layout.keep_shape_ids)p.elements=p.elements.filter(e=>layout.keep_shape_ids.includes(e.id));
+ p.elements=p.elements.filter(e=>!layout.remove_shape_ids.includes(e.id));
  return p;
 });
 const presentation=Presentation.load(proto);
-const regular='Golos Text',semi='Golos Text SemiBold';
-const red='#FF254A',black='#000000',gray='#5B5B5B',surface='#F3F2F2';
+const regular=tokens.fonts.body,semi=tokens.fonts.heading;
+const red=tokens.colors.accent,black=tokens.colors.text,gray=tokens.colors.muted,surface=tokens.colors.surface;
 const px=pt=>pt*4/3;
-function style(pt=24,bold=false,color=black,align='left',center=false){return {typeface:bold?semi:regular,fontSize:px(pt),bold:false,color,autoFit:'none',wrap:'square',alignment:align,verticalAlignment:center?'middle':'top',insets:{left:0,right:0,top:0,bottom:0}};}
+function style(pt=tokens.sizes_pt.body,bold=false,color=black,align='left',center=false){return {typeface:bold?semi:regular,fontSize:px(pt),bold:false,color,autoFit:'none',wrap:'square',alignment:align,verticalAlignment:center?'middle':'top',insets:{left:0,right:0,top:0,bottom:0}};}
 const measure=createCanvas(1,1).getContext('2d');
 function checkFit(text,w,h,pt,bold,name,pad=0){
  measure.font=`${px(pt)}px "${bold?semi:regular}"`;
@@ -55,23 +57,46 @@ function checkFit(text,w,h,pt,bold,name,pad=0){
 }
 function edit(sl,id,text,pt=24,bold=false,frame=null,color=black,align='left',center=false){const s=sl.shapes.items.find(e=>e.id===id);if(!s)throw Error('Missing template shape '+id);if(frame)s.position=frame;checkFit(text,s.position.width,s.position.height,pt,bold,'slot '+id);s.text=text;s.text.style=style(pt,bold,color,align,center);return s;}
 function label(sl,name,text,x,y,w,h,pt=24,bold=false,color=black,align='left',center=false){checkFit(text,w,h,pt,bold,name);const s=sl.shapes.add({name,geometry:'textbox',position:{left:x,top:y,width:w,height:h},fill:'none',line:{fill:'none',width:0}});s.text=text;s.text.style=style(pt,bold,color,align,center);return s;}
-function node(sl,id,text,b,accent=false){const [x,y,w,h]=b;checkFit(text,w,h,26,true,id,22);const n=sl.shapes.add({name:'node-'+id,geometry:'roundRect',position:{left:x,top:y,width:w,height:h},fill:accent?red:surface,line:{fill:'none',width:0},borderRadius:24});n.text=text;n.text.style={...style(26,true,accent?'#FFFFFF':black,'center',true),insets:{left:22,right:22,top:18,bottom:18}};return n;}
+function node(sl,id,text,b,accent=false){const [x,y,w,h]=b;checkFit(text,w,h,26,true,id,22);const n=sl.shapes.add({name:'node-'+id,geometry:'roundRect',position:{left:x,top:y,width:w,height:h},fill:accent?red:surface,line:{fill:'none',width:0},borderRadius:24});n.text=text;n.text.style={...style(26,true,accent?tokens.colors.background:black,'center',true),insets:{left:22,right:22,top:18,bottom:18}};return n;}
 function link(sl,a,b,from='right',to='left',kind='elbow'){return sl.shapes.connect(a,b,{kind,fromSide:from,toSide:to,line:{fill:red,width:3,style:'solid'},tail:{type:'triangle',width:'med',length:'med'}});}
 for(let i=0;i<spec.slides.length;i++){
- const d=spec.slides[i],s=presentation.slides.items[i];
+ const d=spec.slides[i],s=presentation.slides.items[i],slots=layouts[d.kind].slots;
  if(d.kind==='cover'){
-  edit(s,'40',d.title,60,true,{left:170,top:470,width:820,height:220});
-  edit(s,'41',d.subtitle,24,false,{left:170,top:710,width:820,height:120});
-  edit(s,'38','ДИТ Москвы',14,false,null,gray,'center',true);
-  edit(s,'39',spec.demo?'ДЕМО':String(new Date().getFullYear()),14,false,null,gray,'center',true);
+  edit(s,slots.title,d.title,tokens.sizes_pt.cover_title,true,{left:170,top:470,width:820,height:220});
+  edit(s,slots.subtitle,d.subtitle,24,false,{left:170,top:710,width:820,height:120});
+  edit(s,slots.department,'ДИТ Москвы',14,false,null,gray,'center',true);
+  edit(s,slots.year,spec.demo?'ДЕМО':String(new Date().getFullYear()),14,false,null,gray,'center',true);
  }else{
-  edit(s,d.kind==='cards'?'6':'33',d.title,44,true,{left:100,top:80,width:1260,height:145});
+  const [left,top,width,height]=tokens.geometry.title_box_px;
+  edit(s,slots.title,d.title,tokens.sizes_pt.title,true,{left,top,width,height});
  }
- if(d.kind==='cards'){
-  [['8','10','9'],['12','14','13'],['16','18','17'],['20','22','21']].forEach(([h,b,n],j)=>{edit(s,h,d.items[j].title,24,true);edit(s,b,d.items[j].body,24);edit(s,n,String(j+1).padStart(2,'0'),14,true,null,'#FFFFFF','center',true);});
+ if(d.kind==='kpi_grid'){
+  const gap=30,w=(1720-gap*(d.items.length-1))/d.items.length;
+  d.items.forEach((item,j)=>{const x=100+j*(w+gap);
+   s.shapes.add({name:'metric-background-'+j,geometry:'roundRect',position:{left:x,top:300,width:w,height:580},fill:surface,line:{fill:'none',width:0},borderRadius:24});
+   label(s,'metric-value-'+j,item.value,x+28,355,w-56,120,52,true,red);
+   label(s,'metric-label-'+j,item.label,x+28,510,w-56,135,24,true);
+   label(s,'metric-detail-'+j,item.detail,x+28,690,w-56,155,20,false,gray);
+  });
+ }else if(d.kind==='comparison'){
+  d.columns.forEach((col,j)=>{const x=100+j*890;
+   s.shapes.add({name:'comparison-background-'+j,geometry:'roundRect',position:{left:x,top:290,width:830,height:610},fill:surface,line:{fill:'none',width:0},borderRadius:24});
+   label(s,'comparison-title-'+j,col.title,x+32,320,766,115,30,true,j===1?red:black);
+   col.items.forEach((text,k)=>{label(s,'comparison-item-'+j+'-'+k,text,x+32,465+k*100,766,90,23);});
+  });
+ }else if(d.kind==='roadmap'){
+  const count=d.steps.length,perRow=count<=3?count:3,gap=65,w=(1720-gap*(perRow-1))/perRow,ns=[];
+  d.steps.forEach((step,j)=>{const row=Math.floor(j/perRow),column=row===0?j:perRow-1-(j%perRow),x=100+column*(w+gap),y=300+row*340;
+   label(s,'roadmap-period-'+j,step.period,x,y,w,50,20,true,red);
+   ns.push(node(s,'roadmap-'+j,step.title,[x,y+62,w,105],j===0));
+   label(s,'roadmap-body-'+j,step.body,x,y+190,w,105,21);
+  });
+  for(let j=0;j<count-1;j++){const turn=j===perRow-1;link(s,ns[j],ns[j+1],turn?'right':j<perRow?'right':'left',turn?'right':j<perRow?'left':'right',turn?'elbow':'straight');}
+ }else if(d.kind==='cards'){
+  slots.cards.forEach(({title:h,body:b,number:n},j)=>{edit(s,h,d.items[j].title,24,true);edit(s,b,d.items[j].body,24);edit(s,n,String(j+1).padStart(2,'0'),14,true,null,tokens.colors.background,'center',true);});
  }else if(d.kind==='kpi'){
-  edit(s,'3',d.label,24,false,{left:100,top:285,width:790,height:135});
-  edit(s,'4',d.value,190,true,{left:100,top:550,width:790,height:310},red);
+  edit(s,slots.label,d.label,24,false,{left:100,top:285,width:790,height:135});
+  edit(s,slots.value,d.value,190,true,{left:100,top:550,width:790,height:310},red);
   label(s,'kpi-detail-title',d.detail_title,1020,300,700,90,26,true);
   label(s,'kpi-detail',d.detail,1020,420,700,390,24);
  }else if(d.kind==='text'){
@@ -82,30 +107,30 @@ for(let i=0;i<spec.slides.length;i++){
   for(let j=0;j<n-1;j++)link(s,ns[j],ns[j+1],'right','left','straight');
  }else if(d.kind==='diagram'){
   const nodes=Object.fromEntries(d.nodes.map(n=>[n.id,node(s,n.id,n.text,n.box,n.accent)]));
-  for(const e of d.edges)link(s,nodes[e.from],nodes[e.to],e.from_side??'right',e.to_side??'left');
+  for(const [j,e] of d.edges.entries()){link(s,nodes[e.from],nodes[e.to],e.from_side??'right',e.to_side??'left');if(e.label){const [x,y,w,h]=e.label_box;label(s,'edge-label-'+j,e.label,x,y,w,h,18,false,gray,'center',true);}}
  }else if(d.kind==='chart'){
   label(s,'chart-unit',d.unit,100,250,1650,65,22,false,gray);
-  const fills=[red,'#F7849B','#5B5B5B'];
+  const fills=[red,tokens.colors.chart_secondary,gray];
   const all=d.series.flatMap(x=>x.values);const min=Math.min(0,...all),max=Math.max(0,...all);
   const ch=s.charts.add(d.chart_type??'bar',{
    position:{left:100,top:340,width:1700,height:575},categories:d.categories,
    series:d.series.map((v,j)=>({name:v.name,values:v.values,fill:fills[j],line:{fill:fills[j],width:3},marker:{symbol:'circle',size:9}})),
    hasLegend:d.series.length>1,legend:{position:'bottom',overlay:false,textStyle:{typeface:regular,fontSize:28}},
    barOptions:{direction:'column',grouping:'clustered',gapWidth:95,overlap:0},lineOptions:{smooth:false},
-   xAxis:{tickLabelPosition:'low',textStyle:{typeface:regular,fontSize:26},line:{fill:'#D0D0D0',width:1},majorGridlines:null},
-   yAxis:{min:min<0?min*1.2:0,max:max>0?max*1.2:1,numberFormatCode:'0.##',textStyle:{typeface:regular,fontSize:24},majorGridlines:{fill:'#E4E4E4',width:1}},
-   dataLabels:{showValue:true,position:'outEnd',textStyle:{typeface:regular,fontSize:24}},chartFill:'#FFFFFF',plotAreaFill:'#FFFFFF'
+   xAxis:{tickLabelPosition:'low',textStyle:{typeface:regular,fontSize:26},line:{fill:tokens.colors.axis,width:1},majorGridlines:null},
+   yAxis:{min:min<0?min*1.2:0,max:max>0?max*1.2:1,numberFormatCode:'0.##',textStyle:{typeface:regular,fontSize:24},majorGridlines:{fill:tokens.colors.grid,width:1}},
+   dataLabels:{showValue:true,position:'outEnd',textStyle:{typeface:regular,fontSize:24}},chartFill:tokens.colors.background,plotAreaFill:tokens.colors.background
   });applyPresentationChartFont(ch,{fontFamily:regular});
  }else if(d.kind==='table'){
   const nr=d.rows.length+1,nc=d.columns.length,h=Math.min(620,nr*100),w=1720;
   const t=s.tables.add({rows:nr,columns:nc,left:100,top:285,width:w,height:h,columnWidths:Array(nc).fill(w/nc),values:[d.columns,...d.rows]});
-  t.borders.assign({outside:{fill:'#FFFFFF',width:0},insideHorizontal:{fill:'#DDDDDD',width:1},insideVertical:{fill:'#FFFFFF',width:0}});
-  for(let r=0;r<nr;r++){t.rows[r].height=h/nr;for(let c=0;c<nc;c++){const value=[d.columns,...d.rows][r][c];checkFit(value,w/nc-40,h/nr-24,24,r===0,'table cell '+r+','+c);const cell=t.getCell(r,c);cell.fill=r===0?surface:'#FFFFFF';cell.text.style={...style(24,r===0),verticalAlignment:'middle',insets:{left:20,right:20,top:12,bottom:12}};}}
+  t.borders.assign({outside:{fill:tokens.colors.background,width:0},insideHorizontal:{fill:tokens.colors.table_line,width:1},insideVertical:{fill:tokens.colors.background,width:0}});
+  for(let r=0;r<nr;r++){t.rows[r].height=h/nr;for(let c=0;c<nc;c++){const value=[d.columns,...d.rows][r][c];checkFit(value,w/nc-40,h/nr-24,24,r===0,'table cell '+r+','+c);const cell=t.getCell(r,c);cell.fill=r===0?surface:tokens.colors.background;cell.text.style={...style(24,r===0),verticalAlignment:'middle',insets:{left:20,right:20,top:12,bottom:12}};}}
  }
  label(s,'footer',spec.demo?'ДЕМОНСТРАЦИОННЫЕ ДАННЫЕ':(d.footer??''),100,994,1600,38,12,false,gray);
  label(s,'page-number',String(i+1),1740,994,80,38,12,false,gray,'right');
- const sources=(d.source_ids??[]).map(id=>spec.sources.find(x=>x.id===id)?.location).filter(Boolean);
- s.speakerNotes.textFrame.setText([d.notes??'',spec.demo?'Все данные вымышлены. Презентация для тестирования скилла.':'',...sources.map(x=>'Источник: '+x)].filter(Boolean).join('\n\n'));
+ const sources=[...new Set([...(d.source_ids??[]),...Object.values(d.object_sources??{}).flat()])].map(id=>spec.sources.find(x=>x.id===id)?.location).filter(Boolean);
+ s.speakerNotes.textFrame.setText([d.notes??'',spec.demo?'Все данные вымышлены. Презентация для тестирования скилла.':'',...sources.map(x=>'Источник: '+x),...Object.entries(d.object_sources??{}).map(([pointer,ids])=>'Данные '+pointer+': '+ids.join(', '))].filter(Boolean).join('\n\n'));
 }
 const raw=path.join(scratch,'raw.pptx'),candidate=path.join(scratch,'candidate.pptx');
 // Explicit cell borders survive PPTX/LibreOffice better than table-level defaults.

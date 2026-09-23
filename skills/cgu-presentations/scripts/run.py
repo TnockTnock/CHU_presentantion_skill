@@ -13,6 +13,7 @@ from xml.sax.saxutils import escape
 from audit_template import audit
 from spec import validate
 from verify_output import verify
+from preflight import inspect as preflight
 
 SKILL = Path(__file__).resolve().parents[1]
 
@@ -41,11 +42,15 @@ def run(cmd, env=None):
 def build(specfile, out, runtime=None, presentation_skill=None, render=True):
     specfile, out = Path(specfile).resolve(), Path(out).resolve()
     deck = validate(json.loads(specfile.read_text(encoding='utf-8')))
+    resources=preflight(SKILL)
+    if resources['errors']:raise ValueError('; '.join(resources['errors']))
     paths = runtime_paths(runtime, presentation_skill)
     if out.exists() and any(out.iterdir()): raise ValueError('Output directory is not empty. Use a new run directory to preserve previous results.')
     out.mkdir(parents=True, exist_ok=True)
     for folder in ['content','build','qa','preview','output']:(out/folder).mkdir()
     shutil.copy2(specfile,out/'content/deck-spec.json')
+    (out/'content/sources.json').write_text(json.dumps(deck.get('sources',[]),ensure_ascii=False,indent=2))
+    (out/'qa/preflight.json').write_text(json.dumps(resources,ensure_ascii=False,indent=2))
     run([paths['node'],SKILL/'scripts/build.mjs',specfile,out,paths['runtime'],paths['presentation_skill'],paths['python']])
     pptx = out/'output/presentation.pptx'
     report = audit(pptx)
@@ -61,7 +66,7 @@ def build(specfile, out, runtime=None, presentation_skill=None, render=True):
         scenario += ['',f"## {n}. {s['title'].replace(chr(10),' ')}",'',s.get('notes',''),'', '```json',json.dumps(s,ensure_ascii=False,indent=2),'```']
     (out/'output/scenario.md').write_text('\n'.join(scenario)+'\n',encoding='utf-8')
     (out/'content/outline.md').write_text('\n'.join(f"{i}. {s['title'].replace(chr(10),' ')} ({s['kind']})" for i,s in enumerate(deck['slides'],1))+'\n',encoding='utf-8')
-    record={'spec_sha256':hashlib.sha256(specfile.read_bytes()).hexdigest(),'pptx_sha256':report['sha256'],'runtime':str(paths['runtime']),'slides':len(deck['slides']),'rendered':False,'visual_review':'pending','fonts_embedded_in_pptx':False}
+    record={'spec_sha256':hashlib.sha256(specfile.read_bytes()).hexdigest(),'pptx_sha256':report['sha256'],'runtime':str(paths['runtime']),'slides':len(deck['slides']),'rendered':False,'visual_review':'pending','fonts_embedded_in_pptx':False,'structure':'passed','powerpoint':'not-tested','evidence':{'policy':deck.get('evidence_policy','slide'),'references':'validated','factual_review':'demo' if deck.get('demo') else 'pending'}}
     (out/'qa/run.json').write_text(json.dumps(record,ensure_ascii=False,indent=2))
     if render:
         env=os.environ.copy()
@@ -93,7 +98,10 @@ def main():
     a=ap.parse_args()
     try:
         if a.command=='doctor':
-            print(json.dumps({k:str(v) for k,v in runtime_paths(a.runtime,a.presentation_skill).items()},indent=2));return
+            result=preflight(SKILL)
+            print(json.dumps({'paths':{k:str(v) for k,v in runtime_paths(a.runtime,a.presentation_skill).items()},'resources':result},indent=2))
+            if result['errors']:raise ValueError('; '.join(result['errors']))
+            return
         if not a.out:ap.error('--out is required')
         source=SKILL/'examples/demo.json' if a.command=='demo' else a.spec
         if not source:ap.error('build requires a spec file')

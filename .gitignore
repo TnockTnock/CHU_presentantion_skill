@@ -10,3 +10,7 @@ work/
 output/
 preview/
 *.zip
+
+# Personal reference paths and internal source material
+reference-library.local.json
+skills/*/local/

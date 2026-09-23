@@ -36,9 +36,9 @@ python3 skills/cgu-presentations/scripts/run.py build deck.json --out work/my-de
 
 Для разработки можно прямо указать агенту локальный `skills/cgu-presentations/SKILL.md` без установки. GitHub и локальный репозиторий синхронизируются через Git: `git pull --ff-only`, ветка `codex/<задача>`, тесты, commit и push. Рабочая версия скилла находится здесь, а не в старом архиве рядом с репозиторием.
 
-## Возможности и границы v1
+## Возможности и границы
 
-- Автоматическая сборка 8 типов: cover, cards, kpi, text, process, diagram, chart, table.
+- Автоматическая сборка 11 типов: cover, cards, kpi, text, process, diagram, chart, table, kpi_grid, comparison, roadmap.
 - Используются проверенные страницы 6, 8, 14, 15 короткого шаблона, исходные логотипы и размер 1440×810 pt. SHA-256 защищает адаптер от незаметной смены шаблона.
 - Полный шаблон на 82 страницы сохранён как дополнительная библиотека. Автоматическое заполнение всех его макетов пока не поддерживается.
 - Генераторы изображений не требуются для базовой сборки. Иллюстрации и дополнительные макеты добавляются агентом отдельным расширением, с проверкой.
@@ -51,3 +51,9 @@ python3 skills/cgu-presentations/scripts/run.py build deck.json --out work/my-de
 `skills/cgu-presentations/` содержит точку входа SKILL.md, правила, шаблоны, шрифты, примеры JSON и скрипты. `tests/` — автономные Python-тесты. `docs/validation.md` — запись проведённой проверки без пользовательских материалов.
 
 Лицензия Golos Text находится рядом со шрифтами. Корпоративные шаблоны и логотипы не объявляются свободно лицензированными этим репозиторием; условия использования определяет правообладатель.
+
+## Библиотека референсов
+
+[Правила библиотеки](skills/cgu-presentations/references/library.md) описывают локальный каталог и переносимые композиции. `design-system/layouts.json` хранит исполняемые привязки; `tokens.json` — параметры оформления; `reference-patterns.json` — 10 отобранных семейств композиций без внутренних данных.
+
+Новые макеты и подписи связей: `python3 skills/cgu-presentations/scripts/run.py build skills/cgu-presentations/examples/library-demo.json --out work/library-demo`. Исходные презентации, извлечённый текст и их превью остаются в игнорируемом `work/` либо вне репозитория. Персональный `skills/cgu-presentations/local/reference-library.json` также исключён из Git.

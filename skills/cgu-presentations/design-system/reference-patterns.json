@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "patterns": [
+    {
+      "key": "kpi-context",
+      "name": "KPI с контекстом",
+      "status": "reference-reviewed",
+      "builder_kind": "kpi_grid",
+      "reuse": "adapted-composition",
+      "composition": "2–4 показателя одной темы, единицы и период у каждого.",
+      "constraints": "Не копировать вывод, если показатели относятся к разным основаниям.",
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+    },
+    {
+      "key": "roadmap",
+      "name": "Дорожная карта",
+      "status": "reference-reviewed",
+      "builder_kind": "roadmap",
+      "reuse": "adapted-composition",
+      "composition": "3–6 последовательных этапов с периодом и результатом.",
+      "constraints": "Положение этапа не кодирует длительность. Для длительности нужна временная шкала.",
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+    },
+    {
+      "key": "comparison",
+      "name": "Сравнение вариантов",
+      "status": "reference-reviewed",
+      "builder_kind": "comparison",
+      "reuse": "adapted-composition",
+      "composition": "Две колонки и одинаковые критерии по строкам.",
+      "constraints": "Цвет не должен подменять доказательство, что один вариант лучше.",
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+    },
+    {
+      "key": "timeline",
+      "name": "Задачи на временной шкале",
+      "status": "reference-reviewed",
+      "builder_kind": null,
+      "reuse": "reference-only",
+      "composition": "Задачи по строкам, общая шкала времени, сроки окончания.",
+      "constraints": "Нужны реальные даты начала и окончания; не растягивать полосы декоративно.",
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+    },
+    {
+      "key": "architecture-layers",
+      "name": "Архитектурные слои",
+      "status": "reference-reviewed",
+      "builder_kind": null,
+      "reuse": "reference-only",
+      "composition": "Уровни системы по вертикали, сквозные ограничения отдельно.",
+      "constraints": "Сохранить направление управления и обмена данными; не смешивать роли и технологии.",
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+    },
+    {
+      "key": "architecture-hub",
+      "name": "Узлы и подписанные связи",
+      "status": "reference-reviewed",
+      "builder_kind": "diagram",
+      "reuse": "generic-builder",
+      "composition": "Центральный узел, участники вокруг, явный смысл каждой связи.",
+      "constraints": "Общая схема поддерживается; композиция конкретного референса требует ручной карты узлов.",
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+    },
+    {
+      "key": "metrics-matrix",
+      "name": "Матрица показателей",
+      "status": "reference-reviewed",
+      "builder_kind": null,
+      "reuse": "reference-only",
+      "composition": "Повторяемые пары подпись–значение в общей сетке.",
+      "constraints": "Для 5–8 показателей нужна отдельная композиция; текущий kpi_grid ограничен четырьмя.",
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+    },
+    {
+      "key": "branching",
+      "name": "Карта направлений",
+      "status": "reference-reviewed",
+      "builder_kind": "diagram",
+      "reuse": "generic-builder",
+      "composition": "Один предмет и несколько направлений; связи показывают принадлежность.",
+      "constraints": "Толщина связи не означает объём без соответствующих данных.",
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+    },
+    {
+      "key": "map-commentary",
+      "name": "Карта с пояснениями",
+      "status": "reference-reviewed",
+      "builder_kind": null,
+      "reuse": "reference-only",
+      "composition": "Крупная карта и узкая колонка объяснений, легенда и период.",
+      "constraints": "Карта является предоставленным изображением; аналитические зоны не генерировать.",
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+    },
+    {
+      "key": "status-register",
+      "name": "Статус и реестр проблем",
+      "status": "reference-reviewed",
+      "builder_kind": null,
+      "reuse": "reference-only",
+      "composition": "Краткие показатели сверху, таблица проблем и сроков снизу.",
+      "constraints": "Не переносить плотную таблицу целиком на экран; подробности вынести в приложение.",
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+    }
+  ]
+}
