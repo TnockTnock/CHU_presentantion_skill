@@ -30,28 +30,9 @@
     scenario.md            тезисы, заметки, источники
 ```
 
-`deck-spec.json` — контракт содержания для агента/конкретного сборщика, **не совместимый по умолчанию** со старым `build_deck.py`. Он не обещает автоматический рендер произвольной схемы. Минимальные поля:
+`deck-spec.json` — вход сборщика версии `cgu-presentations/2`. Поддерживаемые поля и ограничения описаны в [builder.md](builder.md), готовый пример — `../examples/demo.json`. Старый формат с `prototype`, `bindings` и `schema_version: cgu-presentations/1` не принимается.
 
-```json
-{
-  "schema_version": "cgu-presentations/1",
-  "meta": {"title": "Название", "audience": "Руководство", "goal": "Решение"},
-  "template": {"file": "путь к копии шаблона", "sha256": "фактический SHA-256", "width_pt": 1440, "height_pt": 810},
-  "assumptions": [],
-  "slides": [{
-    "id": "s01",
-    "role": "process",
-    "thesis": "Тезис из материалов",
-    "template_ref": {"slide_number": 8, "layout_part": "фактический путь из аудита"},
-    "bindings": [],
-    "visual": {"kind": "process", "source_file": "design/diagrams/s01.json", "editable": true},
-    "source_ids": ["f01"],
-    "notes": "Пояснения докладчика"
-  }]
-}
-```
-
-Число 8 здесь только пример указателя, не закреплённый макет процесса. После выбора замени его реальной привязкой. `bindings` содержит адрес поля (часть+placeholder idx либо часть+shape id), роль и значение. Для схем дополнительно запиши узлы с id, подписью, источником и связями `from/to/type/label`; геометрию храни отдельно от смысловых связей либо явными полями.
+При сборке `run.py` создаёт `content/deck-spec.json`, `content/outline.md`, `build/template-map.json`, `output/scenario.md` и результаты проверки. `template-map.json` фиксирует исходные страницы и SHA-256. Остальные каталоги нужны только если фактически есть дополнительные источники или ассеты.
 
 `facts.json`: стабильный id, утверждение/значение, единица, период, источник и точное место, статус (source/calculated/assumption/missing). Для расчёта — формула и id исходных фактов. В случае конфликта сохрани оба источника и основание выбора; без основания пометь неопределённость.
 

@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "template": "assets/templates/cgu-short.pptx",
+  "template_sha256": "fc652b5d027a01dd07bcd6c57c6a863c3b4a49620882e2e7e9d05aedb31c04c2",
+  "slide_size_px": [
+    1920,
+    1080
+  ],
+  "roles": {
+    "cover": 6,
+    "cards": 8,
+    "kpi": 15,
+    "text": 14,
+    "process": 14,
+    "diagram": 14,
+    "chart": 14,
+    "table": 14
+  },
+  "note": "Source page numbers are specific to this hash. build.mjs defines verified shape ids and safe areas."
+}
