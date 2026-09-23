@@ -1,0 +1,4 @@
+interface:
+  display_name: "Презентации ЦГУ"
+  short_description: "Шаблон ЦГУ, Golos Text, схемы и инфографика"
+  default_prompt: "Используй $cgu-presentations, чтобы подготовить презентацию по моим материалам в шаблоне ЦГУ с Golos Text и редактируемыми схемами."

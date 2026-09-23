@@ -1,0 +1,15 @@
+{
+  "inspected_on": "2026-09-23",
+  "templates": [
+    {
+      "file": "assets/templates/cgu-full.pptx",
+      "source": "Шаблон презентаций ЦГУ.pptx",
+      "sha256": "ff2b8630acc36d1fd65ae0bda7cbb739ec8405997b2723a38d52efd15611497b"
+    },
+    {
+      "file": "assets/templates/cgu-short.pptx",
+      "source": "Шаблон презентаций ЦГУ _ Короткая версия.pptx",
+      "sha256": "fc652b5d027a01dd07bcd6c57c6a863c3b4a49620882e2e7e9d05aedb31c04c2"
+    }
+  ]
+}
