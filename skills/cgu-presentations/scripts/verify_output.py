@@ -18,7 +18,7 @@ def verify(spec, pptx):
     if report['non_golos_explicit_declarations']:errors.append('Unexpected fonts')
     checks=[]
     skill=Path(__file__).resolve().parents[1]
-    adapter=json.loads((skill/'design-system/layouts.json').read_text())
+    adapter=json.loads((skill/'design-system/layouts.json').read_text(encoding="utf-8"))
     expected_logos={}
     layout_by_kind={v['kind']:v for v in adapter['layouts']}
     with ZipFile(skill/adapter['template']) as source:
@@ -122,7 +122,7 @@ def verify(spec, pptx):
 if __name__=='__main__':
     import argparse
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('spec');p.add_argument('pptx');p.add_argument('--out');a=p.parse_args()
-    result=verify(json.loads(Path(a.spec).read_text()),a.pptx)
-    if a.out:Path(a.out).write_text(json.dumps(result,ensure_ascii=False,indent=2))
+    result=verify(json.loads(Path(a.spec).read_text(encoding="utf-8")),a.pptx)
+    if a.out:Path(a.out).write_text(json.dumps(result,ensure_ascii=False,indent=2), encoding="utf-8")
     print(json.dumps(result,ensure_ascii=False,indent=2))
     raise SystemExit(bool(result['errors']))

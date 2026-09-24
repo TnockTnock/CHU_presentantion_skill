@@ -10,9 +10,9 @@ from spec import KINDS
 
 def inspect(skill):
     skill=Path(skill);errors=[]
-    registry=json.loads((skill/'design-system/layouts.json').read_text())
-    tokens=json.loads((skill/'design-system/tokens.json').read_text())
-    manifest=json.loads((skill/'assets/templates/manifest.json').read_text())
+    registry=json.loads((skill/'design-system/layouts.json').read_text(encoding="utf-8"))
+    tokens=json.loads((skill/'design-system/tokens.json').read_text(encoding="utf-8"))
+    manifest=json.loads((skill/'assets/templates/manifest.json').read_text(encoding="utf-8"))
     template=skill/registry['template']
     digest=hashlib.sha256(template.read_bytes()).hexdigest()
     declared=next(t['sha256'] for t in manifest['templates'] if t['file']==registry['template'])

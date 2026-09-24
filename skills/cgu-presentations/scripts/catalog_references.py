@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Create a LOCAL searchable PDF/PPTX reference library. Never modifies sources.
 
-Run with the bundled Python (pypdf, Pillow). Output contains internal content;
+Run with Python plus optional pypdf and Pillow. Output contains internal content;
 keep it outside git or in ignored work/. No uploads or automatic approval.
 """
 import argparse
@@ -12,15 +12,20 @@ import html
 import json
 from pathlib import Path
 import subprocess
-from pypdf import PdfReader
-from PIL import Image, ImageDraw
+try:
+    from pypdf import PdfReader
+    from PIL import Image, ImageDraw
+except ImportError as e:
+    raise SystemExit("Reference catalog requires pypdf and Pillow; install these optional packages in your Python environment.") from e
+from run import portable_paths
 from audit_template import audit
 
 def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
-def catalog(source, out, runtime):
-    source,out,runtime=Path(source).resolve(),Path(out).resolve(),Path(runtime).resolve()
+def catalog(source, out, runtime=None):
+    source,out=Path(source).resolve(),Path(out).resolve()
+    paths=portable_paths(runtime,render=True)
     if out == source or source in out.parents:
         raise ValueError('Output must be outside source folder')
     out.mkdir(parents=True,exist_ok=True)
@@ -29,7 +34,7 @@ def catalog(source, out, runtime):
     allfiles=sorted(p for p in source.rglob('*') if p.is_file())
     docs=[];byhash={};ignored=Counter()
     for p in allfiles:
-        if p.suffix.lower() not in ('.pdf','.pptx'):
+        if p.name.startswith('~$') or p.suffix.lower() not in ('.pdf','.pptx'):
             ignored[p.suffix.lower()]+=1;continue
         digest=sha(p)
         if digest in byhash:
@@ -43,7 +48,7 @@ def catalog(source, out, runtime):
                 d['ooxml']=audit(p)
                 dest=out/'rendered'/d['id'];dest.mkdir()
                 profile=(dest/'lo-profile').as_uri()
-                subprocess.run([str(runtime/'bin/override/soffice'),f'-env:UserInstallation={profile}','--headless','--convert-to','pdf','--outdir',str(dest),str(p)],check=True,capture_output=True,timeout=180)
+                subprocess.run([str(paths['soffice']),f'-env:UserInstallation={profile}','--headless','--convert-to','pdf','--outdir',str(dest),str(p)],check=True,capture_output=True,timeout=180)
                 d['pdf']=str((dest/(p.stem+'.pdf')).relative_to(out))
             except Exception as e:
                 d['error']=str(e);continue
@@ -53,7 +58,7 @@ def catalog(source, out, runtime):
         pdf=Path(d['pdf_external']) if 'pdf_external' in d else out/d['pdf']
         try:
             reader=PdfReader(pdf)
-            subprocess.run([str(runtime/'bin/override/pdftoppm'),'-scale-to','960','-jpeg','-jpegopt','quality=80',str(pdf),str(out/'previews'/d['id'])],check=True,capture_output=True,timeout=180)
+            subprocess.run([str(paths['pdftoppm']),'-scale-to','960','-jpeg','-jpegopt','quality=80',str(pdf),str(out/'previews'/d['id'])],check=True,capture_output=True,timeout=180)
             previews=sorted((out/'previews').glob(d['id']+'-*.jpg'),key=lambda p:int(p.stem.rsplit('-',1)[1]))
             if len(previews)!=len(reader.pages):raise ValueError('Render/page count mismatch')
             for i,(page,preview) in enumerate(zip(reader.pages,previews),1):
@@ -74,14 +79,14 @@ def catalog(source, out, runtime):
         sheet.save(out/'sheets'/f'sheet-{start//20+1:02d}.jpg',quality=90)
     summary={'input_documents':sum(1 for p in allfiles if p.suffix.lower() in ('.pdf','.pptx')),'unique_documents':len(docs),'rendered_pages':len(pages),'unique_pixel_pages':len(unique),'errors':sum('error' in d for d in docs),'other_files':dict(ignored)}
     data={'schema_version':'cgu-local-references/1','source_root':str(source),'summary':summary,'documents':docs}
-    (out/'catalog.json').write_text(json.dumps(data,ensure_ascii=False,indent=2))
+    (out/'catalog.json').write_text(json.dumps(data,ensure_ascii=False,indent=2), encoding="utf-8")
     cards=[]
     for d,p in unique:
         caption=f"{d['path']} · слайд {p['page']} · {d['id']}"
         cards.append('<article data-search="'+html.escape(caption+' '+p['text'],quote=True)+'"><a href="'+html.escape(p['preview'])+'"><img loading="lazy" src="'+html.escape(p['preview'])+'"></a><p>'+html.escape(caption)+'</p><details><summary>Текст и статус</summary><p>Референс. Не подключён автоматически к сборщику.</p><pre>'+html.escape(p['text'])+'</pre></details></article>')
-    (out/'index.html').write_text('<!doctype html><html lang="ru"><meta charset="utf-8"><title>Библиотека референсов ЦГУ</title><style>body{font:16px system-ui;margin:32px;background:#f3f2f2;color:#222}input{padding:14px;width:90%;margin:20px 0}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:24px}article{background:white;padding:12px}img{width:100%}pre{white-space:pre-wrap}p{line-height:1.4}</style><h1>Библиотека референсов ЦГУ</h1><p>Локальные материалы. '+str(len(unique))+' уникальных изображений страниц. Поиск по названиям и извлечённому тексту.</p><input aria-label="Поиск" placeholder="Поиск: процесс, план, результат…"><main>'+''.join(cards)+'</main><script>document.querySelector("input").oninput=e=>{let q=e.target.value.toLocaleLowerCase();document.querySelectorAll("article").forEach(a=>a.hidden=!a.dataset.search.toLocaleLowerCase().includes(q))}</script></html>')
+    (out/'index.html').write_text('<!doctype html><html lang="ru"><meta charset="utf-8"><title>Библиотека референсов ЦГУ</title><style>body{font:16px system-ui;margin:32px;background:#f3f2f2;color:#222}input{padding:14px;width:90%;margin:20px 0}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:24px}article{background:white;padding:12px}img{width:100%}pre{white-space:pre-wrap}p{line-height:1.4}</style><h1>Библиотека референсов ЦГУ</h1><p>Локальные материалы. '+str(len(unique))+' уникальных изображений страниц. Поиск по названиям и извлечённому тексту.</p><input aria-label="Поиск" placeholder="Поиск: процесс, план, результат…"><main>'+''.join(cards)+'</main><script>document.querySelector("input").oninput=e=>{let q=e.target.value.toLocaleLowerCase();document.querySelectorAll("article").forEach(a=>a.hidden=!a.dataset.search.toLocaleLowerCase().includes(q))}</script></html>', encoding="utf-8")
     print(json.dumps(summary,ensure_ascii=False))
     return data
 
 if __name__=='__main__':
-    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('source');ap.add_argument('--out',required=True);ap.add_argument('--runtime',required=True);a=ap.parse_args();catalog(a.source,a.out,a.runtime)
+    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('source');ap.add_argument('--out',required=True);ap.add_argument('--runtime');a=ap.parse_args();catalog(a.source,a.out,a.runtime)

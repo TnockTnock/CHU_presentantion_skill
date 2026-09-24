@@ -1,6 +1,6 @@
 # Сборщик и контракт данных
 
-Сборщик использует `@oai/artifact-tool` и штатный finalizer навыка Presentations из Codex Desktop. Самостоятельной установки пакета artifact-tool из npm не требуется. Python нужен версии 3.9+, Для сборки и основных тестов внешних Python-пакетов нет; каталогизация PDF использует pypdf и Pillow из bundled runtime.
+Общий CLI поддерживает два движка. `portable` использует только Python 3.9+ и редактирует OOXML-копию корпоративного шаблона. `codex` использует `@oai/artifact-tool` и finalizer из установленного Presentations runtime. `auto` сохраняет прежний выбор в Codex и использует portable вне него. Установка и требования: [portability.md](portability.md).
 
 ## Запуск
 
@@ -14,7 +14,7 @@ python3 "$SKILL_DIR/scripts/run.py" build deck.json --out work/presentation-01
 
 По умолчанию сборка выдаёт PPTX, PDF, PNG каждого слайда, сценарий, копию входной спецификации и отчёты. Результат в `output/`, изображения в `preview/`, проверки в `qa/`. `--no-render` пропускает PDF/PNG и оставляет визуальную проверку незавершённой. Повторный запуск в непустую папку запрещён для защиты результатов.
 
-Если пути runtime не находятся, вызови инструмент `load_workspace_dependencies`, затем передай `--runtime <dependencies>` и `--presentation-skill <папка навыка Presentations>`. Эквивалентные переменные: `CGU_RUNTIME_DIR` и `CGU_PRESENTATIONS_SKILL`. Для PDF применяется только bundled `soffice`, а не установленное пользователем приложение LibreOffice.
+Только для backend `codex`: если пути runtime не находятся и инструмент доступен, вызови инструмент `load_workspace_dependencies`, затем передай `--runtime <dependencies>` и `--presentation-skill <папка навыка Presentations>`. Эквивалентные переменные: `CGU_RUNTIME_DIR` и `CGU_PRESENTATIONS_SKILL`. В Codex для PDF применяется bundled `soffice`. В portable вне Codex укажи `CGU_SOFFICE`/`CGU_PDFTOPPM` либо установи программы в PATH.
 
 ## Поддерживаемый формат
 
@@ -47,7 +47,7 @@ python3 "$SKILL_DIR/scripts/run.py" build deck.json --out work/presentation-01
 
 ## Проверки
 
-`run.py` последовательно выполняет проверку входа, сборку, finalizer, повторный импорт, аудит шрифтов/relationships и проверку семантики: узлы и направления рёбер, значения charts, наличие workbook и ячейки таблиц. Отдельный запуск последней проверки:
+`run.py` выполняет проверку входа, сборку, аудит шрифтов/relationships и проверку семантики: узлы и направления рёбер, значения charts, наличие workbook и ячейки таблиц. Backend `codex` дополнительно выполняет finalizer и повторный импорт. Portable фиксирует собственный движок проверки в `qa/run.json`; не выдаёт его за Codex finalizer. Отдельный запуск проверки:
 
 ```bash
 python3 "$SKILL_DIR/scripts/verify_output.py" deck.json work/presentation-01/output/presentation.pptx

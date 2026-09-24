@@ -1,6 +1,18 @@
 # Презентации ЦГУ
 
-Рабочий скилл для Codex Desktop: подготовка содержания, сборка PPTX из фирменного шаблона ЦГУ, Golos Text, редактируемые схемы, графики и таблицы. Результат: PPTX, PDF, PNG-превью и сценарий.
+Переносимый скилл в формате Agent Skills: подготовка содержания, сборка PPTX из фирменного шаблона ЦГУ, Golos Text, редактируемые схемы, графики и таблицы. Результат: PPTX и сценарий; при наличии рендерера также PDF и PNG. Основной portable-сборщик требует только Python 3.9+. Специальный Codex backend сохранён.
+
+## Разные агенты и модели
+
+[Подключение и ограничения](skills/cgu-presentations/references/portability.md). Один пакет для Claude Code, Cursor, Gemini CLI, GitHub Copilot, Codex и агентов, умеющих читать файлы и запускать Python. Название модели не передаётся сборщику; качество подготовки содержания зависит от модели.
+
+```bash
+python3 skills/cgu-presentations/scripts/skill_package.py install --agent claude --project /path/to/project
+python3 skills/cgu-presentations/scripts/skill_package.py pack --out work/cgu-presentations.zip
+python3 skills/cgu-presentations/scripts/run.py demo --backend portable --no-render --out work/portable-demo
+```
+
+Для другого агента замените `claude` на `cursor`, `gemini`, `copilot`, `codex` или `generic`. Для обновления используйте `--replace`, который сохраняет резервную копию. Клиентские профили установки проверены на уровне файлов; запуск всех продуктов и всех моделей не заявляется.
 
 ## Быстрый тест
 

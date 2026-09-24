@@ -1,0 +1,30 @@
+name: Portable skill
+on:
+  push:
+    paths: ['skills/cgu-presentations/**', 'tests/**', '.github/workflows/portable.yml']
+  pull_request:
+    paths: ['skills/cgu-presentations/**', 'tests/**', '.github/workflows/portable.yml']
+permissions:
+  contents: read
+jobs:
+  portable:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            python: '3.9'
+          - os: windows-latest
+            python: '3.12'
+          - os: macos-latest
+            python: '3.12'
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Unit and portable integration tests (no pip or npm)
+        run: python -m unittest discover -s tests -v
+      - name: Build portable PPTX without renderer
+        run: python skills/cgu-presentations/scripts/run.py demo --backend portable --no-render --out work/ci-demo
