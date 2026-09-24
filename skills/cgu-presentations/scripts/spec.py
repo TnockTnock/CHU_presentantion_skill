@@ -1,7 +1,7 @@
 """Validation for the supported template adapter. No silent ignored slide types."""
 import math
 
-KINDS = {'cover', 'cards', 'kpi', 'process', 'diagram', 'chart', 'table', 'text', 'kpi_grid', 'comparison', 'roadmap'}
+KINDS = {'cover', 'cards', 'kpi', 'process', 'diagram', 'chart', 'table', 'text', 'kpi_grid', 'comparison', 'roadmap', 'text_blocks'}
 
 def validate(deck):
     def require(ok, message):
@@ -37,7 +37,7 @@ def validate(deck):
         kind = s.get('kind'); require(isinstance(kind,str) and kind in KINDS, prefix + ': unsupported kind')
         text(s.get('title'), 85, prefix + ' title')
         extra = {'cover':{'subtitle'}, 'cards':{'items'}, 'kpi':{'value','label','detail_title','detail'}, 'text':{'body'}, 'process':{'steps'}, 'diagram':{'nodes','edges'}, 'chart':{'chart_type','categories','series','unit'}, 'table':{'columns','rows'}}
-        extra.update(kpi_grid={'items'},comparison={'columns'},roadmap={'steps'})
+        extra.update(kpi_grid={'items'},comparison={'columns'},roadmap={'steps'},text_blocks={'variant','items','callout'})
         require(not (set(s) - {'id','kind','title','source_ids','notes','footer','object_sources'} - extra[kind]), prefix + ': unknown fields')
         for key,limit in [('notes',10000),('footer',120)]:
             if key in s: require(isinstance(s[key],str) and len(s[key])<=limit, prefix + ': invalid '+key)
@@ -61,9 +61,23 @@ def validate(deck):
             require(isinstance(source_ids,list) and bool(source_ids) and all(r in ids for r in source_ids),prefix+': unresolved object source')
             require(not any(f.get('status')=='conflict' for f in facts if f['id'] in source_ids),prefix+': unresolved conflicting evidence')
         if deck.get('evidence_policy')=='object' and not deck.get('demo'):
-            required={'kpi':['/value'],'kpi_grid':['/items/'+str(j) for j in range(len(s.get('items',[])))],'roadmap':['/steps/'+str(j) for j in range(len(s.get('steps',[])))],'chart':['/series/'+str(j) for j in range(len(s.get('series',[])))],'diagram':['/edges/'+str(j) for j in range(len(s.get('edges',[])))]}.get(kind,[])
+            required={'text_blocks':['/items/'+str(j) for j in range(len(s.get('items',[])))]+(['/callout'] if 'callout' in s else []),'kpi':['/value'],'kpi_grid':['/items/'+str(j) for j in range(len(s.get('items',[])))],'roadmap':['/steps/'+str(j) for j in range(len(s.get('steps',[])))],'chart':['/series/'+str(j) for j in range(len(s.get('series',[])))],'diagram':['/edges/'+str(j) for j in range(len(s.get('edges',[])))]}.get(kind,[])
             require(all(key in object_sources for key in required),prefix+': object evidence missing')
-        if kind == 'kpi_grid':
+        if kind == 'text_blocks':
+            variants={'numbered_columns':3,'cards_grid':5,'columns_callout':3,'split_panel':2,'metrics_band':4,'text_columns':3}
+            variant=s.get('variant')
+            require(isinstance(variant,str) and variant in variants,prefix+': unknown text block variant')
+            require(isinstance(s.get('items'),list) and len(s['items'])==variants[variant],prefix+': wrong text block count')
+            has_callout=variant in ('columns_callout','split_panel','metrics_band')
+            require(('callout' in s)==has_callout,prefix+': callout required only for this composition')
+            if has_callout:text(s['callout'],105,prefix+': callout')
+            for item in s['items']:
+                fields={'title','body','value'} if variant=='metrics_band' else {'title','body'}
+                require(isinstance(item,dict) and set(item)==fields,prefix+': invalid text block fields')
+                text(item['title'],42,prefix+': block title')
+                text(item['body'],45 if variant=='metrics_band' else 105 if variant=='cards_grid' else 240,prefix+': block body')
+                if variant=='metrics_band':text(item['value'],12,prefix+': block value')
+        elif kind == 'kpi_grid':
             require(isinstance(s.get('items'),list) and 2<=len(s['items'])<=4,prefix+': 2–4 KPI items')
             for item in s['items']:
                 require(isinstance(item,dict) and set(item)=={'value','label','detail'},prefix+': invalid KPI item')

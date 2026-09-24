@@ -1,10 +1,12 @@
 """Check authored semantic invariants in a generated PPTX against its input spec."""
 import json
 import hashlib
+import re
 from pathlib import Path
 from zipfile import ZipFile
 from xml.etree import ElementTree as ET
 from audit_template import audit, relationships, NS
+from number_typography import numeric_errors
 
 NS = dict(NS, c='http://schemas.openxmlformats.org/drawingml/2006/chart')
 
@@ -18,6 +20,7 @@ def verify(spec, pptx):
     skill=Path(__file__).resolve().parents[1]
     adapter=json.loads((skill/'design-system/layouts.json').read_text())
     expected_logos={}
+    layout_by_kind={v['kind']:v for v in adapter['layouts']}
     with ZipFile(skill/adapter['template']) as source:
         for layout in adapter['layouts']:
             kind,page=layout['kind'],layout['source_slide']
@@ -34,6 +37,7 @@ def verify(spec, pptx):
     with ZipFile(pptx) as z:
         for item,desc in zip(report['slides'],spec['slides']):
             root=ET.fromstring(z.read(item['part']))
+            errors.extend(desc['id']+': '+error for error in numeric_errors(root))
             rels=relationships(z,item['part'])
             visible_assets=set()
             for e in root.iter():
@@ -41,6 +45,20 @@ def verify(spec, pptx):
                 if rid and rid in rels and not rels[rid]['external']:
                     visible_assets.add(hashlib.sha256(z.read(rels[rid]['target'])).hexdigest())
             if not expected_logos[desc['kind']].issubset(visible_assets):errors.append(desc['id']+': template logo asset missing')
+            layout=layout_by_kind[desc['kind']]
+            title_ids={layout['slots']['title']} | {v['title'] for v in layout['slots'].get('cards',[])}
+            for shape in root.findall('.//p:sp',NS):
+                info=shape.find('.//p:cNvPr',NS)
+                name=info.get('name','')
+                heading=info.get('id') in title_ids or name.startswith(('block-title-','comparison-title-','node-')) or name in ('kpi-detail-title','block-callout') or name.startswith('metric-label-')
+                if heading:
+                    for run in shape.findall('.//a:r',NS):
+                        value=run.find('a:t',NS)
+                        if value is None or not re.search(r'[^\d\W]',value.text or '',re.UNICODE):continue
+                        props=run.find('a:rPr',NS)
+                        font=props.find('a:latin',NS) if props is not None else None
+                        if font is None or font.get('typeface')!='Golos Text SemiBold' or props.get('b','0')!='0':
+                            errors.append(desc['id']+': heading must use SemiBold: '+name)
             names={e.get('id'):e.get('name') for e in root.findall('.//p:cNvPr',NS)}
             text=' '.join(t.text or '' for t in root.findall('.//a:t',NS))
             if spec.get('demo') and 'ДЕМОНСТРАЦИОННЫЕ ДАННЫЕ' not in text:errors.append(desc['id']+': demo disclosure missing')
@@ -61,9 +79,12 @@ def verify(spec, pptx):
                         labels=[sp for sp in root.findall('.//p:sp',NS) if sp.find('.//p:cNvPr',NS).get('name')=='edge-label-'+str(j)]
                         if len(labels)!=1 or ''.join(t.text or '' for t in labels[0].findall('.//a:t',NS))!=edge['label']:errors.append(desc['id']+': edge label missing')
                 checks.append({'slide':desc['id'],'native_connectors':len(actual)})
-            if desc['kind'] in ('kpi_grid','comparison','roadmap'):
+            if desc['kind'] in ('kpi_grid','comparison','roadmap','text_blocks'):
                 expected_text={}
-                if desc['kind']=='kpi_grid':
+                if desc['kind']=='text_blocks':
+                    expected_text={f'block-{field}-{j}':value for j,item in enumerate(desc['items']) for field,value in item.items()}
+                    if 'callout' in desc:expected_text['block-callout']=desc['callout']
+                elif desc['kind']=='kpi_grid':
                     expected_text={f'metric-{field}-{j}':item[field] for j,item in enumerate(desc['items']) for field in ('value','label','detail')}
                 elif desc['kind']=='comparison':
                     for j,col in enumerate(desc['columns']):
@@ -74,13 +95,14 @@ def verify(spec, pptx):
                         expected_text.update({f'roadmap-period-{j}':step['period'],f'node-roadmap-{j}':step['title'],f'roadmap-body-{j}':step['body']})
                 actual_text={sp.find('.//p:cNvPr',NS).get('name'):''.join(t.text or '' for t in sp.findall('.//a:t',NS)) for sp in root.findall('.//p:sp',NS)}
                 for name,value in expected_text.items():
-                    if actual_text.get(name)!=value:errors.append(desc['id']+': native text mismatch '+name)
+                    if actual_text.get(name)!=value.replace('\n',''):errors.append(desc['id']+': native text mismatch '+name)
                 checks.append({'slide':desc['id'],'native_text_fields':len(expected_text)})
             elif desc['kind']=='chart':
                 rels=relationships(z,item['part'])
                 chartparts=[r['target'] for r in rels.values() if r['type']=='chart']
                 if len(chartparts)!=1:errors.append(desc['id']+': expected one native chart');continue
                 chart=ET.fromstring(z.read(chartparts[0]))
+                errors.extend(desc['id']+': '+error for error in numeric_errors(chart))
                 series=chart.findall('.//c:ser',NS)
                 if len(series)!=len(desc['series']):errors.append(desc['id']+': series count mismatch')
                 for xml,source in zip(series,desc['series']):

@@ -50,9 +50,13 @@ const px=pt=>pt*4/3;
 function style(pt=tokens.sizes_pt.body,bold=false,color=black,align='left',center=false){return {typeface:bold?semi:regular,fontSize:px(pt),bold:false,color,autoFit:'none',wrap:'square',alignment:align,verticalAlignment:center?'middle':'top',insets:{left:0,right:0,top:0,bottom:0}};}
 const measure=createCanvas(1,1).getContext('2d');
 function checkFit(text,w,h,pt,bold,name,pad=0){
- measure.font=`${px(pt)}px "${bold?semi:regular}"`;
+ // Measure the same mixed weights applied to numeric runs in the final PPTX.
+ const measured=value=>value.split(/([+−-]?\d+(?:[ \u00a0\u202f]\d{3})*(?:[.,:/–−-]\d+)*(?:[%‰+])?)/u).reduce((sum,part)=>{
+  const numeric=/\d/u.test(part);measure.font=`${numeric?'bold ':''}${px(pt)}px "${numeric?regular:bold?semi:regular}"`;
+  return sum+measure.measureText(part).width;
+ },0);
  const width=w-pad*2;let lines=0;
- for(const paragraph of text.split('\n')){let line='';for(const word of paragraph.split(/\s+/)){if(measure.measureText(word).width>width)throw Error(`${name}: word wider than text box`);const next=line?line+' '+word:word;if(line&&measure.measureText(next).width>width){lines++;line=word;}else line=next;}lines++;}
+ for(const paragraph of text.split('\n')){let line='';for(const word of paragraph.split(/\s+/)){if(measured(word)>width)throw Error(`${name}: word wider than text box`);const next=line?line+' '+word:word;if(line&&measured(next)>width){lines++;line=word;}else line=next;}lines++;}
  if(lines*px(pt)*1.18>h-pad*2+4)throw Error(`${name}: text needs ${Math.ceil(lines*px(pt)*1.18)} px, available ${h-pad*2}; shorten text`);
 }
 function edit(sl,id,text,pt=24,bold=false,frame=null,color=black,align='left',center=false){const s=sl.shapes.items.find(e=>e.id===id);if(!s)throw Error('Missing template shape '+id);if(frame)s.position=frame;checkFit(text,s.position.width,s.position.height,pt,bold,'slot '+id);s.text=text;s.text.style=style(pt,bold,color,align,center);return s;}
@@ -70,7 +74,45 @@ for(let i=0;i<spec.slides.length;i++){
   const [left,top,width,height]=tokens.geometry.title_box_px;
   edit(s,slots.title,d.title,tokens.sizes_pt.title,true,{left,top,width,height});
  }
- if(d.kind==='kpi_grid'){
+ if(d.kind==='text_blocks'){
+  const panel=(name,x,y,w,h,fill=surface)=>s.shapes.add({name,geometry:'roundRect',position:{left:x,top:y,width:w,height:h},fill,line:{fill:'none',width:0},borderRadius:24});
+  const content=(j,x,y,w,{number=false,accent=false,metric=false}={})=>{
+   const item=d.items[j],ink=accent?tokens.colors.background:black;
+   if(number)label(s,'block-number-'+j,String(j+1).padStart(2,'0'),x,y,w,65,36,true,accent?ink:red);
+   if(metric)label(s,'block-value-'+j,item.value,x,y,w,80,44,true,red);
+   const offset=number?78:metric?86:0;
+   label(s,'block-title-'+j,item.title,x,y+offset,w,number?65:80,26,true,ink);
+   label(s,'block-body-'+j,item.body,x,y+offset+(number?70:88),w,d.variant==='cards_grid'?105:d.variant==='text_columns'?390:260,22,false,accent?ink:gray);
+  };
+  if(d.variant==='numbered_columns'){
+   d.items.forEach((item,j)=>{const x=100+j*590;
+    label(s,'block-number-'+j,String(j+1).padStart(2,'0'),x,340,530,150,90,true,red);
+    content(j,x,545,530);
+   });
+  }else if(d.variant==='cards_grid'){
+   d.items.forEach((item,j)=>{const top=j<3,col=top?j:j-3,w=top?553.333:845,x=100+col*(w+30),y=top?300:620;
+    panel('block-panel-'+j,x,y,w,290);content(j,x+28,y+22,w-56,{number:true});
+   });
+  }else if(d.variant==='columns_callout'){
+   d.items.forEach((item,j)=>{const x=100+j*583.333;panel('block-panel-'+j,x,300,553.333,440);content(j,x+30,330,493.333,{number:true});});
+  }else if(d.variant==='split_panel'){
+   panel('block-panel-0',100,300,630,440);content(0,136,342,558);
+   panel('block-panel-1',760,300,1060,440,red);content(1,804,342,972,{accent:true});
+  }else if(d.variant==='metrics_band'){
+   d.items.forEach((item,j)=>{const x=100+(j%2)*875,y=300+Math.floor(j/2)*225;
+    panel('block-panel-'+j,x,y,845,200);
+    label(s,'block-value-'+j,item.value,x+28,y+20,789,76,44,true,red);
+    label(s,'block-title-'+j,item.title,x+28,y+101,789,46,24,true);
+    label(s,'block-body-'+j,item.body,x+28,y+153,789,40,18,false,gray);
+   });
+  }else if(d.variant==='text_columns'){
+   d.items.forEach((item,j)=>{const x=100+j*583.333;panel('block-panel-'+j,x,300,553.333,600);content(j,x+30,350,493.333);});
+  }
+  if(d.callout){
+   panel('block-callout-panel',100,785,1720,125,d.variant==='split_panel'?tokens.colors.accent_soft:red);
+   label(s,'block-callout',d.callout,136,817,1648,70,26,true,d.variant==='split_panel'?black:tokens.colors.background);
+  }
+ }else if(d.kind==='kpi_grid'){
   const gap=30,w=(1720-gap*(d.items.length-1))/d.items.length;
   d.items.forEach((item,j)=>{const x=100+j*(w+gap);
    s.shapes.add({name:'metric-background-'+j,geometry:'roundRect',position:{left:x,top:300,width:w,height:580},fill:surface,line:{fill:'none',width:0},borderRadius:24});
@@ -137,7 +179,10 @@ const raw=path.join(scratch,'raw.pptx'),candidate=path.join(scratch,'candidate.p
 const finalProto=presentation.toProto();
 const border=(color)=>({widthEmu:9525,fill:{type:1,color:{type:1,value:color},gradientStops:[],pictureEffects:[]},style:0});
 for(const slide of finalProto.slides)for(const element of slide.elements){if(element.table)element.table.rows.forEach((row,i,rows)=>row.cells.forEach(cell=>{cell.lines={left:border('FFFFFF'),right:border('FFFFFF'),top:border(i===0?'FFFFFF':'E4E4E4'),bottom:border(i===rows.length-1?'FFFFFF':'E4E4E4')};}));}
-await (await PresentationFile.exportPptx(Presentation.load(finalProto))).save(raw);normalize(raw,candidate);
+await (await PresentationFile.exportPptx(Presentation.load(finalProto))).save(raw);
+const normalizedOutput=path.join(scratch,'normalized.pptx');normalize(raw,normalizedOutput);
+const numericResult=spawnSync(python,[path.join(skill,'scripts/number_typography.py'),normalizedOutput,candidate],{encoding:'utf8'});
+if(numericResult.status!==0)throw Error(numericResult.stderr);
 await fs.writeFile(path.join(scratch,'template-map.json'),JSON.stringify(map,null,2));
 const tables=spec.slides.flatMap((s,i)=>s.kind==='table'?[i+1]:[]),charts=spec.slides.flatMap((s,i)=>s.kind==='chart'?[i+1]:[]);
 const final=path.join(outDir,'output/presentation.pptx');

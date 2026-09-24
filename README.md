@@ -38,12 +38,12 @@ python3 skills/cgu-presentations/scripts/run.py build deck.json --out work/my-de
 
 ## Возможности и границы
 
-- Автоматическая сборка 11 типов: cover, cards, kpi, text, process, diagram, chart, table, kpi_grid, comparison, roadmap.
+- Автоматическая сборка 12 типов: cover, cards, kpi, text, process, diagram, chart, table, kpi_grid, comparison, roadmap, text_blocks (6 вариантов).
 - Используются проверенные страницы 6, 8, 14, 15 короткого шаблона, исходные логотипы и размер 1440×810 pt. SHA-256 защищает адаптер от незаметной смены шаблона.
 - Полный шаблон на 82 страницы сохранён как дополнительная библиотека. Автоматическое заполнение всех его макетов пока не поддерживается.
 - Генераторы изображений не требуются для базовой сборки. Иллюстрации и дополнительные макеты добавляются агентом отдельным расширением, с проверкой.
 - Текст измеряется перед экспортом. Схемы содержат связанные фигуры и стрелки. Графики содержат данные и workbook snapshot; таблицы остаются нативными.
-- Шрифты PPTX не встроены. Для редактирования нужны Golos Text Regular/SemiBold из пакета. Для просмотра на другом компьютере используйте проверенный PDF.
+- Шрифты PPTX не встроены. Для редактирования нужны Golos Text Regular/SemiBold/Bold из пакета. Для просмотра на другом компьютере используйте проверенный PDF.
 - Структурная и визуальная проверка не равна ручному тесту редактирования в Microsoft PowerPoint. Такой тест ещё не проводился.
 
 ## Состав
@@ -54,6 +54,16 @@ python3 skills/cgu-presentations/scripts/run.py build deck.json --out work/my-de
 
 ## Библиотека референсов
 
-[Правила библиотеки](skills/cgu-presentations/references/library.md) описывают локальный каталог и переносимые композиции. `design-system/layouts.json` хранит исполняемые привязки; `tokens.json` — параметры оформления; `reference-patterns.json` — 10 отобранных семейств композиций без внутренних данных.
+[Правила библиотеки](skills/cgu-presentations/references/library.md) описывают локальный каталог и переносимые композиции. `design-system/layouts.json` хранит исполняемые привязки; `tokens.json` — параметры оформления; `reference-patterns.json` — 16 отобранных семейств композиций без внутренних данных.
 
 Новые макеты и подписи связей: `python3 skills/cgu-presentations/scripts/run.py build skills/cgu-presentations/examples/library-demo.json --out work/library-demo`. Исходные презентации, извлечённый текст и их превью остаются в игнорируемом `work/` либо вне репозитория. Персональный `skills/cgu-presentations/local/reference-library.json` также исключён из Git.
+
+## Текстовые шаблоны
+
+[Шесть композиций и правила выбора](skills/cgu-presentations/references/text-blocks.md) · [PPTX](skills/cgu-presentations/assets/library/text-blocks.pptx) · [PDF](skills/cgu-presentations/assets/library/text-blocks.pdf)
+
+Заголовки — SemiBold 600, цифры — Bold 700, основной текст — Regular 400. В переносимых шаблонах только нейтральные тексты и вымышленные показатели. Сборка всех вариантов:
+
+```bash
+python3 skills/cgu-presentations/scripts/run.py build skills/cgu-presentations/examples/text-blocks-demo.json --out work/text-blocks
+```

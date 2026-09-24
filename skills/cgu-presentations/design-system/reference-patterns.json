@@ -100,6 +100,78 @@
       "composition": "Краткие показатели сверху, таблица проблем и сроков снизу.",
       "constraints": "Не переносить плотную таблицу целиком на экран; подробности вынести в приложение.",
       "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+    },
+    {
+      "key": "text-blocks-numbered_columns",
+      "name": "Открытые колонки",
+      "status": "reference-reviewed",
+      "builder_kind": "text_blocks",
+      "variant": "numbered_columns",
+      "reuse": "adapted-composition",
+      "composition": "Три равнозначных тезиса с крупными номерами. Номера показывают порядок чтения, а не причинную связь.",
+      "constraints": "Вместимость и правила: references/text-blocks.md. Все примеры нейтральные.",
+      "preview": "previews/text-blocks-numbered_columns.png",
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+    },
+    {
+      "key": "text-blocks-cards_grid",
+      "name": "Карточки 3 + 2",
+      "status": "reference-reviewed",
+      "builder_kind": "text_blocks",
+      "variant": "cards_grid",
+      "reuse": "adapted-composition",
+      "composition": "Пять самостоятельных пунктов. Две нижние карточки шире; не используй их площадь как код важности.",
+      "constraints": "Вместимость и правила: references/text-blocks.md. Все примеры нейтральные.",
+      "preview": "previews/text-blocks-cards_grid.png",
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+    },
+    {
+      "key": "text-blocks-columns_callout",
+      "name": "Колонки с выводом",
+      "status": "reference-reviewed",
+      "builder_kind": "text_blocks",
+      "variant": "columns_callout",
+      "reuse": "adapted-composition",
+      "composition": "Три наблюдения и одна итоговая мысль. Плашка объединяет содержание карточек.",
+      "constraints": "Вместимость и правила: references/text-blocks.md. Все примеры нейтральные.",
+      "preview": "previews/text-blocks-columns_callout.png",
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+    },
+    {
+      "key": "text-blocks-split_panel",
+      "name": "Контекст и акцент",
+      "status": "reference-reviewed",
+      "builder_kind": "text_blocks",
+      "variant": "split_panel",
+      "reuse": "adapted-composition",
+      "composition": "Короткий контекст слева, основной тезис справа, дополнительное пояснение внизу. Последовательность из источника упрощена до текстовой плашки.",
+      "constraints": "Вместимость и правила: references/text-blocks.md. Все примеры нейтральные.",
+      "preview": "previews/text-blocks-split_panel.png",
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+    },
+    {
+      "key": "text-blocks-metrics_band",
+      "name": "Показатели и вывод",
+      "status": "reference-reviewed",
+      "builder_kind": "text_blocks",
+      "variant": "metrics_band",
+      "reuse": "adapted-composition",
+      "composition": "Четыре независимых показателя в сетке 2 × 2 и общий вывод. Разные единицы допустимы только с явными подписями.",
+      "constraints": "Вместимость и правила: references/text-blocks.md. Все примеры нейтральные.",
+      "preview": "previews/text-blocks-metrics_band.png",
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+    },
+    {
+      "key": "text-blocks-text_columns",
+      "name": "Текстовые колонки",
+      "status": "reference-reviewed",
+      "builder_kind": "text_blocks",
+      "variant": "text_columns",
+      "reuse": "adapted-composition",
+      "composition": "Три развёрнутых блока с абзацами. Перенесён принцип равных колонок; иконки, тематические рубрики и исходное содержание исключены.",
+      "constraints": "Вместимость и правила: references/text-blocks.md. Все примеры нейтральные.",
+      "preview": "previews/text-blocks-text_columns.png",
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
     }
   ]
 }

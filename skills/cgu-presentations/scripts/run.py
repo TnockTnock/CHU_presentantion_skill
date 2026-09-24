@@ -85,7 +85,7 @@ def build(specfile, out, runtime=None, presentation_skill=None, render=True):
         if not fonts or any('golos' not in f.lower() for f in fonts):
             record['font_warning']='PDF font inventory is missing or includes substitutions; inspect before delivery.'
     (out/'qa/run.json').write_text(json.dumps(record,ensure_ascii=False,indent=2))
-    (out/'qa/report.md').write_text('# Автоматическая проверка\n\nСтруктура PPTX, число слайдов и явные шрифты проверены.\nВизуальная проверка: ожидается просмотр каждого слайда.\nШрифты в PPTX не встроены; для редактирования нужны Golos Text Regular и SemiBold.\n',encoding='utf-8')
+    (out/'qa/report.md').write_text('# Автоматическая проверка\n\nСтруктура PPTX, число слайдов и явные шрифты проверены.\nВизуальная проверка: ожидается просмотр каждого слайда.\nШрифты в PPTX не встроены; для редактирования нужны Golos Text Regular, SemiBold и Bold.\n',encoding='utf-8')
     print(json.dumps(record,ensure_ascii=False,indent=2))
     return out
 
