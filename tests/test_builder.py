@@ -15,7 +15,7 @@ from audit_template import audit
 
 class BuilderContractTests(unittest.TestCase):
     def setUp(self):
-        self.deck=json.loads((SKILL/'examples/demo.json').read_text())
+        self.deck=json.loads((SKILL/'examples/demo.json').read_text(encoding="utf-8"))
 
     def test_demo_is_valid(self):
         validate(self.deck)
@@ -75,7 +75,7 @@ class BuiltDeckTests(unittest.TestCase):
         from zipfile import ZIP_DEFLATED
         from audit_template import NS
         source=Path(os.environ['CGU_TEST_DECK'])
-        deck=json.loads((SKILL/'examples/demo.json').read_text())
+        deck=json.loads((SKILL/'examples/demo.json').read_text(encoding="utf-8"))
         self.assertEqual(verify(deck,source)['errors'],[])
         with tempfile.TemporaryDirectory() as folder:
             target=Path(folder)/'reversed.pptx'

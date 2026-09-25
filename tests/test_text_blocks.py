@@ -17,7 +17,7 @@ from verify_output import verify
 
 class TextBlocksTests(unittest.TestCase):
     def setUp(self):
-        self.deck=json.loads((SKILL/'examples/text-blocks-demo.json').read_text())
+        self.deck=json.loads((SKILL/'examples/text-blocks-demo.json').read_text(encoding="utf-8"))
 
     def test_variants_and_capacities(self):
         validate(self.deck)

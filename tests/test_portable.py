@@ -61,21 +61,21 @@ class PortableTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             root=Path(folder);source=root/'source';source.mkdir();(source/'SKILL.md').write_text('test',encoding='utf-8')
             for dirname in ['local','work','scripts','scripts/__pycache__']:
-                d=source/dirname;d.mkdir(exist_ok=True);(d/'secret.txt').write_text('fixture')
+                d=source/dirname;d.mkdir(exist_ok=True);(d/'secret.txt').write_text('fixture', encoding="utf-8")
             archive=root/'skill.zip';package(archive,source)
             with ZipFile(archive) as z:
                 self.assertEqual(set(z.namelist()),{'cgu-presentations/SKILL.md','cgu-presentations/scripts/secret.txt'})
             for agent,path in PROFILES.items():
                 dest=root/agent/path/'cgu-presentations';install(dest,source);self.assertTrue((dest/'SKILL.md').is_file())
                 with self.assertRaisesRegex(ValueError,'exists'):install(dest,source)
-            dest=root/'claude'/PROFILES['claude']/'cgu-presentations';(dest/'local').mkdir();(dest/'local/config.json').write_text('{}')
+            dest=root/'claude'/PROFILES['claude']/'cgu-presentations';(dest/'local').mkdir();(dest/'local/config.json').write_text('{}', encoding="utf-8")
             result=install(dest,source,replace=True)
-            self.assertTrue((Path(result['backup'])/'SKILL.md').is_file());self.assertEqual((dest/'local/config.json').read_text(),'{}')
+            self.assertTrue((Path(result['backup'])/'SKILL.md').is_file());self.assertEqual((dest/'local/config.json').read_text(encoding="utf-8"),'{}')
             self.assertNotIn('/skills/',result['backup'])
 
     def test_package_rejects_symlinks_to_external_files(self):
         with tempfile.TemporaryDirectory() as folder:
-            root=Path(folder);(root/'SKILL.md').write_text('test');(root/'scripts').mkdir();(root/'external').write_text('private');(root/'scripts/link').symlink_to(root/'external')
+            root=Path(folder);(root/'SKILL.md').write_text('test', encoding="utf-8");(root/'scripts').mkdir();(root/'external').write_text('private', encoding="utf-8");(root/'scripts/link').symlink_to(root/'external')
             with self.assertRaisesRegex(ValueError,'symlink'):package(root/'out.zip',root)
 
 if __name__=='__main__':unittest.main()

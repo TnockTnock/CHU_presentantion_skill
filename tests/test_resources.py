@@ -15,7 +15,7 @@ spec.loader.exec_module(audit_module)
 
 class TemplateTests(unittest.TestCase):
     def test_templates_match_manifest_and_inventory(self):
-        manifest = json.loads((SKILL / 'assets/templates/manifest.json').read_text())
+        manifest = json.loads((SKILL / 'assets/templates/manifest.json').read_text(encoding="utf-8"))
         counts = {'cgu-full.pptx': 82, 'cgu-short.pptx': 19}
         for item in manifest['templates']:
             path = SKILL / item['file']

@@ -17,7 +17,7 @@ from verify_output import verify
 
 class LibraryTests(unittest.TestCase):
     def setUp(self):
-        self.deck=json.loads((SKILL/'examples/library-demo.json').read_text())
+        self.deck=json.loads((SKILL/'examples/library-demo.json').read_text(encoding="utf-8"))
 
     def test_new_compositions_and_repeated_layout(self):
         validate(self.deck)
@@ -65,15 +65,15 @@ class LibraryTests(unittest.TestCase):
             dest=Path(folder)
             shutil.copytree(SKILL/'design-system',dest/'design-system')
             shutil.copytree(SKILL/'assets/templates',dest/'assets/templates')
-            p=dest/'design-system/layouts.json';d=json.loads(p.read_text());d['layouts'][0]['slots']['title']='999999';p.write_text(json.dumps(d))
+            p=dest/'design-system/layouts.json';d=json.loads(p.read_text(encoding="utf-8"));d['layouts'][0]['slots']['title']='999999';p.write_text(json.dumps(d), encoding="utf-8")
             self.assertTrue(any('bound shape' in e for e in inspect(dest)['errors']))
-            d['template_sha256']='0'*64;p.write_text(json.dumps(d))
+            d['template_sha256']='0'*64;p.write_text(json.dumps(d), encoding="utf-8")
             self.assertIn('Template SHA mismatch',inspect(dest)['errors'])
 
     def test_search_deduplicates_and_resolves_local_preview(self):
         with tempfile.TemporaryDirectory() as folder:
             p=Path(folder)/'catalog.json'
-            p.write_text(json.dumps({'source_root':'/local','documents':[{'path':'sample.pdf','sha256':'hash','pages':[{'page':1,'text':'Карта процесса','patterns':['roadmap'],'preview':'a.jpg'},{'page':2,'text':'Карта процесса','preview':'b.jpg','same_pixels_as':'doc:1'}]}]}))
+            p.write_text(json.dumps({'source_root':'/local','documents':[{'path':'sample.pdf','sha256':'hash','pages':[{'page':1,'text':'Карта процесса','patterns':['roadmap'],'preview':'a.jpg'},{'page':2,'text':'Карта процесса','preview':'b.jpg','same_pixels_as':'doc:1'}]}]}), encoding="utf-8")
             found=search(p,'карта')
             self.assertEqual(len(found),1);self.assertEqual(found[0]['source'],'/local/sample.pdf')
             self.assertEqual(len(search(p,'roadmap')),1)
@@ -85,6 +85,6 @@ class LibraryTests(unittest.TestCase):
         self.assertEqual(verify(self.deck,source)['errors'],[])
         self.deck['slides'][0]['items'][0]['value']='999'
         self.assertTrue(any('native text mismatch' in e for e in verify(self.deck,source)['errors']))
-        self.deck=json.loads((SKILL/'examples/library-demo.json').read_text())
+        self.deck=json.loads((SKILL/'examples/library-demo.json').read_text(encoding="utf-8"))
         self.deck['slides'][3]['edges'][0]['label']='Несовпадение'
         self.assertTrue(any('edge label missing' in e for e in verify(self.deck,source)['errors']))
