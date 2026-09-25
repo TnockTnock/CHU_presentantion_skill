@@ -75,7 +75,7 @@ class LibraryTests(unittest.TestCase):
             p=Path(folder)/'catalog.json'
             p.write_text(json.dumps({'source_root':'/local','documents':[{'path':'sample.pdf','sha256':'hash','pages':[{'page':1,'text':'Карта процесса','patterns':['roadmap'],'preview':'a.jpg'},{'page':2,'text':'Карта процесса','preview':'b.jpg','same_pixels_as':'doc:1'}]}]}), encoding="utf-8")
             found=search(p,'карта')
-            self.assertEqual(len(found),1);self.assertEqual(found[0]['source'],'/local/sample.pdf')
+            self.assertEqual(len(found),1);self.assertEqual(Path(found[0]['source']),Path('/local')/'sample.pdf')
             self.assertEqual(len(search(p,'roadmap')),1)
             self.assertEqual(search(p,'несуществующий'),[])
 

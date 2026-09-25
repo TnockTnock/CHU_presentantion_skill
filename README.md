@@ -20,11 +20,11 @@ python3 skills/cgu-presentations/scripts/run.py demo --backend portable --no-ren
 
 ```bash
 python3 -m unittest discover -s tests -v
-python3 skills/cgu-presentations/scripts/run.py doctor
-python3 skills/cgu-presentations/scripts/run.py demo --out work/demo-01
+python3 skills/cgu-presentations/scripts/run.py doctor --backend portable
+python3 skills/cgu-presentations/scripts/run.py demo --backend portable --no-render --out work/demo-01
 ```
 
-Нужны Python 3.9+ и bundled runtime Codex Desktop с `@oai/artifact-tool`, навыком Presentations и headless LibreOffice. `doctor` показывает найденные пути; параметры для другой среды описаны в [инструкции сборщика](skills/cgu-presentations/references/builder.md). Использование системного LibreOffice не предусмотрено.
+Для этого теста нужен только Python 3.9+. Для PDF и PNG уберите `--no-render` и установите LibreOffice и Poppler. В Codex используется bundled рендерер. `doctor` показывает найденные пути; выбор движка описан в [инструкции сборщика](skills/cgu-presentations/references/builder.md).
 
 Демонстрация содержит 7 слайдов: обложку, 4 карточки, KPI, процесс, архитектурную схему, нативный график и таблицу. Данные явно помечены как демонстрационные. Для проверки обычного текста и нулевых/отрицательных значений есть `examples/edge-cases.json` внутри скилла.
 
