@@ -47,10 +47,14 @@ def verify(spec, pptx):
             if not expected_logos[desc['kind']].issubset(visible_assets):errors.append(desc['id']+': template logo asset missing')
             layout=layout_by_kind[desc['kind']]
             title_ids={layout['slots']['title']} | {v['title'] for v in layout['slots'].get('cards',[])}
+            composition_headings=set()
+            if desc['kind']=='composition':
+                from compositions import scene
+                composition_headings={v['name'] for v in scene(desc) if v['type']=='text' and v['heading']}
             for shape in root.findall('.//p:sp',NS):
                 info=shape.find('.//p:cNvPr',NS)
                 name=info.get('name','')
-                heading=info.get('id') in title_ids or name.startswith(('block-title-','comparison-title-','node-')) or name in ('kpi-detail-title','block-callout') or name.startswith('metric-label-')
+                heading=name in composition_headings or info.get('id') in title_ids or name.startswith(('block-title-','comparison-title-','node-')) or name in ('kpi-detail-title','block-callout') or name.startswith('metric-label-')
                 if heading:
                     for run in shape.findall('.//a:r',NS):
                         value=run.find('a:t',NS)
@@ -62,6 +66,24 @@ def verify(spec, pptx):
             names={e.get('id'):e.get('name') for e in root.findall('.//p:cNvPr',NS)}
             text=' '.join(t.text or '' for t in root.findall('.//a:t',NS))
             if spec.get('demo') and 'ДЕМОНСТРАЦИОННЫЕ ДАННЫЕ' not in text:errors.append(desc['id']+': demo disclosure missing')
+            if desc['kind']=='composition':
+                from compositions import scene
+                native=scene(desc);actual_text={sp.find('.//p:cNvPr',NS).get('name'):''.join(t.text or '' for t in sp.findall('.//a:t',NS)) for sp in root.findall('.//p:sp',NS)}
+                for v in native:
+                    if v['type']=='text' and actual_text.get(v['name'])!=v['text'].replace('\n',''):errors.append(desc['id']+': composition native text missing '+v['name'])
+                    if v['type']=='table':
+                        tbl=root.find('.//a:tbl',NS)
+                        values=[] if tbl is None else [[''.join(t.text or '' for t in cell.findall('.//a:t',NS)) for cell in row.findall('a:tc',NS)] for row in tbl.findall('a:tr',NS)]
+                        if values!=[v['columns']]+v['rows']:errors.append(desc['id']+': composition table mismatch')
+                    if v['type']=='image' and v['sha256'] not in visible_assets:errors.append(desc['id']+': profile image changed')
+                actual_edges=[]
+                for conn in root.findall('.//p:cxnSp',NS):
+                    a,b=conn.find('.//a:stCxn',NS),conn.find('.//a:endCxn',NS)
+                    if a is None or b is None:errors.append(desc['id']+': detached composition connector');continue
+                    actual_edges.append((names.get(a.get('id')),names.get(b.get('id'))))
+                expected=[('composition-node-'+v['start'],'composition-node-'+v['end']) for v in native if v['type']=='edge']
+                if sorted(actual_edges)!=sorted(expected):errors.append(desc['id']+': composition edges mismatch')
+                checks.append({'slide':desc['id'],'native_composition':desc['layout'],'native_edges':len(expected)})
             if desc['kind'] in ('process','diagram','roadmap'):
                 prefix='node-roadmap-' if desc['kind']=='roadmap' else 'node-step-'
                 expected=[(prefix+str(i),prefix+str(i+1)) for i in range(len(desc['steps'])-1)] if desc['kind']!='diagram' else [('node-'+e['from'],'node-'+e['to']) for e in desc['edges']]

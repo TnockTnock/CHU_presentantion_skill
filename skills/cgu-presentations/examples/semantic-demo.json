@@ -1,0 +1,576 @@
+{
+  "schema_version": "cgu-presentations/2",
+  "title": "Смысловые композиции ЦГУ",
+  "demo": true,
+  "sources": [
+    {
+      "id": "demo",
+      "location": "Синтетические данные для проверки"
+    }
+  ],
+  "slides": [
+    {
+      "id": "timeline_horizontal",
+      "kind": "composition",
+      "layout": "timeline_horizontal",
+      "title": "Горизонтальная последовательность событий",
+      "intent": "sequence",
+      "takeaway": "Композиция сохраняет смысл, источники и редактируемые элементы",
+      "statement_type": "source_report",
+      "selection_reason": "Горизонтальная последовательность событий",
+      "caveat": "Демонстрационный пример. Реальные факты подставляются из источников.",
+      "items": [
+        {
+          "heading": "Элемент 1",
+          "body": "Краткое описание и основание."
+        },
+        {
+          "heading": "Элемент 2",
+          "body": "Краткое описание и основание."
+        }
+      ],
+      "source_ids": [
+        "demo"
+      ]
+    },
+    {
+      "id": "timeline_vertical",
+      "kind": "composition",
+      "layout": "timeline_vertical",
+      "title": "Вертикальная программа ключевых сессий",
+      "intent": "sequence",
+      "takeaway": "Композиция сохраняет смысл, источники и редактируемые элементы",
+      "statement_type": "source_report",
+      "selection_reason": "Вертикальная программа ключевых сессий",
+      "caveat": "Демонстрационный пример. Реальные факты подставляются из источников.",
+      "items": [
+        {
+          "heading": "Элемент 1",
+          "body": "Краткое описание и основание."
+        },
+        {
+          "heading": "Элемент 2",
+          "body": "Краткое описание и основание."
+        }
+      ],
+      "source_ids": [
+        "demo"
+      ]
+    },
+    {
+      "id": "roadmap_actions",
+      "kind": "composition",
+      "layout": "roadmap_actions",
+      "title": "Действия с периодами и результатами",
+      "intent": "sequence",
+      "takeaway": "Композиция сохраняет смысл, источники и редактируемые элементы",
+      "statement_type": "source_report",
+      "selection_reason": "Действия с периодами и результатами",
+      "caveat": "Демонстрационный пример. Реальные факты подставляются из источников.",
+      "items": [
+        {
+          "heading": "Элемент 1",
+          "body": "Краткое описание и основание."
+        },
+        {
+          "heading": "Элемент 2",
+          "body": "Краткое описание и основание."
+        },
+        {
+          "heading": "Элемент 3",
+          "body": "Краткое описание и основание."
+        }
+      ],
+      "source_ids": [
+        "demo"
+      ]
+    },
+    {
+      "id": "architecture",
+      "kind": "composition",
+      "layout": "architecture",
+      "title": "Слои системы и связи с результатом",
+      "intent": "hierarchy",
+      "takeaway": "Композиция сохраняет смысл, источники и редактируемые элементы",
+      "statement_type": "source_report",
+      "selection_reason": "Слои системы и связи с результатом",
+      "caveat": "Демонстрационный пример. Реальные факты подставляются из источников.",
+      "items": [
+        {
+          "heading": "Элемент 1",
+          "body": "Краткое описание и основание."
+        },
+        {
+          "heading": "Элемент 2",
+          "body": "Краткое описание и основание."
+        },
+        {
+          "heading": "Элемент 3",
+          "body": "Краткое описание и основание."
+        }
+      ],
+      "source_ids": [
+        "demo"
+      ]
+    },
+    {
+      "id": "process_flow",
+      "kind": "composition",
+      "layout": "process_flow",
+      "title": "Последовательные этапы процесса",
+      "intent": "process",
+      "takeaway": "Композиция сохраняет смысл, источники и редактируемые элементы",
+      "statement_type": "source_report",
+      "selection_reason": "Последовательные этапы процесса",
+      "caveat": "Демонстрационный пример. Реальные факты подставляются из источников.",
+      "items": [
+        {
+          "heading": "Элемент 1",
+          "body": "Краткое описание и основание."
+        },
+        {
+          "heading": "Элемент 2",
+          "body": "Краткое описание и основание."
+        }
+      ],
+      "source_ids": [
+        "demo"
+      ]
+    },
+    {
+      "id": "human_loop",
+      "kind": "composition",
+      "layout": "human_loop",
+      "title": "ИИ, контроль человека и результат; оговорка обязательна",
+      "intent": "process",
+      "takeaway": "Композиция сохраняет смысл, источники и редактируемые элементы",
+      "statement_type": "source_report",
+      "selection_reason": "ИИ, контроль человека и результат; оговорка обязательна",
+      "caveat": "Демонстрационный пример. Реальные факты подставляются из источников.",
+      "items": [
+        {
+          "heading": "Элемент 1",
+          "body": "Краткое описание и основание."
+        },
+        {
+          "heading": "Элемент 2",
+          "body": "Краткое описание и основание."
+        },
+        {
+          "heading": "Элемент 3",
+          "body": "Краткое описание и основание."
+        }
+      ],
+      "source_ids": [
+        "demo"
+      ]
+    },
+    {
+      "id": "hero_kpi",
+      "kind": "composition",
+      "layout": "hero_kpi",
+      "title": "Один главный показатель и дополнительные метрики",
+      "intent": "metrics",
+      "takeaway": "Композиция сохраняет смысл, источники и редактируемые элементы",
+      "statement_type": "source_report",
+      "selection_reason": "Один главный показатель и дополнительные метрики",
+      "caveat": "Демонстрационный пример. Реальные факты подставляются из источников.",
+      "items": [
+        {
+          "heading": "Оценка участников",
+          "body": "Совокупная оценка; период: 2026",
+          "value": "$10 трлн"
+        }
+      ],
+      "source_ids": [
+        "demo"
+      ],
+      "metric_bindings": [
+        {
+          "pointer": "/items/0/value",
+          "metric": {
+            "number": "10",
+            "sign": "",
+            "currency": "$",
+            "scale": "трлн",
+            "suffix": "",
+            "unit": "Оценка участников",
+            "period": "2026",
+            "explanation": "Совокупная оценка",
+            "source_id": "demo",
+            "source_text": "$10 трлн",
+            "display": "$10 трлн"
+          }
+        }
+      ]
+    },
+    {
+      "id": "metric_scale",
+      "kind": "composition",
+      "layout": "metric_scale",
+      "title": "Крупные показатели масштаба без карточек",
+      "intent": "metrics",
+      "takeaway": "Композиция сохраняет смысл, источники и редактируемые элементы",
+      "statement_type": "source_report",
+      "selection_reason": "Крупные показатели масштаба без карточек",
+      "caveat": "Демонстрационный пример. Реальные факты подставляются из источников.",
+      "items": [
+        {
+          "heading": "Оценка участников",
+          "body": "Совокупная оценка; период: 2026",
+          "value": "$10 трлн"
+        },
+        {
+          "heading": "Оценка участников",
+          "body": "Совокупная оценка; период: 2026",
+          "value": "$10 трлн"
+        }
+      ],
+      "source_ids": [
+        "demo"
+      ],
+      "metric_bindings": [
+        {
+          "pointer": "/items/0/value",
+          "metric": {
+            "number": "10",
+            "sign": "",
+            "currency": "$",
+            "scale": "трлн",
+            "suffix": "",
+            "unit": "Оценка участников",
+            "period": "2026",
+            "explanation": "Совокупная оценка",
+            "source_id": "demo",
+            "source_text": "$10 трлн",
+            "display": "$10 трлн"
+          }
+        },
+        {
+          "pointer": "/items/1/value",
+          "metric": {
+            "number": "10",
+            "sign": "",
+            "currency": "$",
+            "scale": "трлн",
+            "suffix": "",
+            "unit": "Оценка участников",
+            "period": "2026",
+            "explanation": "Совокупная оценка",
+            "source_id": "demo",
+            "source_text": "$10 трлн",
+            "display": "$10 трлн"
+          }
+        }
+      ]
+    },
+    {
+      "id": "comparison_matrix",
+      "kind": "composition",
+      "layout": "comparison_matrix",
+      "title": "Сравнение по одинаковым критериям",
+      "intent": "comparison",
+      "takeaway": "Композиция сохраняет смысл, источники и редактируемые элементы",
+      "statement_type": "source_report",
+      "selection_reason": "Сравнение по одинаковым критериям",
+      "caveat": "Демонстрационный пример. Реальные факты подставляются из источников.",
+      "items": [
+        {
+          "heading": "Элемент 1",
+          "body": "Краткое описание и основание.",
+          "label": "Основание из источника"
+        },
+        {
+          "heading": "Элемент 2",
+          "body": "Краткое описание и основание.",
+          "label": "Основание из источника"
+        }
+      ],
+      "source_ids": [
+        "demo"
+      ]
+    },
+    {
+      "id": "speaker_profile",
+      "kind": "composition",
+      "layout": "speaker_profile",
+      "title": "Имя, роль, позиция, статус участия и изображение с источником",
+      "intent": "profile",
+      "takeaway": "Композиция сохраняет смысл, источники и редактируемые элементы",
+      "statement_type": "source_report",
+      "selection_reason": "Имя, роль, позиция, статус участия и изображение с источником",
+      "caveat": "Демонстрационный пример. Реальные факты подставляются из источников.",
+      "items": [
+        {
+          "heading": "Элемент 1",
+          "body": "Краткое описание и основание.",
+          "label": "Основание из источника"
+        }
+      ],
+      "source_ids": [
+        "demo"
+      ]
+    },
+    {
+      "id": "stakeholder_map",
+      "kind": "composition",
+      "layout": "stakeholder_map",
+      "title": "Участники вокруг общего предмета",
+      "intent": "hierarchy",
+      "takeaway": "Композиция сохраняет смысл, источники и редактируемые элементы",
+      "statement_type": "source_report",
+      "selection_reason": "Участники вокруг общего предмета",
+      "caveat": "Демонстрационный пример. Реальные факты подставляются из источников.",
+      "items": [
+        {
+          "heading": "Элемент 1",
+          "body": "Краткое описание и основание."
+        },
+        {
+          "heading": "Элемент 2",
+          "body": "Краткое описание и основание."
+        },
+        {
+          "heading": "Элемент 3",
+          "body": "Краткое описание и основание."
+        }
+      ],
+      "source_ids": [
+        "demo"
+      ]
+    },
+    {
+      "id": "discussion_map",
+      "kind": "composition",
+      "layout": "discussion_map",
+      "title": "Темы и связи; группировка является интерпретацией",
+      "intent": "hierarchy",
+      "takeaway": "Композиция сохраняет смысл, источники и редактируемые элементы",
+      "statement_type": "source_report",
+      "selection_reason": "Темы и связи; группировка является интерпретацией",
+      "caveat": "Демонстрационный пример. Реальные факты подставляются из источников.",
+      "items": [
+        {
+          "heading": "Элемент 1",
+          "body": "Краткое описание и основание."
+        },
+        {
+          "heading": "Элемент 2",
+          "body": "Краткое описание и основание."
+        },
+        {
+          "heading": "Элемент 3",
+          "body": "Краткое описание и основание."
+        }
+      ],
+      "source_ids": [
+        "demo"
+      ]
+    },
+    {
+      "id": "decision_tree",
+      "kind": "composition",
+      "layout": "decision_tree",
+      "title": "Вопросы и альтернативы; рёбра явно заданы",
+      "intent": "decision",
+      "takeaway": "Композиция сохраняет смысл, источники и редактируемые элементы",
+      "statement_type": "source_report",
+      "selection_reason": "Вопросы и альтернативы; рёбра явно заданы",
+      "caveat": "Демонстрационный пример. Реальные факты подставляются из источников.",
+      "items": [
+        {
+          "heading": "Элемент 1",
+          "body": "Критерий"
+        },
+        {
+          "heading": "Элемент 2",
+          "body": "Критерий"
+        },
+        {
+          "heading": "Элемент 3",
+          "body": "Критерий"
+        }
+      ],
+      "source_ids": [
+        "demo"
+      ],
+      "connections": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 0,
+          "to": 2
+        }
+      ]
+    },
+    {
+      "id": "problem_solution_result",
+      "kind": "composition",
+      "layout": "problem_solution_result",
+      "title": "Проблема, решение, результат с обоснованием связи",
+      "intent": "causality",
+      "takeaway": "Композиция сохраняет смысл, источники и редактируемые элементы",
+      "statement_type": "source_report",
+      "selection_reason": "Проблема, решение, результат с обоснованием связи",
+      "caveat": "Демонстрационный пример. Реальные факты подставляются из источников.",
+      "items": [
+        {
+          "heading": "Элемент 1",
+          "body": "Краткое описание и основание."
+        },
+        {
+          "heading": "Элемент 2",
+          "body": "Краткое описание и основание."
+        },
+        {
+          "heading": "Элемент 3",
+          "body": "Краткое описание и основание."
+        }
+      ],
+      "source_ids": [
+        "demo"
+      ]
+    },
+    {
+      "id": "thesis_evidence",
+      "kind": "composition",
+      "layout": "thesis_evidence",
+      "title": "Тезис и подтверждающие наблюдения",
+      "intent": "reference",
+      "takeaway": "Композиция сохраняет смысл, источники и редактируемые элементы",
+      "statement_type": "source_report",
+      "selection_reason": "Тезис и подтверждающие наблюдения",
+      "caveat": "Демонстрационный пример. Реальные факты подставляются из источников.",
+      "items": [
+        {
+          "heading": "Элемент 1",
+          "body": "Краткое описание и основание."
+        }
+      ],
+      "source_ids": [
+        "demo"
+      ]
+    },
+    {
+      "id": "expert_quote",
+      "kind": "composition",
+      "layout": "expert_quote",
+      "title": "Точная цитата, автор и оговорка источника",
+      "intent": "reference",
+      "takeaway": "Композиция сохраняет смысл, источники и редактируемые элементы",
+      "statement_type": "source_report",
+      "selection_reason": "Точная цитата, автор и оговорка источника",
+      "caveat": "Демонстрационный пример. Реальные факты подставляются из источников.",
+      "items": [
+        {
+          "heading": "Элемент 1",
+          "body": "Краткое описание и основание.",
+          "label": "Основание из источника"
+        }
+      ],
+      "source_ids": [
+        "demo"
+      ]
+    },
+    {
+      "id": "before_after",
+      "kind": "composition",
+      "layout": "before_after",
+      "title": "Два состояния по одному основанию",
+      "intent": "comparison",
+      "takeaway": "Композиция сохраняет смысл, источники и редактируемые элементы",
+      "statement_type": "source_report",
+      "selection_reason": "Два состояния по одному основанию",
+      "caveat": "Демонстрационный пример. Реальные факты подставляются из источников.",
+      "items": [
+        {
+          "heading": "Элемент 1",
+          "body": "Краткое описание и основание."
+        },
+        {
+          "heading": "Элемент 2",
+          "body": "Краткое описание и основание."
+        }
+      ],
+      "source_ids": [
+        "demo"
+      ]
+    },
+    {
+      "id": "risk_controls",
+      "kind": "composition",
+      "layout": "risk_controls",
+      "title": "Риски, меры контроля и ответственные",
+      "intent": "decision",
+      "takeaway": "Композиция сохраняет смысл, источники и редактируемые элементы",
+      "statement_type": "source_report",
+      "selection_reason": "Риски, меры контроля и ответственные",
+      "caveat": "Демонстрационный пример. Реальные факты подставляются из источников.",
+      "items": [
+        {
+          "heading": "Элемент 1",
+          "body": "Краткое описание и основание.",
+          "label": "Основание из источника"
+        },
+        {
+          "heading": "Элемент 2",
+          "body": "Краткое описание и основание.",
+          "label": "Основание из источника"
+        }
+      ],
+      "source_ids": [
+        "demo"
+      ]
+    },
+    {
+      "id": "project_status",
+      "kind": "composition",
+      "layout": "project_status",
+      "title": "Статусы, результаты и следующие действия",
+      "intent": "reference",
+      "takeaway": "Композиция сохраняет смысл, источники и редактируемые элементы",
+      "statement_type": "source_report",
+      "selection_reason": "Статусы, результаты и следующие действия",
+      "caveat": "Демонстрационный пример. Реальные факты подставляются из источников.",
+      "items": [
+        {
+          "heading": "Элемент 1",
+          "body": "Краткое описание и основание."
+        },
+        {
+          "heading": "Элемент 2",
+          "body": "Краткое описание и основание."
+        }
+      ],
+      "source_ids": [
+        "demo"
+      ]
+    },
+    {
+      "id": "executive_summary",
+      "kind": "composition",
+      "layout": "executive_summary",
+      "title": "Выводы и требуемое решение руководителя",
+      "intent": "decision",
+      "takeaway": "Композиция сохраняет смысл, источники и редактируемые элементы",
+      "statement_type": "source_report",
+      "selection_reason": "Выводы и требуемое решение руководителя",
+      "caveat": "Демонстрационный пример. Реальные факты подставляются из источников.",
+      "items": [
+        {
+          "heading": "Элемент 1",
+          "body": "Краткое описание и основание."
+        },
+        {
+          "heading": "Элемент 2",
+          "body": "Краткое описание и основание."
+        }
+      ],
+      "source_ids": [
+        "demo"
+      ]
+    }
+  ]
+}

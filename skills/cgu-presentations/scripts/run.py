@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Build a CGU deck: validate JSON, reuse template, finalize PPTX, render PDF/PNG."""
 import argparse
+import copy
 import hashlib
 import json
 import os
@@ -64,6 +65,13 @@ def run(cmd, env=None):
 def build(specfile, out, runtime=None, presentation_skill=None, render=True, backend="auto"):
     specfile, out = Path(specfile).resolve(), Path(out).resolve()
     deck = validate(json.loads(specfile.read_text(encoding='utf-8')))
+    from content_review import ledger_report, write_reports
+    ledger_report(deck,specfile.parent)
+    for slide in deck['slides']:
+        if slide.get('image'):slide['image']['path']=str((specfile.parent/slide['image']['path']).resolve())
+    if any(s['kind']=='composition' for s in deck['slides']):
+        if backend=='codex':raise ValueError('New semantic compositions require --backend portable; existing Codex layouts remain supported')
+        backend='portable'
     resources=preflight(SKILL)
     if resources['errors']:raise ValueError('; '.join(resources['errors']))
     backend, paths = resolve_backend(backend, runtime, presentation_skill, render)
@@ -71,6 +79,17 @@ def build(specfile, out, runtime=None, presentation_skill=None, render=True, bac
     out.mkdir(parents=True, exist_ok=True)
     for folder in ['content','build','qa','preview','output']:(out/folder).mkdir()
     shutil.copy2(specfile,out/'content/deck-spec.json')
+    coverage=write_reports(deck,specfile.parent,out)
+    saved=copy.deepcopy(deck)
+    if saved.get('content_ledger'):saved['content_ledger']['inventory']='source-archive.json'
+    for slide in saved['slides']:
+        if slide.get('image'):
+            image=slide['image'];src=Path(image['path']);dest=out/'content/assets'/(image['sha256']+src.suffix.lower());dest.parent.mkdir(exist_ok=True)
+            shutil.copy2(src,dest);image['path']='assets/'+dest.name
+    (out/'content/deck-spec.json').write_text(json.dumps(saved,ensure_ascii=False,indent=2),encoding='utf-8')
+    from layout_selector import diversity
+    diversity_report=diversity(deck)
+    (out/'qa/visual-diversity.json').write_text(json.dumps(diversity_report,ensure_ascii=False,indent=2),encoding='utf-8')
     (out/'content/sources.json').write_text(json.dumps(deck.get('sources',[]),ensure_ascii=False,indent=2), encoding="utf-8")
     (out/'qa/preflight.json').write_text(json.dumps(resources,ensure_ascii=False,indent=2), encoding="utf-8")
     if backend=='codex':
@@ -86,10 +105,14 @@ def build(specfile, out, runtime=None, presentation_skill=None, render=True, bac
     if semantic['errors']:raise ValueError('; '.join(semantic['errors']))
     if report['missing_internal_targets']:raise ValueError('Broken package relationships')
     if report['non_golos_explicit_declarations']:raise ValueError('Unexpected explicit fonts: '+str(report['non_golos_explicit_declarations']))
+    from visual_qa import inspect as inspect_visual, html_contact, contact_sheet
+    geometry=inspect_visual(pptx)
+    (out/'qa/visual-checks.json').write_text(json.dumps(geometry,ensure_ascii=False,indent=2),encoding='utf-8')
+    if geometry['errors']:raise ValueError('Visual geometry checks failed: '+str(geometry['errors'][:5]))
     scenario = ['# '+deck['title']]
     if deck.get('demo'): scenario += ['','Демонстрационные данные. Не показатели ДИТ.']
     for n,s in enumerate(deck['slides'],1):
-        scenario += ['',f"## {n}. {s['title'].replace(chr(10),' ')}",'',s.get('notes',''),'', '```json',json.dumps(s,ensure_ascii=False,indent=2),'```']
+        scenario += ['',f"## {n}. {s['title'].replace(chr(10),' ')}",'',s.get('takeaway',''),'',s.get('notes','')]
     (out/'output/scenario.md').write_text('\n'.join(scenario)+'\n',encoding='utf-8')
     (out/'content/outline.md').write_text('\n'.join(f"{i}. {s['title'].replace(chr(10),' ')} ({s['kind']})" for i,s in enumerate(deck['slides'],1))+'\n',encoding='utf-8')
     record={'backend':backend,'validation_engine':'codex-finalizer-and-semantic' if backend=='codex' else 'portable-package-and-semantic','spec_sha256':hashlib.sha256(specfile.read_bytes()).hexdigest(),'pptx_sha256':report['sha256'],'runtime':str(paths['runtime']),'slides':len(deck['slides']),'rendered':False,'visual_review':'pending','fonts_embedded_in_pptx':False,'structure':'passed','powerpoint':'not-tested','evidence':{'policy':deck.get('evidence_policy','slide'),'references':'validated','factual_review':'demo' if deck.get('demo') else 'pending'}}
@@ -103,6 +126,9 @@ def build(specfile, out, runtime=None, presentation_skill=None, render=True, bac
         pdf=out/'output/presentation.pdf'
         if not pdf.is_file():raise ValueError('Renderer did not create PDF')
         run([paths['pdftoppm'],'-scale-to','1920','-png',pdf,out/'preview/slide'],env)
+        html_contact(out/'preview')
+        sheet=contact_sheet(out/'preview')
+        (out/'qa/contact-sheet.json').write_text(json.dumps(sheet,ensure_ascii=False,indent=2),encoding='utf-8')
         previews=list((out/'preview').glob('slide-*.png'))
         if len(previews)!=len(deck['slides']):raise ValueError('PDF page count does not match input')
         fonts=sorted(set(x.decode('latin1') for x in re.findall(rb'/BaseFont\s*/([^\s/<>()]+)',pdf.read_bytes())))
@@ -110,6 +136,7 @@ def build(specfile, out, runtime=None, presentation_skill=None, render=True, bac
         # BaseFont names are a supporting check, never a substitute for seeing the slides.
         if not fonts or any('golos' not in f.lower() for f in fonts):
             record['font_warning']='PDF font inventory is missing or includes substitutions; inspect before delivery.'
+    record.update(content_ledger=coverage['status'],diversity_warnings=diversity_report['warnings'],geometry_warnings=len(geometry['warnings']))
     (out/'qa/run.json').write_text(json.dumps(record,ensure_ascii=False,indent=2), encoding="utf-8")
     (out/'qa/report.md').write_text('# Автоматическая проверка\n\nСтруктура PPTX, число слайдов и явные шрифты проверены.\nВизуальная проверка: ожидается просмотр каждого слайда.\nШрифты в PPTX не встроены; для редактирования нужны Golos Text Regular, SemiBold и Bold.\n',encoding='utf-8')
     print(json.dumps(record,ensure_ascii=False,indent=2))
@@ -127,6 +154,8 @@ def main():
         if a.command=='validate':
             if not a.spec:ap.error('validate requires a spec file')
             deck=validate(json.loads(Path(a.spec).read_text(encoding='utf-8')))
+            from content_review import ledger_report
+            ledger_report(deck,Path(a.spec).resolve().parent)
             print(json.dumps({'valid':True,'slides':len(deck['slides'])}));return
         if a.command=='doctor':
             result=preflight(SKILL)

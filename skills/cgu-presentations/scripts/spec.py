@@ -1,7 +1,7 @@
 """Validation for the supported template adapter. No silent ignored slide types."""
 import math
 
-KINDS = {'cover', 'cards', 'kpi', 'process', 'diagram', 'chart', 'table', 'text', 'kpi_grid', 'comparison', 'roadmap', 'text_blocks'}
+KINDS = {'cover', 'cards', 'kpi', 'process', 'diagram', 'chart', 'table', 'text', 'kpi_grid', 'comparison', 'roadmap', 'text_blocks', 'composition'}
 
 def validate(deck):
     def require(ok, message):
@@ -11,13 +11,13 @@ def validate(deck):
         require(isinstance(value, str) and bool(value.strip()), f'{label}: nonempty text required')
         require(len(value) <= limit, f'{label}: maximum {limit} characters; shorten or split the slide')
     require(isinstance(deck, dict), 'Root must be an object')
-    require(not (set(deck) - {'schema_version','title','demo','sources','slides','evidence_policy'}), 'Unknown root fields')
+    require(not (set(deck) - {'schema_version','title','demo','sources','slides','evidence_policy','review_policy','content_ledger'}), 'Unknown root fields')
     require(deck.get('evidence_policy','slide') in ('slide','object'), 'Unknown evidence policy')
     require(deck.get('schema_version') == 'cgu-presentations/2', 'Expected schema_version cgu-presentations/2')
     text(deck.get('title'), 100, 'title')
     require(type(deck.get('demo',False)) is bool, 'demo must be boolean')
     slides = deck.get('slides')
-    require(isinstance(slides, list) and 1 <= len(slides) <= 40, 'Expected 1–40 slides')
+    require(isinstance(slides, list) and 1 <= len(slides) <= 160, 'Expected 1–160 slides')
     facts = deck.get('sources', [])
     require(isinstance(facts, list), 'sources must be an array')
     ids = []
@@ -37,8 +37,8 @@ def validate(deck):
         kind = s.get('kind'); require(isinstance(kind,str) and kind in KINDS, prefix + ': unsupported kind')
         text(s.get('title'), 85, prefix + ' title')
         extra = {'cover':{'subtitle'}, 'cards':{'items'}, 'kpi':{'value','label','detail_title','detail'}, 'text':{'body'}, 'process':{'steps'}, 'diagram':{'nodes','edges'}, 'chart':{'chart_type','categories','series','unit'}, 'table':{'columns','rows'}}
-        extra.update(kpi_grid={'items'},comparison={'columns'},roadmap={'steps'},text_blocks={'variant','items','callout'})
-        require(not (set(s) - {'id','kind','title','source_ids','notes','footer','object_sources'} - extra[kind]), prefix + ': unknown fields')
+        extra.update(kpi_grid={'items'},comparison={'columns'},roadmap={'steps'},text_blocks={'variant','items','callout'},composition={'layout','items','caveat','connections','center','image'})
+        require(not (set(s) - {'id','kind','title','source_ids','notes','footer','object_sources','intent','takeaway','statement_type','selection_reason','repeat_reason','section','metric_bindings'} - extra[kind]), prefix + ': unknown fields')
         for key,limit in [('notes',10000),('footer',120)]:
             if key in s: require(isinstance(s[key],str) and len(s[key])<=limit, prefix + ': invalid '+key)
         refs = s.get('source_ids', [])
@@ -63,7 +63,10 @@ def validate(deck):
         if deck.get('evidence_policy')=='object' and not deck.get('demo'):
             required={'text_blocks':['/items/'+str(j) for j in range(len(s.get('items',[])))]+(['/callout'] if 'callout' in s else []),'kpi':['/value'],'kpi_grid':['/items/'+str(j) for j in range(len(s.get('items',[])))],'roadmap':['/steps/'+str(j) for j in range(len(s.get('steps',[])))],'chart':['/series/'+str(j) for j in range(len(s.get('series',[])))],'diagram':['/edges/'+str(j) for j in range(len(s.get('edges',[])))]}.get(kind,[])
             require(all(key in object_sources for key in required),prefix+': object evidence missing')
-        if kind == 'text_blocks':
+        if kind == 'composition':
+            from compositions import validate_composition
+            validate_composition(s)
+        elif kind == 'text_blocks':
             variants={'numbered_columns':3,'cards_grid':5,'columns_callout':3,'split_panel':2,'metrics_band':4,'text_columns':3}
             variant=s.get('variant')
             require(isinstance(variant,str) and variant in variants,prefix+': unknown text block variant')
@@ -166,4 +169,6 @@ def validate(deck):
                 require(isinstance(row,list) and len(row)==len(columns),prefix+': ragged table')
                 for cell in row: text(cell,100,prefix+' cell')
     require(len(slide_ids)==len(set(slide_ids)), 'Duplicate slide id')
+    from content_review import validate_editorial
+    validate_editorial(deck)
     return deck

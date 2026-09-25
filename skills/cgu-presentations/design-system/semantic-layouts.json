@@ -1,0 +1,827 @@
+{
+  "version": 1,
+  "safe_area_px": [
+    100,
+    270,
+    1720,
+    650
+  ],
+  "typography": {
+    "title_pt": 44,
+    "heading_pt": 26,
+    "body_pt": 22,
+    "minimum_content_pt": 18
+  },
+  "layouts": [
+    {
+      "key": "timeline_horizontal",
+      "intents": [
+        "sequence"
+      ],
+      "reference_key": "roadmap",
+      "reference_status": "adapted-from-reviewed-pattern",
+      "implementation": "portable-native",
+      "family": "timeline-horizontal",
+      "min_items": 2,
+      "max_items": 5,
+      "purpose": "Горизонтальная последовательность событий",
+      "required": [
+        "heading",
+        "body"
+      ],
+      "optional": [
+        "label"
+      ],
+      "limits": {
+        "heading": 65,
+        "body": 120,
+        "value": 32,
+        "label": 65
+      },
+      "safe_area_px": [
+        100,
+        350,
+        1720,
+        550
+      ],
+      "selection": "Use when semantic intent matches; retain source caveats. New adaptation is not an exact copy of a reference.",
+      "example": "examples/semantic-demo.json",
+      "typography": {
+        "title_pt": 44,
+        "heading_pt": 26,
+        "body_pt": 22,
+        "minimum_content_pt": 18
+      }
+    },
+    {
+      "key": "timeline_vertical",
+      "intents": [
+        "sequence"
+      ],
+      "reference_key": "roadmap",
+      "reference_status": "adapted-from-reviewed-pattern",
+      "implementation": "portable-native",
+      "family": "timeline-vertical",
+      "min_items": 2,
+      "max_items": 5,
+      "purpose": "Вертикальная программа ключевых сессий",
+      "required": [
+        "heading",
+        "body"
+      ],
+      "optional": [],
+      "limits": {
+        "heading": 65,
+        "body": 120,
+        "value": 32,
+        "label": 65
+      },
+      "safe_area_px": [
+        100,
+        350,
+        1720,
+        550
+      ],
+      "selection": "Use when semantic intent matches; retain source caveats. New adaptation is not an exact copy of a reference.",
+      "example": "examples/semantic-demo.json",
+      "typography": {
+        "title_pt": 44,
+        "heading_pt": 26,
+        "body_pt": 22,
+        "minimum_content_pt": 18
+      }
+    },
+    {
+      "key": "roadmap_actions",
+      "intents": [
+        "sequence"
+      ],
+      "reference_key": "roadmap",
+      "reference_status": "adapted-from-reviewed-pattern",
+      "implementation": "portable-native",
+      "family": "roadmap-actions",
+      "min_items": 3,
+      "max_items": 5,
+      "purpose": "Действия с периодами и результатами",
+      "required": [
+        "heading",
+        "body"
+      ],
+      "optional": [
+        "label"
+      ],
+      "limits": {
+        "heading": 65,
+        "body": 120,
+        "value": 32,
+        "label": 65
+      },
+      "safe_area_px": [
+        100,
+        350,
+        1720,
+        550
+      ],
+      "selection": "Use when semantic intent matches; retain source caveats. New adaptation is not an exact copy of a reference.",
+      "example": "examples/semantic-demo.json",
+      "typography": {
+        "title_pt": 44,
+        "heading_pt": 26,
+        "body_pt": 22,
+        "minimum_content_pt": 18
+      }
+    },
+    {
+      "key": "architecture",
+      "intents": [
+        "hierarchy"
+      ],
+      "reference_key": "architecture-layers",
+      "reference_status": "adapted-from-reviewed-pattern",
+      "implementation": "portable-native",
+      "family": "architecture-layers",
+      "min_items": 3,
+      "max_items": 5,
+      "purpose": "Слои системы и связи с результатом",
+      "required": [
+        "heading",
+        "body"
+      ],
+      "optional": [],
+      "limits": {
+        "heading": 65,
+        "body": 120,
+        "value": 32,
+        "label": 65
+      },
+      "safe_area_px": [
+        100,
+        350,
+        1720,
+        550
+      ],
+      "selection": "Use when semantic intent matches; retain source caveats. New adaptation is not an exact copy of a reference.",
+      "example": "examples/semantic-demo.json",
+      "typography": {
+        "title_pt": 44,
+        "heading_pt": 26,
+        "body_pt": 22,
+        "minimum_content_pt": 18
+      }
+    },
+    {
+      "key": "process_flow",
+      "intents": [
+        "process"
+      ],
+      "reference_key": "architecture-hub",
+      "reference_status": "adapted-from-reviewed-pattern",
+      "implementation": "portable-native",
+      "family": "process-flow",
+      "min_items": 2,
+      "max_items": 5,
+      "purpose": "Последовательные этапы процесса",
+      "required": [
+        "heading",
+        "body"
+      ],
+      "optional": [
+        "label"
+      ],
+      "limits": {
+        "heading": 65,
+        "body": 120,
+        "value": 32,
+        "label": 65
+      },
+      "safe_area_px": [
+        100,
+        350,
+        1720,
+        550
+      ],
+      "selection": "Use when semantic intent matches; retain source caveats. New adaptation is not an exact copy of a reference.",
+      "example": "examples/semantic-demo.json",
+      "typography": {
+        "title_pt": 44,
+        "heading_pt": 26,
+        "body_pt": 22,
+        "minimum_content_pt": 18
+      }
+    },
+    {
+      "key": "human_loop",
+      "intents": [
+        "process"
+      ],
+      "reference_key": "architecture-hub",
+      "reference_status": "adapted-from-reviewed-pattern",
+      "implementation": "portable-native",
+      "family": "human-loop",
+      "min_items": 3,
+      "max_items": 3,
+      "purpose": "ИИ, контроль человека и результат; оговорка обязательна",
+      "required": [
+        "heading",
+        "body"
+      ],
+      "optional": [
+        "label"
+      ],
+      "limits": {
+        "heading": 65,
+        "body": 120,
+        "value": 32,
+        "label": 65
+      },
+      "safe_area_px": [
+        100,
+        350,
+        1720,
+        550
+      ],
+      "selection": "Use when semantic intent matches; retain source caveats. New adaptation is not an exact copy of a reference.",
+      "example": "examples/semantic-demo.json",
+      "typography": {
+        "title_pt": 44,
+        "heading_pt": 26,
+        "body_pt": 22,
+        "minimum_content_pt": 18
+      }
+    },
+    {
+      "key": "hero_kpi",
+      "intents": [
+        "metrics"
+      ],
+      "reference_key": "kpi-context",
+      "reference_status": "adapted-from-reviewed-pattern",
+      "implementation": "portable-native",
+      "family": "hero-kpi",
+      "min_items": 1,
+      "max_items": 3,
+      "purpose": "Один главный показатель и дополнительные метрики",
+      "required": [
+        "heading",
+        "body"
+      ],
+      "optional": [
+        "value"
+      ],
+      "limits": {
+        "heading": 65,
+        "body": 120,
+        "value": 32,
+        "label": 65
+      },
+      "safe_area_px": [
+        100,
+        350,
+        1720,
+        550
+      ],
+      "selection": "Use when semantic intent matches; retain source caveats. New adaptation is not an exact copy of a reference.",
+      "example": "examples/semantic-demo.json",
+      "typography": {
+        "title_pt": 44,
+        "heading_pt": 26,
+        "body_pt": 22,
+        "minimum_content_pt": 18
+      }
+    },
+    {
+      "key": "metric_scale",
+      "intents": [
+        "metrics"
+      ],
+      "reference_key": "kpi-context",
+      "reference_status": "adapted-from-reviewed-pattern",
+      "implementation": "portable-native",
+      "family": "metric-scale",
+      "min_items": 2,
+      "max_items": 4,
+      "purpose": "Крупные показатели масштаба без карточек",
+      "required": [
+        "heading",
+        "body"
+      ],
+      "optional": [
+        "value"
+      ],
+      "limits": {
+        "heading": 65,
+        "body": 120,
+        "value": 32,
+        "label": 65
+      },
+      "safe_area_px": [
+        100,
+        350,
+        1720,
+        550
+      ],
+      "selection": "Use when semantic intent matches; retain source caveats. New adaptation is not an exact copy of a reference.",
+      "example": "examples/semantic-demo.json",
+      "typography": {
+        "title_pt": 44,
+        "heading_pt": 26,
+        "body_pt": 22,
+        "minimum_content_pt": 18
+      }
+    },
+    {
+      "key": "comparison_matrix",
+      "intents": [
+        "comparison"
+      ],
+      "reference_key": "comparison",
+      "reference_status": "adapted-from-reviewed-pattern",
+      "implementation": "portable-native",
+      "family": "matrix",
+      "min_items": 2,
+      "max_items": 5,
+      "purpose": "Сравнение по одинаковым критериям",
+      "required": [
+        "heading",
+        "body",
+        "label"
+      ],
+      "optional": [],
+      "limits": {
+        "heading": 65,
+        "body": 120,
+        "value": 32,
+        "label": 65
+      },
+      "safe_area_px": [
+        100,
+        350,
+        1720,
+        550
+      ],
+      "selection": "Use when semantic intent matches; retain source caveats. New adaptation is not an exact copy of a reference.",
+      "example": "examples/semantic-demo.json",
+      "typography": {
+        "title_pt": 44,
+        "heading_pt": 26,
+        "body_pt": 22,
+        "minimum_content_pt": 18
+      }
+    },
+    {
+      "key": "speaker_profile",
+      "intents": [
+        "profile"
+      ],
+      "reference_key": "text-blocks-split_panel",
+      "reference_status": "adapted-from-reviewed-pattern",
+      "implementation": "portable-native",
+      "family": "profile",
+      "min_items": 1,
+      "max_items": 1,
+      "purpose": "Имя, роль, позиция, статус участия и изображение с источником",
+      "required": [
+        "heading",
+        "body",
+        "label"
+      ],
+      "optional": [],
+      "limits": {
+        "heading": 65,
+        "body": 200,
+        "value": 32,
+        "label": 65
+      },
+      "safe_area_px": [
+        100,
+        350,
+        1720,
+        550
+      ],
+      "selection": "Use when semantic intent matches; retain source caveats. New adaptation is not an exact copy of a reference.",
+      "example": "examples/semantic-demo.json",
+      "typography": {
+        "title_pt": 44,
+        "heading_pt": 26,
+        "body_pt": 22,
+        "minimum_content_pt": 18
+      }
+    },
+    {
+      "key": "stakeholder_map",
+      "intents": [
+        "hierarchy"
+      ],
+      "reference_key": "architecture-hub",
+      "reference_status": "adapted-from-reviewed-pattern",
+      "implementation": "portable-native",
+      "family": "hub",
+      "min_items": 3,
+      "max_items": 6,
+      "purpose": "Участники вокруг общего предмета",
+      "required": [
+        "heading",
+        "body"
+      ],
+      "optional": [],
+      "limits": {
+        "heading": 65,
+        "body": 80,
+        "value": 32,
+        "label": 65
+      },
+      "safe_area_px": [
+        100,
+        350,
+        1720,
+        550
+      ],
+      "selection": "Use when semantic intent matches; retain source caveats. New adaptation is not an exact copy of a reference.",
+      "example": "examples/semantic-demo.json",
+      "typography": {
+        "title_pt": 44,
+        "heading_pt": 26,
+        "body_pt": 22,
+        "minimum_content_pt": 18
+      }
+    },
+    {
+      "key": "discussion_map",
+      "intents": [
+        "hierarchy"
+      ],
+      "reference_key": "branching",
+      "reference_status": "adapted-from-reviewed-pattern",
+      "implementation": "portable-native",
+      "family": "map",
+      "min_items": 3,
+      "max_items": 6,
+      "purpose": "Темы и связи; группировка является интерпретацией",
+      "required": [
+        "heading",
+        "body"
+      ],
+      "optional": [],
+      "limits": {
+        "heading": 65,
+        "body": 80,
+        "value": 32,
+        "label": 65
+      },
+      "safe_area_px": [
+        100,
+        350,
+        1720,
+        550
+      ],
+      "selection": "Use when semantic intent matches; retain source caveats. New adaptation is not an exact copy of a reference.",
+      "example": "examples/semantic-demo.json",
+      "typography": {
+        "title_pt": 44,
+        "heading_pt": 26,
+        "body_pt": 22,
+        "minimum_content_pt": 18
+      }
+    },
+    {
+      "key": "decision_tree",
+      "intents": [
+        "decision"
+      ],
+      "reference_key": "branching",
+      "reference_status": "adapted-from-reviewed-pattern",
+      "implementation": "portable-native",
+      "family": "tree",
+      "min_items": 3,
+      "max_items": 7,
+      "purpose": "Вопросы и альтернативы; рёбра явно заданы",
+      "required": [
+        "heading",
+        "body"
+      ],
+      "optional": [],
+      "limits": {
+        "heading": 45,
+        "body": 20,
+        "value": 32,
+        "label": 65
+      },
+      "safe_area_px": [
+        100,
+        350,
+        1720,
+        550
+      ],
+      "selection": "Use when semantic intent matches; retain source caveats. New adaptation is not an exact copy of a reference.",
+      "example": "examples/semantic-demo.json",
+      "typography": {
+        "title_pt": 44,
+        "heading_pt": 26,
+        "body_pt": 22,
+        "minimum_content_pt": 18
+      }
+    },
+    {
+      "key": "problem_solution_result",
+      "intents": [
+        "causality"
+      ],
+      "reference_key": "roadmap",
+      "reference_status": "adapted-from-reviewed-pattern",
+      "implementation": "portable-native",
+      "family": "causal",
+      "min_items": 3,
+      "max_items": 3,
+      "purpose": "Проблема, решение, результат с обоснованием связи",
+      "required": [
+        "heading",
+        "body"
+      ],
+      "optional": [
+        "label"
+      ],
+      "limits": {
+        "heading": 65,
+        "body": 120,
+        "value": 32,
+        "label": 65
+      },
+      "safe_area_px": [
+        100,
+        350,
+        1720,
+        550
+      ],
+      "selection": "Use when semantic intent matches; retain source caveats. New adaptation is not an exact copy of a reference.",
+      "example": "examples/semantic-demo.json",
+      "typography": {
+        "title_pt": 44,
+        "heading_pt": 26,
+        "body_pt": 22,
+        "minimum_content_pt": 18
+      }
+    },
+    {
+      "key": "thesis_evidence",
+      "intents": [
+        "reference"
+      ],
+      "reference_key": "text-blocks-split_panel",
+      "reference_status": "adapted-from-reviewed-pattern",
+      "implementation": "portable-native",
+      "family": "thesis",
+      "min_items": 1,
+      "max_items": 3,
+      "purpose": "Тезис и подтверждающие наблюдения",
+      "required": [
+        "heading",
+        "body"
+      ],
+      "optional": [],
+      "limits": {
+        "heading": 65,
+        "body": 120,
+        "value": 32,
+        "label": 65
+      },
+      "safe_area_px": [
+        100,
+        350,
+        1720,
+        550
+      ],
+      "selection": "Use when semantic intent matches; retain source caveats. New adaptation is not an exact copy of a reference.",
+      "example": "examples/semantic-demo.json",
+      "typography": {
+        "title_pt": 44,
+        "heading_pt": 26,
+        "body_pt": 22,
+        "minimum_content_pt": 18
+      }
+    },
+    {
+      "key": "expert_quote",
+      "intents": [
+        "reference"
+      ],
+      "reference_key": "text-blocks-split_panel",
+      "reference_status": "adapted-from-reviewed-pattern",
+      "implementation": "portable-native",
+      "family": "quote",
+      "min_items": 1,
+      "max_items": 1,
+      "purpose": "Точная цитата, автор и оговорка источника",
+      "required": [
+        "heading",
+        "body",
+        "label"
+      ],
+      "optional": [],
+      "limits": {
+        "heading": 65,
+        "body": 200,
+        "value": 32,
+        "label": 65
+      },
+      "safe_area_px": [
+        100,
+        350,
+        1720,
+        550
+      ],
+      "selection": "Use when semantic intent matches; retain source caveats. New adaptation is not an exact copy of a reference.",
+      "example": "examples/semantic-demo.json",
+      "typography": {
+        "title_pt": 44,
+        "heading_pt": 26,
+        "body_pt": 22,
+        "minimum_content_pt": 18
+      }
+    },
+    {
+      "key": "before_after",
+      "intents": [
+        "comparison"
+      ],
+      "reference_key": "comparison",
+      "reference_status": "adapted-from-reviewed-pattern",
+      "implementation": "portable-native",
+      "family": "before-after",
+      "min_items": 2,
+      "max_items": 2,
+      "purpose": "Два состояния по одному основанию",
+      "required": [
+        "heading",
+        "body"
+      ],
+      "optional": [],
+      "limits": {
+        "heading": 65,
+        "body": 120,
+        "value": 32,
+        "label": 65
+      },
+      "safe_area_px": [
+        100,
+        350,
+        1720,
+        550
+      ],
+      "selection": "Use when semantic intent matches; retain source caveats. New adaptation is not an exact copy of a reference.",
+      "example": "examples/semantic-demo.json",
+      "typography": {
+        "title_pt": 44,
+        "heading_pt": 26,
+        "body_pt": 22,
+        "minimum_content_pt": 18
+      }
+    },
+    {
+      "key": "risk_controls",
+      "intents": [
+        "decision"
+      ],
+      "reference_key": "status-register",
+      "reference_status": "adapted-from-reviewed-pattern",
+      "implementation": "portable-native",
+      "family": "risk-controls",
+      "min_items": 2,
+      "max_items": 5,
+      "purpose": "Риски, меры контроля и ответственные",
+      "required": [
+        "heading",
+        "body",
+        "label"
+      ],
+      "optional": [],
+      "limits": {
+        "heading": 65,
+        "body": 120,
+        "value": 32,
+        "label": 65
+      },
+      "safe_area_px": [
+        100,
+        350,
+        1720,
+        550
+      ],
+      "selection": "Use when semantic intent matches; retain source caveats. New adaptation is not an exact copy of a reference.",
+      "example": "examples/semantic-demo.json",
+      "typography": {
+        "title_pt": 44,
+        "heading_pt": 26,
+        "body_pt": 22,
+        "minimum_content_pt": 18
+      }
+    },
+    {
+      "key": "project_status",
+      "intents": [
+        "reference"
+      ],
+      "reference_key": "status-register",
+      "reference_status": "adapted-from-reviewed-pattern",
+      "implementation": "portable-native",
+      "family": "status",
+      "min_items": 2,
+      "max_items": 4,
+      "purpose": "Статусы, результаты и следующие действия",
+      "required": [
+        "heading",
+        "body"
+      ],
+      "optional": [],
+      "limits": {
+        "heading": 65,
+        "body": 120,
+        "value": 32,
+        "label": 65
+      },
+      "safe_area_px": [
+        100,
+        350,
+        1720,
+        550
+      ],
+      "selection": "Use when semantic intent matches; retain source caveats. New adaptation is not an exact copy of a reference.",
+      "example": "examples/semantic-demo.json",
+      "typography": {
+        "title_pt": 44,
+        "heading_pt": 26,
+        "body_pt": 22,
+        "minimum_content_pt": 18
+      }
+    },
+    {
+      "key": "executive_summary",
+      "intents": [
+        "decision"
+      ],
+      "reference_key": "text-blocks-columns_callout",
+      "reference_status": "adapted-from-reviewed-pattern",
+      "implementation": "portable-native",
+      "family": "executive",
+      "min_items": 2,
+      "max_items": 3,
+      "purpose": "Выводы и требуемое решение руководителя",
+      "required": [
+        "heading",
+        "body"
+      ],
+      "optional": [],
+      "limits": {
+        "heading": 65,
+        "body": 120,
+        "value": 32,
+        "label": 65
+      },
+      "safe_area_px": [
+        100,
+        350,
+        1720,
+        550
+      ],
+      "selection": "Use when semantic intent matches; retain source caveats. New adaptation is not an exact copy of a reference.",
+      "example": "examples/semantic-demo.json",
+      "typography": {
+        "title_pt": 44,
+        "heading_pt": 26,
+        "body_pt": 22,
+        "minimum_content_pt": 18
+      }
+    }
+  ],
+  "bands_px": {
+    "title": [
+      100,
+      80,
+      1260,
+      145
+    ],
+    "takeaway": [
+      100,
+      255,
+      1720,
+      65
+    ],
+    "body": [
+      100,
+      350,
+      1720,
+      550
+    ],
+    "caveat": [
+      100,
+      920,
+      1720,
+      56
+    ],
+    "footer": [
+      100,
+      994,
+      1720,
+      38
+    ]
+  }
+}

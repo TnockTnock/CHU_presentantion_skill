@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CGU /2 envelope; spec.py enforces per-kind fields and semantic constraints",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "title",
+    "slides"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "cgu-presentations/2"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 100
+    },
+    "demo": {
+      "type": "boolean"
+    },
+    "sources": {
+      "type": "array"
+    },
+    "slides": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 160,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "title"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "cover",
+              "cards",
+              "kpi",
+              "process",
+              "diagram",
+              "chart",
+              "table",
+              "text",
+              "kpi_grid",
+              "comparison",
+              "roadmap",
+              "text_blocks",
+              "composition"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 85
+          },
+          "layout": {
+            "enum": [
+              "timeline_horizontal",
+              "timeline_vertical",
+              "roadmap_actions",
+              "architecture",
+              "process_flow",
+              "human_loop",
+              "hero_kpi",
+              "metric_scale",
+              "comparison_matrix",
+              "speaker_profile",
+              "stakeholder_map",
+              "discussion_map",
+              "decision_tree",
+              "problem_solution_result",
+              "thesis_evidence",
+              "expert_quote",
+              "before_after",
+              "risk_controls",
+              "project_status",
+              "executive_summary"
+            ]
+          },
+          "statement_type": {
+            "enum": [
+              "verified",
+              "quote",
+              "source_report",
+              "analysis",
+              "question"
+            ]
+          },
+          "metric_bindings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "pointer",
+                "metric"
+              ],
+              "properties": {
+                "pointer": {
+                  "type": "string"
+                },
+                "metric": {
+                  "$ref": "metric.schema.json"
+                }
+              }
+            }
+          },
+          "items": {
+            "type": "array"
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "composition"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "layout",
+                "items",
+                "takeaway",
+                "caveat"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "evidence_policy": {
+      "enum": [
+        "slide",
+        "object"
+      ]
+    },
+    "review_policy": {
+      "enum": [
+        "legacy",
+        "strict"
+      ]
+    },
+    "content_ledger": {
+      "$ref": "content-ledger.schema.json"
+    }
+  }
+}

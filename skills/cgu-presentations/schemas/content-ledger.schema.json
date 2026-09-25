@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "inventory",
+    "inventory_sha256",
+    "entries"
+  ],
+  "properties": {
+    "inventory": {
+      "type": "string"
+    },
+    "inventory_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "fact_id",
+          "status",
+          "reason",
+          "statement_type",
+          "targets"
+        ],
+        "properties": {
+          "fact_id": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "preserved",
+              "condensed",
+              "appendix",
+              "excluded"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "statement_type": {
+            "enum": [
+              "verified",
+              "quote",
+              "source_report",
+              "analysis",
+              "question"
+            ]
+          },
+          "targets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "slide_id",
+                "pointer",
+                "text"
+              ],
+              "properties": {
+                "slide_id": {
+                  "type": "string"
+                },
+                "pointer": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

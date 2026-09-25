@@ -426,6 +426,39 @@
       "layout_part": "ppt/slideLayouts/slideLayout65.xml",
       "master_part": "ppt/slideMasters/slideMaster10.xml",
       "preview_basis": "Synthetic example rendered with bundled LibreOffice and reviewed; not a PowerPoint certification"
+    },
+    {
+      "key": "semantic-composition",
+      "kind": "composition",
+      "source_slide": 14,
+      "source_part": "ppt/slides/slide14.xml",
+      "binding_status": "implemented",
+      "visual_status": "verified-demo",
+      "powerpoint_status": "not-tested",
+      "slots": {
+        "title": "33"
+      },
+      "keep_shape_ids": [
+        "33",
+        "48",
+        "49"
+      ],
+      "remove_shape_ids": [],
+      "logo_shape_ids": [
+        "48",
+        "49"
+      ],
+      "content_bounds_px": [
+        100,
+        270,
+        1720,
+        650
+      ],
+      "preview": "previews/text.png",
+      "capacity": "body 650",
+      "layout_part": "ppt/slideLayouts/slideLayout65.xml",
+      "master_part": "ppt/slideMasters/slideMaster10.xml",
+      "preview_basis": "Synthetic example rendered with bundled LibreOffice and reviewed; not a PowerPoint certification"
     }
   ]
 }

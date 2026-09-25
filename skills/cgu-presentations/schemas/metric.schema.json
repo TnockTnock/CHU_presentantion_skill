@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "number",
+    "sign",
+    "currency",
+    "scale",
+    "suffix",
+    "unit",
+    "period",
+    "explanation",
+    "source_id",
+    "source_text",
+    "display"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "number": {
+      "type": "string"
+    },
+    "sign": {
+      "type": "string"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "scale": {
+      "type": "string"
+    },
+    "suffix": {
+      "type": "string"
+    },
+    "unit": {
+      "type": "string"
+    },
+    "period": {
+      "type": "string"
+    },
+    "explanation": {
+      "type": "string"
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "source_text": {
+      "type": "string"
+    },
+    "display": {
+      "type": "string"
+    }
+  }
+}

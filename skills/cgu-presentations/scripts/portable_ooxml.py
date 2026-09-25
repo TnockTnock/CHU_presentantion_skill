@@ -51,7 +51,16 @@ def connector(tree,id,a,b,boxes,start='right',end='left',color='#FF254A'):
     x,y=point(boxes[a],start);xx,yy=point(boxes[b],end)
     s=el('p:cxnSp',tree);nv=el('p:nvCxnSpPr',s);el('p:cNvPr',nv,id=id,name='connector-'+str(id));cn=el('p:cNvCxnSpPr',nv)
     sites={'top':0,'left':1,'bottom':2,'right':3};el('a:stCxn',cn,id=a,idx=sites[start]);el('a:endCxn',cn,id=b,idx=sites[end]);el('p:nvPr',nv)
-    sp=el('p:spPr',s);pos(sp,[min(x,xx),min(y,yy),abs(xx-x),abs(yy-y)],flipH=int(xx<x),flipV=int(yy<y));el('a:avLst',el('a:prstGeom',sp,prst='line' if x==xx or y==yy else 'bentConnector3'))
+    sp=el('p:spPr',s)
+    if start==end=='top' and y==yy:
+        # Native U-return above both nodes; endpoint bindings remain attached.
+        w=max(1,round(abs(xx-x)*9525));h=round(50*9525)
+        pos(sp,[min(x,xx),y-50,abs(xx-x),50],flipH=int(xx<x))
+        geom=el('a:custGeom',sp);el('a:avLst',geom);el('a:gdLst',geom);el('a:ahLst',geom);el('a:cxnLst',geom);el('a:rect',geom,l=0,t=0,r='r',b='b')
+        path=el('a:path',el('a:pathLst',geom),w=w,h=h,fill='none')
+        for command,px,py in [('moveTo',0,h),('lnTo',0,0),('lnTo',w,0),('lnTo',w,h)]:el('a:pt',el('a:'+command,path),x=px,y=py)
+    else:
+        pos(sp,[min(x,xx),min(y,yy),abs(xx-x),abs(yy-y)],flipH=int(xx<x),flipV=int(yy<y));el('a:avLst',el('a:prstGeom',sp,prst='line' if x==xx or y==yy else 'bentConnector3'))
     ln=el('a:ln',sp,w=28575);fill(ln,color);el('a:tailEnd',ln,type='triangle',w='med',len='med')
 
 def frame(tree,id,name,b,uri):
@@ -59,15 +68,15 @@ def frame(tree,id,name,b,uri):
     x,y,w,h=b;xf=el('p:xfrm',f);el('a:off',xf,x=round(x*9525),y=round(y*9525));el('a:ext',xf,cx=round(w*9525),cy=round(h*9525))
     return el('a:graphicData',el('a:graphic',f),uri=uri)
 
-def table(tree,id,columns,rows,metrics):
-    values=[columns]+rows;n=len(values);nc=len(columns);h=min(620,n*100);w=1720/nc
-    tbl=el('a:tbl',frame(tree,id,'native-table',[100,285,1720,h],NS['a'].rsplit('/',1)[0]+'/table'));el('a:tblPr',tbl,firstRow=1,bandRow=0);grid=el('a:tblGrid',tbl)
+def table(tree,id,columns,rows,metrics,y=285,max_height=620,pt=24,row_height=100):
+    values=[columns]+rows;n=len(values);nc=len(columns);h=min(max_height,n*row_height);w=1720/nc
+    tbl=el('a:tbl',frame(tree,id,'native-table',[100,y,1720,h],NS['a'].rsplit('/',1)[0]+'/table'));el('a:tblPr',tbl,firstRow=1,bandRow=0);grid=el('a:tblGrid',tbl)
     for _ in columns:el('a:gridCol',grid,w=round(w*9525))
     for i,row in enumerate(values):
         tr=el('a:tr',tbl,h=round(h/n*9525))
         for value in row:
-            metrics.check(value,w-40,h/n-24,24,i==0,'table cell')
-            tc=el('a:tc',tr);textbody(tc,value,24,i==0,center=True,kind='a:txBody');pr=el('a:tcPr',tc,marL=190500,marR=190500,marT=114300,marB=114300,anchor='ctr')
+            metrics.check(value,w-40,h/n-24,pt,i==0,'table cell')
+            tc=el('a:tc',tr);textbody(tc,value,pt,i==0,center=True,kind='a:txBody');pr=el('a:tcPr',tc,marL=190500,marR=190500,marT=114300,marB=114300,anchor='ctr')
             for side in ('L','R','T','B'):
                 ln=el('a:ln'+side,pr,w=9525);fill(ln,'#E4E4E4' if side=='T' and i else '#FFFFFF');el('a:prstDash',ln,val='solid')
             fill(pr,'#F3F2F2' if i==0 else '#FFFFFF')
@@ -126,3 +135,24 @@ def chart_xml(d,colors):
         legend=el('c:legend',chart);el('c:legendPos',legend,val='b');el('c:overlay',legend,val=0);textbody(legend,'',20,kind='c:txPr')
     el('c:plotVisOnly',chart,val=1);el('c:dispBlanksAs',chart,val='gap');textbody(root,'',18,kind='c:txPr');external=el('c:externalData',root,**{tag('r:id'):'rIdWorkbook'});el('c:autoUpdate',external,val=0)
     transform(root);return root
+
+
+def picture(tree,id,rid,box,width,height,alt):
+    x,y,w,h=box;scale=min(w/width,h/height);nw,nh=width*scale,height*scale
+    pic=el('p:pic',tree);nv=el('p:nvPicPr',pic);el('p:cNvPr',nv,id=id,name='profile-image',descr=alt);el('a:picLocks',el('p:cNvPicPr',nv),noChangeAspect=1);el('p:nvPr',nv)
+    bf=el('p:blipFill',pic);el('a:blip',bf,**{tag('r:embed'):rid});el('a:fillRect',el('a:stretch',bf))
+    sp=el('p:spPr',pic);pos(sp,[x+(w-nw)/2,y+(h-nh)/2,nw,nh]);el('a:avLst',el('a:prstGeom',sp,prst='rect'))
+
+def image_size(data):
+    import struct
+    if data.startswith(b'\x89PNG'):return struct.unpack('>II',data[16:24])
+    if data.startswith(b'\xff\xd8'):
+        i=2
+        while i<len(data):
+            if data[i]!=255:i+=1;continue
+            marker=data[i+1];i+=2
+            if marker in (216,217):continue
+            size=int.from_bytes(data[i:i+2],'big')
+            if marker in (192,193,194):return (int.from_bytes(data[i+5:i+7],'big'),int.from_bytes(data[i+3:i+5],'big'))
+            i+=size
+    raise ValueError('Only PNG/JPEG profile images are supported')

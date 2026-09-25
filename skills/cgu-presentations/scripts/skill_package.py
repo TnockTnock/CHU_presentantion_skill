@@ -13,7 +13,7 @@ SKILL=Path(__file__).resolve().parents[1]
 PROFILES={'codex':'.agents/skills','claude':'.claude/skills','cursor':'.cursor/skills','copilot':'.github/skills','gemini':'.gemini/skills','generic':'.agents/skills'}
 EXCLUDE={'local','__pycache__','node_modules','.git','.DS_Store','.venv'}
 ROOT_FILES={'SKILL.md'}
-ROOT_DIRS={'agents','assets','design-system','examples','references','scripts'}
+ROOT_DIRS={'agents','assets','design-system','examples','references','scripts','schemas'}
 
 def public_files(source=SKILL):
     source=Path(source);files=[]

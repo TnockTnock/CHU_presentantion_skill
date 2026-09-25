@@ -279,3 +279,9 @@ python3 scripts/run.py build "/absolute/path/to/deck.json" --backend portable --
 ```
 
 JSON должен соответствовать формату `cgu-presentations/2`. Начните с [examples/demo.json](../examples/demo.json); поля и ограничения описаны в [builder.md](builder.md). `portable` явно выбирает Python-сборку, `codex` требует специального окружения Codex, `auto` выбирает доступный движок. Для одинакового способа сборки между агентами используйте `portable`.
+
+## Переработка существующей презентации без потери содержания
+
+Попросите агента: «Используй strict review: извлеки inventory, составь content-ledger и сохрани все существенные факты с источниками. Для каждого слайда выбери смысловую композицию. Не разделяй число и масштаб KPI. Полную программу перенеси в приложение. Выдай журнал изменений, отчёт о повторах и контактный лист». Подробнее: [контроль содержания](content-review.md) и [20 смысловых композиций](semantic-layouts.md).
+
+Дополнительные результаты появятся в `qa/content-ledger.md`, `qa/visual-diversity.json`, `qa/visual-checks.json`; исходный текст — в `content/source-archive.json`. Контактный лист HTML доступен после рендера без дополнительных Python-пакетов, JPEG — при установленном Pillow.

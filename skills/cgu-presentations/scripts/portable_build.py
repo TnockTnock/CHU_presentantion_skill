@@ -4,6 +4,7 @@ No third-party libraries or Codex services. Geometry follows the existing adapte
 portable rendering is validated independently, not claimed pixel-identical.
 """
 import copy
+import hashlib
 from datetime import date
 import json
 from pathlib import Path
@@ -12,7 +13,7 @@ from zipfile import ZipFile, ZIP_DEFLATED
 from xml.etree import ElementTree as ET
 from normalize_fonts import normalize
 from portable_fonts import Metrics
-from portable_ooxml import NS, tag, el, xml, shape, pos, textbody, connector, frame, table, chart_xml, workbook
+from portable_ooxml import NS, tag, el, xml, shape, pos, textbody, connector, frame, table, chart_xml, workbook, picture, image_size
 from number_typography import transform
 
 SKILL=Path(__file__).resolve().parents[1]
@@ -44,7 +45,7 @@ def build(deck,out):
         for sp in list(tree):
             info=sp.find('.//p:cNvPr',NS)
             if info is not None and ((layout['keep_shape_ids'] is not None and info.get('id') not in layout['keep_shape_ids']) or info.get('id') in layout['remove_shape_ids']):tree.remove(sp)
-        counter=1000;boxes={}
+        counter=1000;boxes={};profile_asset=None
         def label(name,text,x,y,w,h,pt=24,heading=False,color=black,align='left',center=False,background=None,pad=0):
             nonlocal counter
             metrics.check(text,w-2*pad,h-2*pad,pt,heading,name);counter+=1
@@ -77,6 +78,25 @@ def build(deck,out):
                 edit(slot['title'],d['items'][j]['title'],24,True);edit(slot['body'],d['items'][j]['body']);edit(slot['number'],f'{j+1:02}',14,True,None,'#FFFFFF','center',True)
         elif kind=='kpi':
             edit(slots['label'],d['label'],24,False,[100,285,790,135]);edit(slots['value'],d['value'],190,True,[100,550,790,310],red);label('kpi-detail-title',d['detail_title'],1020,300,700,90,26,True);label('kpi-detail',d['detail'],1020,420,700,390)
+        elif kind=='composition':
+            from compositions import scene
+            primitives=scene(d);node_ids={}
+            for v in primitives:
+                t=v['type']
+                if t=='text':label(v['name'],v['text'],*v['box'],v['pt'],v['heading'],colors[v['color']],v['align'])
+                elif t=='panel':panel(v['name'],*v['box'],colors[v['color']])
+                elif t=='node':
+                    counter+=1;shape(tree,counter,'composition-node-'+v['name'],v['box'],background=surface);boxes[counter]=v['box'];node_ids[v['name']]=counter
+                elif t=='table':
+                    counter+=1;table(tree,counter,v['columns'],v['rows'],metrics,y=345,max_height=545,pt=20,row_height=110)
+                elif t=='image':
+                    data=Path(v['path']).read_bytes()
+                    if hashlib.sha256(data).hexdigest()!=v['sha256']:raise ValueError('Profile image SHA mismatch')
+                    ext='png' if data.startswith(b'\x89PNG') else 'jpeg';profile_asset=f'ppt/media/profile-{i}.{ext}';parts[profile_asset]=data
+                    if not any(e.get('Extension')==ext for e in ct):el('ct:Default',ct,Extension=ext,ContentType='image/'+ext)
+                    counter+=1;picture(tree,counter,'rIdProfile',v['box'],*image_size(data),v['alt'])
+            for v in primitives:
+                if v['type']=='edge':link(node_ids[v['start']],node_ids[v['end']],v['from_side'],v['to_side'])
         elif kind=='text':label('body',d['body'],100,290,1630,620,30)
         elif kind=='kpi_grid':
             w=(1720-30*(len(d['items'])-1))/len(d['items'])
@@ -137,6 +157,7 @@ def build(deck,out):
         relpath=posixpath.join(posixpath.dirname(source),'_rels',posixpath.basename(source)+'.rels');rels=ET.fromstring(originals[relpath])
         for rel in list(rels):
             if rel.get('Type','').endswith(('/notesSlide','/slide')):rels.remove(rel)
+        if profile_asset:el('rel:Relationship',rels,Id='rIdProfile',Type=NS['r']+'/image',Target='../media/'+profile_asset.rsplit('/',1)[1])
         if kind=='chart':el('rel:Relationship',rels,Id='rIdCguChart',Type=NS['r']+'/chart',Target=f'../charts/chart{i}.xml')
         notes=el('p:notes');nt=el('p:spTree',el('p:cSld',notes));gn=el('p:nvGrpSpPr',nt);el('p:cNvPr',gn,id=1,name='');el('p:cNvGrpSpPr',gn);el('p:nvPr',gn);el('p:grpSpPr',nt)
         ids=set(d.get('source_ids',[]))|{v for values in d.get('object_sources',{}).values() for v in values};sources=[s['location'] for s in deck.get('sources',[]) if s['id'] in ids]
