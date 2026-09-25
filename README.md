@@ -1,81 +1,58 @@
-# Презентации ЦГУ
+# Презентации ЦГУ — скилл для AI-агентов
 
-Переносимый скилл в формате Agent Skills: подготовка содержания, сборка PPTX из фирменного шаблона ЦГУ, Golos Text, редактируемые схемы, графики и таблицы. Результат: PPTX и сценарий; при наличии рендерера также PDF и PNG. Основной portable-сборщик требует только Python 3.9+. Специальный Codex backend сохранён.
+Создавайте презентации ЦГУ / ДИТ по своим отчётам: фирменный PPTX-шаблон, Golos Text, редактируемые схемы, графики и таблицы. Вы описываете задачу агенту, он готовит содержание и собирает файл.
 
-## Разные агенты и модели
+**[Открыть руководство пользователя →](skills/cgu-presentations/references/user-guide.md)**
 
-[Подключение и ограничения](skills/cgu-presentations/references/portability.md). Один пакет для Claude Code, Cursor, Gemini CLI, GitHub Copilot, Codex и агентов, умеющих читать файлы и запускать Python. Название модели не передаётся сборщику; качество подготовки содержания зависит от модели.
+## Что вы получите
 
-```bash
-python3 skills/cgu-presentations/scripts/skill_package.py install --agent claude --project /path/to/project
-python3 skills/cgu-presentations/scripts/skill_package.py pack --out work/cgu-presentations.zip
-python3 skills/cgu-presentations/scripts/run.py demo --backend portable --no-render --out work/portable-demo
-```
+- Редактируемый PPTX и текстовый сценарий; при настроенном экспорте — PDF и превью слайдов.
+- 12 типов слайдов, включая KPI, сравнения, процессы и дорожные карты.
+- 6 нейтральных шаблонов текстовых блоков: [посмотреть PDF](skills/cgu-presentations/assets/library/text-blocks.pdf) · [скачать PPTX](skills/cgu-presentations/assets/library/text-blocks.pptx).
+- Golos Text: заголовки SemiBold 600, цифры Bold 700, основной текст Regular 400.
+- Общий пакет для Codex, Claude Code, Cursor, Gemini CLI, GitHub Copilot и других агентов с доступом к файлам и Python.
 
-Для другого агента замените `claude` на `cursor`, `gemini`, `copilot`, `codex` или `generic`. Для обновления используйте `--replace`, который сохраняет резервную копию. Клиентские профили установки проверены на уровне файлов; запуск всех продуктов и всех моделей не заявляется.
+Скилл — папка с инструкциями и ресурсами, а не отдельный чат или приложение. Он не устанавливает AI-агент. Для сборки PPTX нужен Python 3.9+; для PDF/PNG дополнительно LibreOffice и Poppler. Специальные API-ключи сборщику не нужны.
 
-## Быстрый тест
+## С чего начать
 
-Из корня репозитория:
+1. Скачайте репозиторий через **Code → Download ZIP** и распакуйте его либо клонируйте через Git.
+2. Откройте папку `skills/cgu-presentations` — внутри должен быть `SKILL.md`.
+3. Выберите вашего агента и установите скилл по [пошаговой инструкции](skills/cgu-presentations/references/user-guide.md#установка-в-вашего-агента).
+4. Выполните [первую проверку](skills/cgu-presentations/references/user-guide.md#первая-проверка), затем передайте агенту свой отчёт.
 
-```bash
-python3 -m unittest discover -s tests -v
-python3 skills/cgu-presentations/scripts/run.py doctor --backend portable
-python3 skills/cgu-presentations/scripts/run.py demo --backend portable --no-render --out work/demo-01
-```
+Можно поручить установку агенту:
 
-Для этого теста нужен только Python 3.9+. Для PDF и PNG уберите `--no-render` и установите LibreOffice и Poppler. В Codex используется bundled рендерер. `doctor` показывает найденные пути; выбор движка описан в [инструкции сборщика](skills/cgu-presentations/references/builder.md).
+> Установи cgu-presentations из https://github.com/TnockTnock/CHU_presentantion_skill, папка skills/cgu-presentations, в текущий проект для моего агента. Прочитай references/user-guide.md, проверь Python и собери демо через portable без рендеринга. Покажи пути к установленному скиллу и PPTX.
 
-Демонстрация содержит 7 слайдов: обложку, 4 карточки, KPI, процесс, архитектурную схему, нативный график и таблицу. Данные явно помечены как демонстрационные. Для проверки обычного текста и нулевых/отрицательных значений есть `examples/edge-cases.json` внутри скилла.
+После установки:
 
-## Работа со своими материалами
+> Используй cgu-presentations. По приложенному отчёту подготовь 8 слайдов для руководства ДИТ: результаты, показатели, проблемы и следующие шаги. Используй наш шаблон и редактируемые схемы. Не придумывай отсутствующие факты. Сохрани новую версию отдельно, проверь слайды и выдай PPTX со сценарием.
 
-Вызов установленного скилла в Codex:
+## Нужный раздел
 
-> Используй $cgu-presentations. Подготовь презентацию на 8 слайдов для руководства ДИТ по приложенному отчёту. Используй наш шаблон, Golos Text и редактируемые схемы.
+| Задача | Инструкция |
+|---|---|
+| Установить в Claude Code, Cursor, Gemini CLI, Copilot или Codex | [Выбор агента и команды](skills/cgu-presentations/references/user-guide.md#установка-в-вашего-агента) |
+| Работать через веб-чат или другого агента | [Возможности ограниченной среды](skills/cgu-presentations/references/user-guide.md#веб-чаты-и-агенты-без-поддержки-скиллов) |
+| Сделать презентацию из отчёта или схему | [Примеры запросов](skills/cgu-presentations/references/user-guide.md#создание-своей-презентации) |
+| Найти файлы и внести правки | [Результаты и версии](skills/cgu-presentations/references/user-guide.md#где-результат-и-как-его-изменить) |
+| Настроить PDF, превью и шрифты | [Настройка экспорта](skills/cgu-presentations/references/user-guide.md#pdf-превью-и-шрифты) |
+| Обновить скилл или передать коллеге | [Обновление и ZIP](skills/cgu-presentations/references/user-guide.md#обновление-и-перенос) |
+| Разобраться с ошибкой | [Устранение неполадок](skills/cgu-presentations/references/user-guide.md#если-что-то-не-работает) |
 
-Агент изучает материал, создаёт структуру и JSON по [контракту](skills/cgu-presentations/references/builder.md), запускает сборщик и просматривает каждый слайд. Сам CLI не извлекает смысл из произвольного отчёта: его вход — подготовленная спецификация.
+## Что проверено
 
-```bash
-python3 skills/cgu-presentations/scripts/run.py build deck.json --out work/my-deck-01
-```
+Portable-сборка и автоматические тесты прошли на Windows, Linux и macOS. Визуально проверен 21 слайд на macOS. [Протокол проверки](docs/portable-validation.md) · [CI](https://github.com/TnockTnock/CHU_presentantion_skill/actions/runs/36122590598).
 
-Каждый запуск использует новую папку. Итоговые файлы в `output/`, проверка в `qa/`, картинки в `preview/`. Каталог `work/` исключён из Git. Для реальных презентаций не включайте `demo: true`; источники обязательны.
+Каждый клиент и каждая модель отдельно не тестировались. Скилл не гарантирует одинаковое качество содержания у всех моделей. Для полноценной сборки агенту нужны файлы и выполнение команд; текстовый чат может подготовить только содержание и инструкции. Ручная проверка редактирования в Microsoft PowerPoint пока не проводилась.
 
-## Установка и обновление
+## Устройство пакета и развитие
 
-Попросите Codex: «Установи скилл из TnockTnock/CHU_presentantion_skill, путь skills/cgu-presentations». Стандартный skill-installer устанавливает отдельную копию в пользовательскую папку скиллов. Она будет доступна со следующего сообщения. Правки локального репозитория не обновляют установленную копию автоматически: после обновления кода синхронизируйте её и проверьте совпадение файлов.
+`skills/cgu-presentations/` содержит весь распространяемый скилл. `SKILL.md` — инструкции агенту; `references/` — руководство и правила; `assets/` — шаблоны и шрифты; `design-system/` — параметры оформления и макеты; `examples/` — нейтральные примеры; `scripts/` — сборщик и установщик. `tests/` и `docs/` в корне репозитория предназначены для разработки и фиксации проверок.
 
-Для разработки можно прямо указать агенту локальный `skills/cgu-presentations/SKILL.md` без установки. GitHub и локальный репозиторий синхронизируются через Git: `git pull --ff-only`, ветка `codex/<задача>`, тесты, commit и push. Рабочая версия скилла находится здесь, а не в старом архиве рядом с репозиторием.
+Технические материалы: [формат сборщика](skills/cgu-presentations/references/builder.md), [совместимость](skills/cgu-presentations/references/portability.md), [библиотека референсов](skills/cgu-presentations/references/library.md), [структура проекта](skills/cgu-presentations/references/project-contract.md).
 
-## Возможности и границы
+Из корня репозитория разработчик может запустить `python3 -m unittest discover -s tests -v`. Изменения репозитория не обновляют установленную копию автоматически: используйте установщик с `--replace`.
 
-- Автоматическая сборка 12 типов: cover, cards, kpi, text, process, diagram, chart, table, kpi_grid, comparison, roadmap, text_blocks (6 вариантов).
-- Используются проверенные страницы 6, 8, 14, 15 короткого шаблона, исходные логотипы и размер 1440×810 pt. SHA-256 защищает адаптер от незаметной смены шаблона.
-- Полный шаблон на 82 страницы сохранён как дополнительная библиотека. Автоматическое заполнение всех его макетов пока не поддерживается.
-- Генераторы изображений не требуются для базовой сборки. Иллюстрации и дополнительные макеты добавляются агентом отдельным расширением, с проверкой.
-- Текст измеряется перед экспортом. Схемы содержат связанные фигуры и стрелки. Графики содержат данные и workbook snapshot; таблицы остаются нативными.
-- Шрифты PPTX не встроены. Для редактирования нужны Golos Text Regular/SemiBold/Bold из пакета. Для просмотра на другом компьютере используйте проверенный PDF.
-- Структурная и визуальная проверка не равна ручному тесту редактирования в Microsoft PowerPoint. Такой тест ещё не проводился.
-
-## Состав
-
-`skills/cgu-presentations/` содержит точку входа SKILL.md, правила, шаблоны, шрифты, примеры JSON и скрипты. `tests/` — автономные Python-тесты. `docs/validation.md` — запись проведённой проверки без пользовательских материалов.
-
-Лицензия Golos Text находится рядом со шрифтами. Корпоративные шаблоны и логотипы не объявляются свободно лицензированными этим репозиторием; условия использования определяет правообладатель.
-
-## Библиотека референсов
-
-[Правила библиотеки](skills/cgu-presentations/references/library.md) описывают локальный каталог и переносимые композиции. `design-system/layouts.json` хранит исполняемые привязки; `tokens.json` — параметры оформления; `reference-patterns.json` — 16 отобранных семейств композиций без внутренних данных.
-
-Новые макеты и подписи связей: `python3 skills/cgu-presentations/scripts/run.py build skills/cgu-presentations/examples/library-demo.json --out work/library-demo`. Исходные презентации, извлечённый текст и их превью остаются в игнорируемом `work/` либо вне репозитория. Персональный `skills/cgu-presentations/local/reference-library.json` также исключён из Git.
-
-## Текстовые шаблоны
-
-[Шесть композиций и правила выбора](skills/cgu-presentations/references/text-blocks.md) · [PPTX](skills/cgu-presentations/assets/library/text-blocks.pptx) · [PDF](skills/cgu-presentations/assets/library/text-blocks.pdf)
-
-Заголовки — SemiBold 600, цифры — Bold 700, основной текст — Regular 400. В переносимых шаблонах только нейтральные тексты и вымышленные показатели. Сборка всех вариантов:
-
-```bash
-python3 skills/cgu-presentations/scripts/run.py build skills/cgu-presentations/examples/text-blocks-demo.json --out work/text-blocks
-```
+Реальные отчёты и личная библиотека не входят в распространяемый ZIP. Корпоративные шаблоны и логотипы используются по условиям правообладателя; лицензия Golos Text поставляется вместе со шрифтами.
