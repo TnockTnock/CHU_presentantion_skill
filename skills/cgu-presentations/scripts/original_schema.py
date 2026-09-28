@@ -1,6 +1,7 @@
 """Generate per-adapter JSON Schema definitions from the original registry."""
 import json
 from original_template import load,SKILL
+from original_style import effective_slot
 
 def generate():
     string={'type':'string','minLength':1};image={'type':'object','additionalProperties':False,'required':['path','sha256','alt'],'properties':{'path':string,'alt':string,'sha256':{'type':'string','pattern':'^[0-9a-f]{64}$'}}}
@@ -9,7 +10,8 @@ def generate():
     defs={}
     for r in load()['slides'][5:]:
         props={}
-        for s in r['slots']:
+        for source_slot in r['slots']:
+            s=effective_slot(r,source_slot)
             if not s['editable']:continue
             props[s['id']]= image if s['role']=='image' else chart if s['role']=='chart' else table if s['role']=='table' else dict(string,maxLength=s['max_chars'])
         defs[r['id']]={'type':'object','additionalProperties':False,'required':['id','layout_id','takeaway','fields'],'properties':{'id':string,'layout_id':{'const':r['id']},'takeaway':string,'notes':{'type':'string'},'source_ids':{'type':'array','items':string},'repeat_reason':string,'fields':{'type':'object','additionalProperties':False,'required':[s['id'] for s in r['slots'] if s['required']],'properties':props}}}

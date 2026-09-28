@@ -62,7 +62,8 @@ def validate(deck,base=Path('.')):
         if not isinstance(values,dict) or set(values)-set(slots):raise ValueError('Unknown or protected slot')
         if any(s['required'] and s['id'] not in values for s in slots.values()):raise ValueError('Missing required original placeholder')
         for key,value in values.items():
-            s=slots[key];role=s['role'];box=s['box_pt']
+            from original_style import effective_slot
+            s=effective_slot(r,slots[key]);role=s['role'];box=s['box_pt']
             if role=='image':
                 if not isinstance(value,dict) or set(value)!={'path','sha256','alt'}:raise ValueError('Image needs path, sha256, alt')
                 p=Path(base)/value['path']
@@ -88,7 +89,9 @@ def validate(deck,base=Path('.')):
 
 
 def set_text(shape,chain,slot,value):
-    size,rpr,body,ppr=properties(chain,slot['role']);old=shape.find('p:txBody',NS)
+    size,rpr,body,ppr=properties(chain,slot['role']);size=slot['font_pt']
+    for k,v in zip(('lIns','rIns','tIns','bIns'),slot.get('text_insets_pt',[])):body.set(k,str(round(v*12700)))
+    old=shape.find('p:txBody',NS)
     if old is not None:shape.remove(old)
     tx=el('p:txBody',shape)
     tx.append(body if body is not None else el('a:bodyPr'))
@@ -100,6 +103,10 @@ def set_text(shape,chain,slot,value):
         run=el('a:r',p);rp=copy.deepcopy(rpr) if rpr is not None else el('a:rPr');rp.tag=tag('a:rPr');rp.set('sz',str(round(size*100)));rp.set('b','0')
         for e in list(rp):
             if e.tag in [tag('a:latin'),tag('a:ea'),tag('a:cs')]:rp.remove(e)
+        if slot.get('font_color'):
+            for c in list(rp):
+                if c.tag in (tag('a:solidFill'),tag('a:gradFill')):rp.remove(c)
+            el('a:srgbClr',el('a:solidFill',rp),val=slot['font_color'])
         for typ in ('latin','ea','cs'):el('a:'+typ,rp,typeface='Golos Text SemiBold' if slot['role'] in ('title','heading','value') else 'Golos Text')
         run.append(rp);el('a:t',run).text=line
     transform(tx)
@@ -128,6 +135,9 @@ def build(deck,destination,base=Path('.'),raw=False):
         def content(part,mime):el('ct:Override',ct,PartName='/'+part,ContentType='application/vnd.openxmlformats-officedocument.'+mime)
         for i,d in enumerate(deck['slides'],1):
             r=cat[d['layout_id']];lp,mp,tp,roots=resolved(z,r['slide_part']);root=roots[0];tree=root.find('p:cSld/p:spTree',NS);maps=[shapes(x) for x in roots]
+            if not raw:
+                from original_style import prepare
+                prepare(root,maps,r,d.get('fields',{}))
             part=f'ppt/slides/original{i}.xml';rels=ET.fromstring(parts[posixpath.join(posixpath.dirname(r['slide_part']),'_rels',posixpath.basename(r['slide_part'])+'.rels')])
             for rel in list(rels):
                 if rel.get('Type','').endswith(('/notesSlide','/slide')):rels.remove(rel)
@@ -151,7 +161,9 @@ def build(deck,destination,base=Path('.'),raw=False):
                 for rel in rels:
                     if rel.get('Type','').endswith('/slideLayout'):rel.set('Target','../slideLayouts/'+posixpath.basename(newlp))
                 masterrid='rIdOriginalMaster'+str(i);el('rel:Relationship',prels,Id=masterrid,Type=NS['r']+'/slideMaster',Target='slideMasters/'+posixpath.basename(newmp));el('p:sldMasterId',pres.find('p:sldMasterIdLst',NS),id=2147484000+i,**{tag('r:id'):masterrid})
-            for slot in r['slots']:
+            for source_slot in r['slots']:
+                from original_style import effective_slot
+                slot=effective_slot(r,source_slot) if not raw else source_slot
                 if slot['idx'] is None:continue
                 key=slot['id']
                 if key not in d.get('fields',{}):continue
@@ -186,6 +198,9 @@ def build(deck,destination,base=Path('.'),raw=False):
                 # Retain placeholder identity even after conversion to native pic/frame.
                 nv=obj.find('p:nvPicPr/p:nvPr' if role=='image' else 'p:nvGraphicFramePr/p:nvPr',NS);nv.append(copy.deepcopy(shape.find('.//p:ph',NS)))
                 if role!='table':el('rel:Relationship',rels,Id=rid,Type=NS['r']+'/'+kind,Target=dest)
+            if not raw:
+                from original_style import finish
+                finish(root,r,d.get('fields',{}),metrics)
             parts[part]=xml(root);parts['ppt/slides/_rels/'+posixpath.basename(part)+'.rels']=xml(rels);content(part,'presentationml.slide+xml')
             rid='rIdOriginalSlide'+str(i);el('rel:Relationship',prels,Id=rid,Type=NS['r']+'/slide',Target='slides/'+posixpath.basename(part));el('p:sldId',lst,id=1000+i,**{tag('r:id'):rid})
         parts['ppt/presentation.xml']=xml(pres);parts['ppt/_rels/presentation.xml.rels']=xml(prels)
@@ -212,6 +227,9 @@ def verify(deck,pptx,raw=False):
             r=cat[d['layout_id']]
             if next(v['target'] for v in s['relationships'].values() if v['type']=='slideLayout')!=r['layout_part'] and not any(slot['idx'] is None for slot in r['slots']):errors.append(d['id']+': wrong layout')
             root=ET.fromstring(out.read(s['part']));actual=shapes(root)
+            if not raw:
+                from original_style import verify_style
+                errors.extend(d['id']+': '+e for e in verify_style(root,r))
             for slot in r['slots']:
                 if slot['id'] not in d.get('fields',{}):continue
                 value=d['fields'][slot['id']];role=slot['role']

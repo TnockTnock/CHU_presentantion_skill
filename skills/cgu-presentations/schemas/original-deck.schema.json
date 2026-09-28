@@ -824,12 +824,12 @@
             "ph-0": {
               "type": "string",
               "minLength": 1,
-              "maxLength": 16
+              "maxLength": 36
             },
             "ph-11": {
               "type": "string",
               "minLength": 1,
-              "maxLength": 88
+              "maxLength": 90
             },
             "ph-14": {
               "type": "object",
@@ -1339,29 +1339,6 @@
               "minLength": 1,
               "maxLength": 29
             },
-            "ph-34": {
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "path",
-                "sha256",
-                "alt"
-              ],
-              "properties": {
-                "path": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "alt": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "sha256": {
-                  "type": "string",
-                  "pattern": "^[0-9a-f]{64}$"
-                }
-              }
-            },
             "ph-11": {
               "type": "string",
               "minLength": 1,
@@ -1376,29 +1353,6 @@
               "type": "string",
               "minLength": 1,
               "maxLength": 300
-            },
-            "ph-35": {
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "path",
-                "sha256",
-                "alt"
-              ],
-              "properties": {
-                "path": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "alt": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "sha256": {
-                  "type": "string",
-                  "pattern": "^[0-9a-f]{64}$"
-                }
-              }
             },
             "ph-36": {
               "type": "string",
@@ -1415,29 +1369,6 @@
               "minLength": 1,
               "maxLength": 300
             },
-            "ph-39": {
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "path",
-                "sha256",
-                "alt"
-              ],
-              "properties": {
-                "path": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "alt": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "sha256": {
-                  "type": "string",
-                  "pattern": "^[0-9a-f]{64}$"
-                }
-              }
-            },
             "ph-40": {
               "type": "string",
               "minLength": 1,
@@ -1452,29 +1383,6 @@
               "type": "string",
               "minLength": 1,
               "maxLength": 300
-            },
-            "ph-43": {
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "path",
-                "sha256",
-                "alt"
-              ],
-              "properties": {
-                "path": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "alt": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "sha256": {
-                  "type": "string",
-                  "pattern": "^[0-9a-f]{64}$"
-                }
-              }
             },
             "ph-44": {
               "type": "string",

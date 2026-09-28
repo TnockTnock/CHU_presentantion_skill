@@ -50,6 +50,26 @@ class OriginalTests(unittest.TestCase):
             for n in charts:
                 root=ET.fromstring(z.read(n));self.assertTrue(root.findall('.//{http://schemas.openxmlformats.org/drawingml/2006/chart}numCache'))
             for i in [61,62]:self.assertTrue(ET.fromstring(z.read(f'ppt/slides/original{i}.xml')).findall('.//a:tbl',NS))
+    def test_reviewed_cards_are_native_rounded_surfaces(self):
+        from original_style import verify_style
+        record=load()['slides'][15]
+        with ZipFile(self.out) as z:root=ET.fromstring(z.read('ppt/slides/original11.xml'))
+        self.assertEqual(verify_style(root,record),[])
+        cards=[s for s in root.findall('p:cSld/p:spTree/p:sp',NS) if s.find('p:nvSpPr/p:cNvPr',NS).get('name','').startswith('original-surface-ph-')]
+        self.assertEqual(len(cards),4)
+        cards[0].find('p:spPr/a:prstGeom',NS).set('prst','rect')
+        self.assertTrue(verify_style(root,record))
+    def test_surface_is_not_an_image_input_and_step_is_not_metric(self):
+        d=copy.deepcopy(self.deck)
+        d['slides'][10]['fields']['ph-34']={'path':'unused','sha256':'0'*64,'alt':'image'}
+        with self.assertRaises(ValueError):validate(d,SKILL/'examples')
+        self.assertEqual(load()['slides'][17]['intent'],'sequence')
+    def test_step_numbers_follow_text_group(self):
+        with ZipFile(self.out) as z:root=ET.fromstring(z.read('ppt/slides/original13.xml'))
+        numbers=[s for s in root.findall('p:cSld/p:spTree/p:sp',NS) if s.find('.//p:ph',NS) is not None and s.find('.//p:ph',NS).get('idx') in ('14','17','20')]
+        ys=[int(s.find('p:spPr/a:xfrm/a:off',NS).get('y'))/12700 for s in numbers]
+        self.assertEqual(len(set(ys)),1)
+        self.assertLess(ys[0],487)
     def test_photo_crop_and_source_mask(self):
         with ZipFile(self.out) as z:
             root=ET.fromstring(z.read('ppt/slides/original1.xml'))
@@ -110,10 +130,23 @@ class OriginalVisualTests(unittest.TestCase):
     def test_independent_diverse_render_against_filled_baseline(self):
         import os
         from original_cli import compare_images
-        base=Path(os.environ['CGU_ORIGINAL_RENDER_ROOT'])
+        base=Path(os.environ.get('CGU_ORIGINAL_FILLED_ROOT',os.environ['CGU_ORIGINAL_RENDER_ROOT']))
         deck=json.loads((SKILL/'examples/original-diverse.json').read_text())
         self.assertEqual(len(deck['slides']),18)
         for i,slide in enumerate(deck['slides'],1):
             source=int(slide['layout_id'].split('-')[1])-5
             with self.subTest(layout=slide['layout_id']):
                 self.assertTrue(compare_images(SKILL/f'assets/catalog/original/examples/slide-{source:02d}.png',base/f'diverse-control/output/preview/slide-{i:02d}.png')['passed'])
+
+    @unittest.skipUnless(__import__('os').environ.get('CGU_ORIGINAL_FILLED_ROOT'),'Updated style render fixtures are opt-in')
+    def test_reviewed_four_and_visible_round_corners(self):
+        import os
+        from PIL import Image
+        from original_cli import compare_images
+        base=Path(os.environ['CGU_ORIGINAL_FILLED_ROOT'])
+        for i,number in enumerate([7,9,11,13],1):
+            self.assertTrue(compare_images(base/f'review-final/output/preview/slide-{i}.png',base/f'all-77/output/preview/slide-{number:02d}.png')['passed'])
+        im=Image.open(base/'review-final/output/preview/slide-3.png').convert('RGB')
+        # The top-left bounding-box corner is gray background, the card center white.
+        self.assertEqual(im.getpixel((76,196)),im.getpixel((50,196)))
+        self.assertEqual(im.getpixel((200,205)),(255,255,255))

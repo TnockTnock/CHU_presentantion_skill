@@ -1041,11 +1041,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [
         "original-07"
@@ -1055,10 +1055,11 @@
         "fixture_slide": 1,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-07",
@@ -1354,11 +1355,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [
         "original-06"
@@ -1368,10 +1369,11 @@
         "fixture_slide": 2,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-08",
@@ -1817,11 +1819,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -1829,10 +1831,11 @@
         "fixture_slide": 3,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-09",
@@ -2127,11 +2130,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -2139,10 +2142,11 @@
         "fixture_slide": 4,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-10",
@@ -2407,11 +2411,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -2419,10 +2423,11 @@
         "fixture_slide": 5,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-11",
@@ -2687,11 +2692,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -2699,10 +2704,11 @@
         "fixture_slide": 6,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-12",
@@ -2997,11 +3003,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -3009,9 +3015,33 @@
         "fixture_slide": 7,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
-        "capacity_boundaries": "not-exhaustively-tested"
+        "capacity_boundaries": "not-exhaustively-tested",
+        "filled_full_size_review": "reviewed-after-figma-comparison"
+      },
+      "visual_status": "agent-reviewed-revision-awaiting-user",
+      "presentation_overrides": {
+        "ph-0": {
+          "box_pt": [
+            126.341,
+            379.189,
+            646.2,
+            132
+          ],
+          "font_pt": 66,
+          "max_chars": 36
+        },
+        "ph-11": {
+          "box_pt": [
+            126.341,
+            522.814,
+            646.2,
+            72
+          ],
+          "font_pt": 24,
+          "max_chars": 90
+        }
       }
     },
     {
@@ -3308,11 +3338,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -3320,10 +3350,11 @@
         "fixture_slide": 8,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-14",
@@ -3677,11 +3708,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -3689,9 +3720,89 @@
         "fixture_slide": 9,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
-        "capacity_boundaries": "not-exhaustively-tested"
+        "capacity_boundaries": "not-exhaustively-tested",
+        "filled_full_size_review": "reviewed-after-figma-comparison"
+      },
+      "visual_status": "agent-reviewed-revision-awaiting-user",
+      "presentation_overrides": {
+        "ph-62": {
+          "box_pt": [
+            75,
+            195,
+            636,
+            390
+          ]
+        },
+        "ph-65": {
+          "box_pt": [
+            729,
+            195,
+            636,
+            390
+          ]
+        },
+        "ph-63": {
+          "box_pt": [
+            75,
+            609,
+            636,
+            36
+          ],
+          "font_pt": 24,
+          "text_insets_pt": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "ph-64": {
+          "box_pt": [
+            75,
+            657,
+            636,
+            72
+          ],
+          "font_pt": 18,
+          "text_insets_pt": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "ph-72": {
+          "box_pt": [
+            729,
+            609,
+            636,
+            36
+          ],
+          "font_pt": 24,
+          "text_insets_pt": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "ph-73": {
+          "box_pt": [
+            729,
+            657,
+            636,
+            72
+          ],
+          "font_pt": 18,
+          "text_insets_pt": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
       }
     },
     {
@@ -4348,11 +4459,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -4360,10 +4471,11 @@
         "fixture_slide": 10,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-16",
@@ -4415,7 +4527,7 @@
           "id": "ph-34",
           "idx": "34",
           "shape_id": "3",
-          "role": "image",
+          "role": "protected",
           "placeholder_type": "pic",
           "required": false,
           "prompt": "",
@@ -4435,7 +4547,7 @@
           ],
           "max_chars": 13992,
           "max_lines_estimate": 53,
-          "editable": true,
+          "editable": false,
           "source_chain": [
             "ppt/slides/slide16.xml",
             "ppt/slideLayouts/slideLayout10.xml"
@@ -4535,7 +4647,7 @@
           "id": "ph-35",
           "idx": "35",
           "shape_id": "7",
-          "role": "image",
+          "role": "protected",
           "placeholder_type": "pic",
           "required": false,
           "prompt": "",
@@ -4555,7 +4667,7 @@
           ],
           "max_chars": 13992,
           "max_lines_estimate": 53,
-          "editable": true,
+          "editable": false,
           "source_chain": [
             "ppt/slides/slide16.xml",
             "ppt/slideLayouts/slideLayout10.xml"
@@ -4655,7 +4767,7 @@
           "id": "ph-39",
           "idx": "39",
           "shape_id": "11",
-          "role": "image",
+          "role": "protected",
           "placeholder_type": "pic",
           "required": false,
           "prompt": "",
@@ -4675,7 +4787,7 @@
           ],
           "max_chars": 13992,
           "max_lines_estimate": 53,
-          "editable": true,
+          "editable": false,
           "source_chain": [
             "ppt/slides/slide16.xml",
             "ppt/slideLayouts/slideLayout10.xml"
@@ -4775,7 +4887,7 @@
           "id": "ph-43",
           "idx": "43",
           "shape_id": "15",
-          "role": "image",
+          "role": "protected",
           "placeholder_type": "pic",
           "required": false,
           "prompt": "",
@@ -4795,7 +4907,7 @@
           ],
           "max_chars": 13992,
           "max_lines_estimate": 53,
-          "editable": true,
+          "editable": false,
           "source_chain": [
             "ppt/slides/slide16.xml",
             "ppt/slideLayouts/slideLayout10.xml"
@@ -4992,7 +5104,7 @@
         "heading": 4,
         "body": 4,
         "value": 4,
-        "image": 4,
+        "image": 0,
         "table": 0,
         "chart": 0
       },
@@ -5019,11 +5131,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -5031,9 +5143,225 @@
         "fixture_slide": 11,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
-        "capacity_boundaries": "not-exhaustively-tested"
+        "capacity_boundaries": "not-exhaustively-tested",
+        "filled_full_size_review": "reviewed-after-figma-comparison"
+      },
+      "visual_status": "agent-reviewed-revision-awaiting-user",
+      "presentation_overrides": {
+        "ph-34": {
+          "box_pt": [
+            75,
+            195,
+            636,
+            247.5
+          ]
+        },
+        "ph-11": {
+          "box_pt": [
+            108,
+            283.5,
+            563.25,
+            32
+          ],
+          "font_pt": 24,
+          "text_insets_pt": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "ph-12": {
+          "box_pt": [
+            108,
+            228,
+            36,
+            36
+          ],
+          "font_pt": 19.5,
+          "text_insets_pt": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "ph-22": {
+          "box_pt": [
+            108,
+            319.5,
+            563.25,
+            98
+          ],
+          "font_pt": 16.5,
+          "text_insets_pt": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "ph-35": {
+          "box_pt": [
+            729,
+            195,
+            636,
+            247.5
+          ]
+        },
+        "ph-36": {
+          "box_pt": [
+            762,
+            283.5,
+            563.25,
+            32
+          ],
+          "font_pt": 24,
+          "text_insets_pt": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "ph-37": {
+          "box_pt": [
+            762,
+            228,
+            36,
+            36
+          ],
+          "font_pt": 19.5,
+          "text_insets_pt": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "ph-38": {
+          "box_pt": [
+            762,
+            319.5,
+            563.25,
+            98
+          ],
+          "font_pt": 16.5,
+          "text_insets_pt": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "ph-39": {
+          "box_pt": [
+            75,
+            460.5,
+            636,
+            247.5
+          ]
+        },
+        "ph-40": {
+          "box_pt": [
+            108,
+            549.0,
+            563.25,
+            32
+          ],
+          "font_pt": 24,
+          "text_insets_pt": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "ph-41": {
+          "box_pt": [
+            108,
+            493.5,
+            36,
+            36
+          ],
+          "font_pt": 19.5,
+          "text_insets_pt": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "ph-42": {
+          "box_pt": [
+            108,
+            585.0,
+            563.25,
+            98
+          ],
+          "font_pt": 16.5,
+          "text_insets_pt": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "ph-43": {
+          "box_pt": [
+            729,
+            460.5,
+            636,
+            247.5
+          ]
+        },
+        "ph-44": {
+          "box_pt": [
+            762,
+            549.0,
+            563.25,
+            32
+          ],
+          "font_pt": 24,
+          "text_insets_pt": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "ph-45": {
+          "box_pt": [
+            762,
+            493.5,
+            36,
+            36
+          ],
+          "font_pt": 19.5,
+          "text_insets_pt": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "ph-46": {
+          "box_pt": [
+            762,
+            585.0,
+            563.25,
+            98
+          ],
+          "font_pt": 16.5,
+          "text_insets_pt": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
       }
     },
     {
@@ -5420,11 +5748,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -5432,21 +5760,22 @@
         "fixture_slide": 12,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-18",
       "source_slide": 18,
       "classification": "candidate",
       "name": "3 в ряд",
-      "family": "metrics",
-      "family_label": "Показатели",
-      "intent": "metrics",
+      "family": "stages",
+      "family_label": "Этапы",
+      "intent": "sequence",
       "purpose": "3 в ряд",
-      "selection": "Показатели: выбирайте по содержанию и вместимости полей; вариант «3 в ряд» сохраняет исходную геометрию.",
+      "selection": "Три последовательных этапа с заголовками, пояснениями и порядковыми номерами; не выбирать как KPI автоматически.",
       "slide_part": "ppt/slides/slide18.xml",
       "layout_part": "ppt/slideLayouts/slideLayout12.xml",
       "master_part": "ppt/slideMasters/slideMaster2.xml",
@@ -5881,11 +6210,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -5893,9 +6222,151 @@
         "fixture_slide": 13,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
-        "capacity_boundaries": "not-exhaustively-tested"
+        "capacity_boundaries": "not-exhaustively-tested",
+        "filled_full_size_review": "reviewed-after-figma-comparison"
+      },
+      "visual_status": "agent-reviewed-revision-awaiting-user",
+      "presentation_overrides": {
+        "ph-11": {
+          "box_pt": [
+            75,
+            198.75,
+            417.75,
+            36
+          ],
+          "font_pt": 24,
+          "text_insets_pt": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "ph-14": {
+          "box_pt": [
+            75,
+            487,
+            417.75,
+            90
+          ],
+          "font_pt": 76.5,
+          "font_color": "F00938",
+          "text_insets_pt": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "ph-16": {
+          "box_pt": [
+            510.75,
+            198.75,
+            417.75,
+            36
+          ],
+          "font_pt": 24,
+          "text_insets_pt": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "ph-17": {
+          "box_pt": [
+            510.75,
+            487,
+            417.75,
+            90
+          ],
+          "font_pt": 76.5,
+          "font_color": "F00938",
+          "text_insets_pt": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "ph-19": {
+          "box_pt": [
+            946.5,
+            198.75,
+            417.75,
+            36
+          ],
+          "font_pt": 24,
+          "text_insets_pt": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "ph-20": {
+          "box_pt": [
+            946.5,
+            487,
+            417.75,
+            90
+          ],
+          "font_pt": 76.5,
+          "font_color": "F00938",
+          "text_insets_pt": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "ph-22": {
+          "box_pt": [
+            75,
+            247,
+            417.75,
+            210
+          ],
+          "font_pt": 16.5,
+          "text_insets_pt": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "ph-23": {
+          "box_pt": [
+            510.75,
+            247,
+            417.75,
+            210
+          ],
+          "font_pt": 16.5,
+          "text_insets_pt": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "ph-24": {
+          "box_pt": [
+            946.5,
+            247,
+            417.75,
+            210
+          ],
+          "font_pt": 16.5,
+          "text_insets_pt": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
       }
     },
     {
@@ -6552,11 +7023,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -6564,10 +7035,11 @@
         "fixture_slide": 14,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-20",
@@ -7403,11 +7875,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -7415,10 +7887,11 @@
         "fixture_slide": 15,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-21",
@@ -8314,11 +8787,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -8326,10 +8799,11 @@
         "fixture_slide": 16,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-22",
@@ -9255,11 +9729,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -9267,10 +9741,11 @@
         "fixture_slide": 17,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-23",
@@ -10165,11 +10640,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -10177,10 +10652,11 @@
         "fixture_slide": 18,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-24",
@@ -10957,11 +11433,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -10969,10 +11445,11 @@
         "fixture_slide": 19,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-25",
@@ -11901,11 +12378,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -11913,10 +12390,11 @@
         "fixture_slide": 20,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-26",
@@ -13114,11 +13592,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -13126,10 +13604,11 @@
         "fixture_slide": 21,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-27",
@@ -14804,11 +15283,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -14816,10 +15295,11 @@
         "fixture_slide": 22,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-28",
@@ -16194,11 +16674,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -16206,10 +16686,11 @@
         "fixture_slide": 23,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-29",
@@ -17284,11 +17765,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -17296,10 +17777,11 @@
         "fixture_slide": 24,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-30",
@@ -18104,11 +18586,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -18116,10 +18598,11 @@
         "fixture_slide": 25,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-31",
@@ -18954,11 +19437,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -18966,10 +19449,11 @@
         "fixture_slide": 26,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-32",
@@ -20044,11 +20528,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -20056,10 +20540,11 @@
         "fixture_slide": 27,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-33",
@@ -20445,11 +20930,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -20457,10 +20942,11 @@
         "fixture_slide": 28,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-34",
@@ -20755,11 +21241,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -20767,10 +21253,11 @@
         "fixture_slide": 29,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-35",
@@ -21635,11 +22122,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -21647,10 +22134,11 @@
         "fixture_slide": 30,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-36",
@@ -22666,11 +23154,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -22678,10 +23166,11 @@
         "fixture_slide": 31,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-37",
@@ -23247,11 +23736,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -23259,10 +23748,11 @@
         "fixture_slide": 32,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-38",
@@ -23647,11 +24137,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -23659,10 +24149,11 @@
         "fixture_slide": 33,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-39",
@@ -24198,11 +24689,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -24210,10 +24701,11 @@
         "fixture_slide": 34,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-40",
@@ -24599,11 +25091,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -24611,10 +25103,11 @@
         "fixture_slide": 35,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-41",
@@ -25150,11 +25643,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -25162,10 +25655,11 @@
         "fixture_slide": 36,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-42",
@@ -25762,11 +26256,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -25774,10 +26268,11 @@
         "fixture_slide": 37,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-43",
@@ -27274,11 +27769,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -27286,10 +27781,11 @@
         "fixture_slide": 38,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-44",
@@ -28066,11 +28562,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -28078,10 +28574,11 @@
         "fixture_slide": 39,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-45",
@@ -29367,11 +29864,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -29379,10 +29876,11 @@
         "fixture_slide": 40,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-46",
@@ -29797,11 +30295,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -29809,10 +30307,11 @@
         "fixture_slide": 41,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-47",
@@ -30347,11 +30846,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -30359,10 +30858,11 @@
         "fixture_slide": 42,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-48",
@@ -30897,11 +31397,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -30909,10 +31409,11 @@
         "fixture_slide": 43,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-49",
@@ -31448,11 +31949,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -31460,10 +31961,11 @@
         "fixture_slide": 44,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-50",
@@ -31909,11 +32411,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -31921,10 +32423,11 @@
         "fixture_slide": 45,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-51",
@@ -32581,11 +33084,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -32593,10 +33096,11 @@
         "fixture_slide": 46,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-52",
@@ -33283,11 +33787,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -33295,10 +33799,11 @@
         "fixture_slide": 47,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-53",
@@ -33774,11 +34279,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -33786,10 +34291,11 @@
         "fixture_slide": 48,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-54",
@@ -34444,11 +34950,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -34456,10 +34962,11 @@
         "fixture_slide": 49,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-55",
@@ -34694,11 +35201,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -34706,10 +35213,11 @@
         "fixture_slide": 50,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-56",
@@ -34883,11 +35391,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -34895,10 +35403,11 @@
         "fixture_slide": 51,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-57",
@@ -35944,11 +36453,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -35956,10 +36465,11 @@
         "fixture_slide": 52,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-58",
@@ -36975,11 +37485,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -36987,10 +37497,11 @@
         "fixture_slide": 53,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-59",
@@ -37435,11 +37946,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -37447,10 +37958,11 @@
         "fixture_slide": 54,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-60",
@@ -38346,11 +38858,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -38358,10 +38870,11 @@
         "fixture_slide": 55,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-61",
@@ -39197,11 +39710,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -39209,10 +39722,11 @@
         "fixture_slide": 56,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-62",
@@ -39988,11 +40502,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -40000,10 +40514,11 @@
         "fixture_slide": 57,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-63",
@@ -40749,11 +41264,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -40761,10 +41276,11 @@
         "fixture_slide": 58,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-64",
@@ -41392,11 +41908,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -41404,10 +41920,11 @@
         "fixture_slide": 59,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-65",
@@ -42005,11 +42522,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -42017,10 +42534,11 @@
         "fixture_slide": 60,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-66",
@@ -42225,11 +42743,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -42237,10 +42755,11 @@
         "fixture_slide": 61,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-67",
@@ -42535,11 +43054,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -42547,10 +43066,11 @@
         "fixture_slide": 62,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-68",
@@ -42909,11 +43429,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -42921,10 +43441,11 @@
         "fixture_slide": 63,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-69",
@@ -43463,11 +43984,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -43475,10 +43996,11 @@
         "fixture_slide": 64,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-70",
@@ -43834,11 +44356,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -43846,10 +44368,11 @@
         "fixture_slide": 65,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-71",
@@ -44054,11 +44577,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -44066,10 +44589,11 @@
         "fixture_slide": 66,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-72",
@@ -44275,11 +44799,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -44287,10 +44811,11 @@
         "fixture_slide": 67,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-73",
@@ -44435,11 +44960,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -44447,10 +44972,11 @@
         "fixture_slide": 68,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-74",
@@ -45611,11 +46137,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -45623,10 +46149,11 @@
         "fixture_slide": 69,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-75",
@@ -46796,11 +47323,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -46808,10 +47335,11 @@
         "fixture_slide": 70,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-76",
@@ -48188,11 +48716,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -48200,10 +48728,11 @@
         "fixture_slide": 71,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-77",
@@ -49340,11 +49869,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -49352,10 +49881,11 @@
         "fixture_slide": 72,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-78",
@@ -50641,11 +51171,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -50653,10 +51183,11 @@
         "fixture_slide": 73,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-79",
@@ -51191,11 +51722,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -51203,10 +51734,11 @@
         "fixture_slide": 74,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-80",
@@ -52282,11 +52814,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -52294,10 +52826,11 @@
         "fixture_slide": 75,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-81",
@@ -53045,11 +53578,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -53057,10 +53590,11 @@
         "fixture_slide": 76,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     },
     {
       "id": "original-82",
@@ -54195,11 +54729,11 @@
       },
       "limitations": [
         "Лимит символов предварительный; проверяется ширина и высота текста.",
-        "Не менять исходные координаты, изображения бренда и фоновую графику.",
         "Изображения по умолчанию сохраняют исходное заполнение; замена требует явного поля.",
         "Статус implemented: реализован контракт полей; произвольное заполнение требует нового рендера.",
         "Декоративная растровая графика не является редактируемой топологией.",
-        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере."
+        "Необязательные изображения могут оставаться пустыми; проверены только замены в контрольном примере.",
+        "Исходные макеты неизменны; только документированные правки original_style.py разрешают изменение итоговых областей."
       ],
       "geometry_variants": [],
       "verification": {
@@ -54207,10 +54741,11 @@
         "fixture_slide": 77,
         "structural": "passed",
         "raw_pixel_regression": "passed",
-        "filled_contact_sheet_review": "passed",
+        "filled_contact_sheet_review": "superseded-by-user-feedback",
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
-      }
+      },
+      "visual_status": "needs-review-after-user-feedback"
     }
   ],
   "parts": [

@@ -19,7 +19,7 @@ def shapes(root):return {phkey(s):s for s in root.findall('.//p:sp',NS) if phkey
 def text(s):return '\n'.join(''.join(t.text or '' for t in p.findall('.//a:t',NS)) for p in s.findall('.//a:p',NS))
 def target(z,part,kind):return next((r['target'] for r in relationships(z,part).values() if r['type']==kind),None)
 def family(n):
-    if n in (17,18):return 'metrics','Показатели','metrics'
+    if n==17:return 'metrics','Показатели','metrics'
     # Named families reflect original structures, not counts of XML shapes.
     groups=[(6,13,'cover','Обложки','reference'),(14,14,'photo-pair','Два фото','comparison'),(15,23,'stages','Этапы','sequence'),(24,29,'path','Маршрут','process'),(30,32,'people','Команда и оргструктура','hierarchy'),(33,33,'message','Сообщение','reference'),(34,39,'devices','Мокапы устройств','reference'),(40,42,'metrics','Показатели','metrics'),(43,45,'blocks','Группы блоков','comparison'),(46,54,'photo-cards','Фото и подписи','profile'),(55,56,'photo-story','Фото и текст','reference'),(57,58,'columns','Колонки','comparison'),(59,65,'charts','Диаграммы','metrics'),(66,67,'tables','Таблицы','comparison'),(68,71,'text','Текст и буллеты','reference'),(72,72,'hero','Акцентный показатель','metrics'),(73,73,'closing','Призыв к действию','decision'),(74,82,'complex','Составные схемы','hierarchy')]
     return next((key,label,intent) for lo,hi,key,label,intent in groups if lo<=n<=hi)
@@ -69,7 +69,7 @@ def inventory():
                         off,ext=xf.find('a:off',NS),xf.find('a:ext',NS)
                         if off is not None and ext is not None:box=[int(off.get('x'))/12700,int(off.get('y'))/12700,int(ext.get('cx'))/12700,int(ext.get('cy'))/12700];box_owner=owner;break
                 if box is None:continue
-                protected=kind in ('ftr','sldNum','dt') or (not prompt and box[1]<140 and box[3]<100 and kind!='title') or key=='4294967295'
+                protected=kind in ('ftr','sldNum','dt') or (not prompt and box[1]<140 and box[3]<100 and kind!='title') or key=='4294967295' or (n==16 and key in ('34','35','39','43'))
                 role='image' if kind=='pic' else 'chart' if kind=='chart' else 'table' if kind=='tbl' else 'title' if kind in ('title','ctrTitle') else 'heading' if re.search('заголов|наименован',prompt,re.I) else 'value' if (prompt=='>XX' or re.fullmatch(r'\d\d:\d\d',prompt)) else 'value' if re.fullmatch(r'[\d\s.,%+−\-а-яА-Я]+',prompt) and re.search(r'\d',prompt) and len(prompt)<24 else 'body'
                 if protected:role='protected'
                 size,_,bp,_=properties(chain+[master_style(roots[2],kind)],role)
