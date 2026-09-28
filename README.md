@@ -65,3 +65,5 @@ Portable-сборка и автоматические тесты прошли н
 ## Контроль реальных материалов
 
 [Журнал сохранности содержания и KPI](skills/cgu-presentations/references/content-review.md) фиксирует решение по каждому исходному фрагменту. [Смысловые композиции](skills/cgu-presentations/references/semantic-layouts.md) выбираются по задаче слайда; отчёт выявляет повторяющиеся сетки. Сценарий, источники и архив исходного текста теперь сохраняются раздельно. Новые композиции используют portable-сборщик для всех профилей агентов.
+
+Готовый PPTX можно экспортировать отдельно: `python3 skills/cgu-presentations/scripts/run.py render presentation.pptx --out ./new-render`. Поддержаны LibreOffice + Poppler или необязательный PyMuPDF. [Что перенесено из адаптации коллег](skills/cgu-presentations/references/colleague-adaptation.md).

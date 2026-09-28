@@ -38,19 +38,8 @@ def runtime_paths(runtime=None, presentation_skill=None):
     return paths
 
 def portable_paths(runtime=None, render=False):
-    # Rendering is optional. In Codex prefer the bundled renderer; never select
-    # the user's desktop LibreOffice when its bundled runtime is present.
-    bundled=Path(runtime or os.environ.get('CGU_RUNTIME_DIR',Path.home()/'.cache/codex-runtimes/codex-primary-runtime/dependencies'))
-    def executable(key,name):
-        bundled_path=bundled/'bin/override'/name
-        explicit=os.environ.get(key)
-        candidate=str(bundled_path) if bundled_path.is_file() else explicit or shutil.which(name)
-        if candidate and not Path(candidate).is_file():raise ValueError(key+': executable not found: '+candidate)
-        return Path(candidate).resolve() if candidate else None
-    paths={'runtime':'Python standard library','python':Path(sys.executable),'soffice':executable('CGU_SOFFICE','soffice'),'pdftoppm':executable('CGU_PDFTOPPM','pdftoppm')}
-    if render and (not paths['soffice'] or not paths['pdftoppm']):
-        raise ValueError('PDF/PNG requires LibreOffice and Poppler. Set CGU_SOFFICE and CGU_PDFTOPPM, or use --no-render for PPTX with visual review pending.')
-    return paths
+    from render_deck import capabilities
+    return capabilities(runtime, required=render)
 
 def resolve_backend(backend, runtime=None, presentation_skill=None, render=False):
     if backend=='auto':
@@ -68,7 +57,7 @@ def build(specfile, out, runtime=None, presentation_skill=None, render=True, bac
     if original.get('schema_version')=='cgu-original-deck/1':
         from original_cli import build_project
         if backend=='codex':raise ValueError('Original template adapters require --backend portable or auto')
-        return build_project(specfile,out,render)
+        return build_project(specfile,out,render,runtime)
     deck = validate(json.loads(specfile.read_text(encoding='utf-8')))
     from content_review import ledger_report, write_reports
     ledger_report(deck,specfile.parent)
@@ -123,14 +112,10 @@ def build(specfile, out, runtime=None, presentation_skill=None, render=True, bac
     record={'backend':backend,'validation_engine':'codex-finalizer-and-semantic' if backend=='codex' else 'portable-package-and-semantic','spec_sha256':hashlib.sha256(specfile.read_bytes()).hexdigest(),'pptx_sha256':report['sha256'],'runtime':str(paths['runtime']),'slides':len(deck['slides']),'rendered':False,'visual_review':'pending','fonts_embedded_in_pptx':False,'structure':'passed','powerpoint':'not-tested','evidence':{'policy':deck.get('evidence_policy','slide'),'references':'validated','factual_review':'demo' if deck.get('demo') else 'pending'}}
     (out/'qa/run.json').write_text(json.dumps(record,ensure_ascii=False,indent=2), encoding="utf-8")
     if render:
-        env=os.environ.copy()
-        conf=out/'build/fonts.conf'
-        conf.write_text('<?xml version="1.0"?><fontconfig><dir>'+escape(str(SKILL/'assets/fonts'))+'</dir><cachedir>'+escape(str(out/'build/font-cache'))+'</cachedir></fontconfig>', encoding="utf-8")
-        env['FONTCONFIG_FILE']=str(conf)
-        run([paths['soffice'],'-env:UserInstallation='+(out/'build/lo-profile').as_uri(),'--headless','--convert-to','pdf','--outdir',out/'output',pptx],env)
+        from render_deck import render as render_file
         pdf=out/'output/presentation.pdf'
-        if not pdf.is_file():raise ValueError('Renderer did not create PDF')
-        run([paths['pdftoppm'],'-scale-to','1920','-png',pdf,out/'preview/slide'],env)
+        rendered=render_file(pptx,pdf,out/'preview',paths)
+        record['rasterizer']=rendered['rasterizer']
         html_contact(out/'preview')
         sheet=contact_sheet(out/'preview')
         (out/'qa/contact-sheet.json').write_text(json.dumps(sheet,ensure_ascii=False,indent=2),encoding='utf-8')
@@ -149,7 +134,7 @@ def build(specfile, out, runtime=None, presentation_skill=None, render=True, bac
 
 def main():
     ap=argparse.ArgumentParser(description=__doc__)
-    ap.add_argument('command',choices=['doctor','validate','build','demo','original-catalog','original-select'])
+    ap.add_argument('command',choices=['doctor','validate','build','demo','render','original-catalog','original-select'])
     ap.add_argument('spec',nargs='?')
     ap.add_argument('--out',type=Path)
     ap.add_argument('--backend',choices=['auto','portable','codex'],default='auto')
@@ -157,6 +142,10 @@ def main():
     ap.add_argument('--runtime');ap.add_argument('--presentation-skill');ap.add_argument('--no-render',action='store_true')
     a=ap.parse_args()
     try:
+        if a.command=='render':
+            if not a.spec or not a.out:ap.error('render requires a PPTX and --out')
+            from render_deck import render_only
+            print(json.dumps(render_only(a.spec,a.out,a.runtime),ensure_ascii=False,indent=2));return
         if a.command=='original-catalog':
             from original_cli import catalog
             print(catalog(a.out or SKILL/'assets/catalog/original'));return
@@ -177,14 +166,14 @@ def main():
         if a.command=='doctor':
             result=preflight(SKILL)
             backend,paths=resolve_backend(a.backend,a.runtime,a.presentation_skill,False)
-            print(json.dumps({'backend':backend,'supported_kinds':sorted(KINDS),'python':sys.version.split()[0],'render_available':bool(paths.get('soffice') and paths.get('pdftoppm')),'paths':{k:str(v) if v else None for k,v in paths.items()},'resources':result},indent=2))
+            print(json.dumps({'backend':backend,'supported_kinds':sorted(KINDS),'python':sys.version.split()[0],'render_available':bool(paths.get('soffice') and (paths.get('pdftoppm') or paths.get('pymupdf'))),'paths':{k:str(v) if v else None for k,v in paths.items()},'resources':result},indent=2))
             if result['errors']:raise ValueError('; '.join(result['errors']))
             return
         if not a.out:ap.error('--out is required')
         source=SKILL/'examples/demo.json' if a.command=='demo' else a.spec
         if not source:ap.error('build requires a spec file')
         build(source,a.out,a.runtime,a.presentation_skill,not a.no_render,a.backend)
-    except (ValueError,OSError,subprocess.CalledProcessError) as e:
+    except (ValueError,OSError,subprocess.CalledProcessError,subprocess.TimeoutExpired) as e:
         print('CGU build failed: '+str(e),file=sys.stderr);sys.exit(1)
 
 if __name__=='__main__':main()

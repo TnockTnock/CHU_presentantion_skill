@@ -7,15 +7,11 @@ from original_build import build,validate
 from original_style import effective_slot
 
 def dump(path,value):Path(path).write_text(json.dumps(value,ensure_ascii=False,indent=2),encoding='utf-8')
-def render(pptx,out,scale=1440):
-    from run import portable_paths
-    from visual_qa import contact_sheet,html_contact
-    paths=portable_paths(render=True);out=Path(out).resolve();out.mkdir(parents=True,exist_ok=True);conf=out/'fonts.conf'
-    conf.write_text('<fontconfig><dir>'+escape(str(SKILL/'assets/fonts'))+'</dir><cachedir>'+escape(str(out/'font-cache'))+'</cachedir><alias><family>Golos Text DemiBold</family><prefer><family>Golos Text SemiBold</family></prefer></alias></fontconfig>',encoding='utf-8');env=os.environ.copy();env['FONTCONFIG_FILE']=str(conf)
-    subprocess.run([str(paths['soffice']),'-env:UserInstallation='+(out/'lo-profile').as_uri(),'--headless','--convert-to','pdf','--outdir',str(out),str(Path(pptx).resolve())],env=env,check=True,timeout=180)
-    pdf=out/(Path(pptx).stem+'.pdf');preview=out/'preview';preview.mkdir(exist_ok=True)
-    subprocess.run([str(paths['pdftoppm']),'-scale-to',str(scale),'-png',str(pdf),str(preview/'slide')],env=env,check=True,timeout=180)
-    html_contact(preview);contact_sheet(preview)
+def render(pptx,out,scale=1440,runtime=None):
+    from render_deck import render as render_file, capabilities
+    out=Path(out).resolve();pdf=out/(Path(pptx).stem+'.pdf')
+    report=render_file(pptx,pdf,out/'preview',capabilities(runtime,required=True),scale)
+    dump(out/'render.json',report)
     return pdf
 
 def diversity(deck):
@@ -26,7 +22,7 @@ def diversity(deck):
             start=i
     return {'families':list(dict.fromkeys(seq)),'runs':runs,'warnings':sum(r['status']=='warning' for r in runs)}
 
-def build_project(spec,out,do_render=True):
+def build_project(spec,out,do_render=True,runtime=None):
     spec=Path(spec).resolve();out=Path(out).resolve()
     if out.exists() and any(out.iterdir()):raise ValueError('Use empty output directory')
     deck=json.loads(spec.read_text(encoding='utf-8'));validate(deck,spec.parent)
@@ -41,7 +37,7 @@ def build_project(spec,out,do_render=True):
     dump(out/'content/deck-spec.json',saved);dump(out/'content/sources.json',deck.get('sources',[]));dump(out/'qa/structural.json',report);dump(out/'qa/visual-diversity.json',diversity(deck))
     (out/'output/scenario.md').write_text('# '+deck.get('title','Презентация')+'\n\n'+'\n\n'.join('## '+s['id']+'\n'+s['takeaway']+'\n'+s.get('notes','') for s in deck['slides']),encoding='utf-8')
     if do_render:
-        render(out/'output/presentation.pptx',out/'output');report['rendered']=True
+        render(out/'output/presentation.pptx',out/'output',runtime=runtime);report['rendered']=True
     else:report['rendered']=False
     report.update(backend='original-portable',pptx_sha256=digest((out/'output/presentation.pptx').read_bytes()),visual_review='pending');dump(out/'qa/run.json',report);print(json.dumps(report,ensure_ascii=False));return out
 

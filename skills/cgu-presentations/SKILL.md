@@ -2,7 +2,7 @@
 name: cgu-presentations
 description: Подготовка и редактирование презентаций ЦГУ / ДИТ по фирменному PPTX-шаблону с Golos Text, редактируемыми схемами, инфографикой и проверяемыми источниками. Используй для презентаций ЦГУ, преобразования отчёта в слайды и выбора композиций из библиотеки референсов; для другого бренда не применяется.
 metadata:
-  requirements: "PPTX build: Python 3.9+; optional LibreOffice and Poppler for PDF/PNG. Codex runtime is optional."
+  requirements: "PPTX build: Python 3.9+; optional LibreOffice plus Poppler or PyMuPDF for PDF/PNG. Codex runtime is optional."
 ---
 
 # Презентации ЦГУ
@@ -60,3 +60,5 @@ metadata:
 Оригиналы отчётов, каталог реальных презентаций и содержательные превью сохраняй локально вне распространяемого скилла. В публичную библиотеку входят обезличенные правила композиций, код и синтетические примеры. Локальная привязка каталога — `local/reference-library.json`; этот файл не переносится на другой компьютер.
 
 Быстрая диагностика: `python3 "$SKILL_DIR/scripts/run.py" doctor`. Проверка базовых слайдов: `demo --out <новая папка>`. Новые композиции: `build "$SKILL_DIR/examples/library-demo.json" --out <новая папка>`.
+
+Готовый PPTX можно экспортировать отдельно: `python3 "$SKILL_DIR/scripts/run.py" render presentation.pptx --out <новая папка>`. Исходник сохраняется; PDF, превью и QA создаются отдельно. Рендер не заменяет визуальный просмотр.

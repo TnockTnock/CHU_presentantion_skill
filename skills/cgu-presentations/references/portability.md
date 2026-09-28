@@ -11,7 +11,7 @@
 | Доступ | Результат |
 |---|---|
 | Файлы, Python 3.9+, запуск команд | PPTX, сценарий и структурные проверки через `--backend portable --no-render` |
-| То же + LibreOffice и Poppler | Дополнительно PDF и PNG |
+| То же + LibreOffice и (Poppler или PyMuPDF) | Дополнительно PDF и PNG |
 | Просмотр изображений | Можно выполнить визуальную проверку каждого PNG |
 | Только текстовый чат | План и JSON по контракту, команды для локальной сборки; не заявляй, что PPTX создан |
 | Codex с установленным Presentations runtime | Существующий backend `codex` с artifact-tool/finalizer |
@@ -63,7 +63,7 @@ python3 scripts/run.py demo --backend portable --no-render --out /path/to/new-de
 python3 scripts/run.py build /path/to/deck.json --backend portable --out /path/to/new-deck
 ```
 
-На Windows используй `py -3` вместо `python3`, если так установлен Python; относительные пути работают и в PowerShell. Все текстовые артефакты читаются и записываются в UTF-8. Пути к внешним программам можно задать переменными `CGU_SOFFICE` и `CGU_PDFTOPPM` — полный путь к исполняемому файлу, включая `.exe` на Windows. Иначе они ищутся в PATH. В среде Codex при наличии bundled runtime его рендерер имеет приоритет над desktop LibreOffice.
+На Windows используй `python` или `py -3` вместо `python3`, если так установлен Python; относительные пути работают и в PowerShell. Все текстовые артефакты читаются и записываются в UTF-8. Пути к внешним программам можно задать переменными `CGU_SOFFICE` и `CGU_PDFTOPPM` — полный путь к исполняемому файлу, включая `.exe` на Windows. Иначе они ищутся в PATH. В среде Codex при наличии bundled runtime его рендерер имеет приоритет над desktop LibreOffice.
 
 Установи Golos Text Regular/SemiBold/Bold из `assets/fonts` в среде рендеринга. Fontconfig в Linux/macOS получает локальную конфигурацию автоматически; Windows-рендереру может требоваться установка TTF в системе. `--no-render` не требует установки шрифтов: для измерений читаются поставленные TTF. Результат при этом визуально не проверен.
 
@@ -86,3 +86,17 @@ python3 scripts/skill_package.py install --dest "$HOME/.hermes/skills/cgu-presen
 ```
 
 После установки попросите агента прочитать SKILL.md и собрать `examples/original-all.json` через portable. Проверены установка файлов и общий Python-сборщик; запуск внутри каждого агентского клиента отдельно не проверен. Оригинальные композиции используют свой переносимый адаптер независимо от auto-выбора движка прежнего формата.
+
+## Рендер готового PPTX и диагностика Windows
+
+```bash
+python scripts/run.py render /path/to/presentation.pptx --out /path/to/new-render
+```
+
+Команда не пересобирает PPTX. Создаёт `output/presentation.pdf`, `preview/slide-*.png`, контактный HTML и `qa/render.json` с числом страниц, SHA исходника, именем растеризатора и статусом визуальной проверки. Существующая непустая папка результата отклоняется. JPG-контактный лист требует Pillow; отдельные PNG и HTML доступны без него.
+
+Если Poppler отсутствует, используется необязательный PyMuPDF (`python -m pip install PyMuPDF` в том же Python, которым запускается команда). Основной сборщик PPTX по-прежнему работает без pip. `doctor --backend portable` показывает доступность рендера и выбранный растеризатор. Каталогизатор внешних референсов пока требует Poppler.
+
+LibreOffice на Windows дополнительно ищется в `LOCALAPPDATA`, `PROGRAMFILES`, `PROGRAMFILES(X86)` в `LibreOffice/program/soffice.exe`. Каждый экспорт использует временную копию с ASCII-именем и отдельный профиль, не затрагивая открытый пользовательский профиль LibreOffice. Если системная временная папка Windows содержит кириллицу, задайте `TMP` и `TEMP` на существующую доступную папку с ASCII-путём и повторите запуск. Путь самого скилла и исходной презентации менять не требуется. Установите поставленные TTF для текущего пользователя: Windows LibreOffice может игнорировать Fontconfig.
+
+Результаты переноса и границы проверки: [анализ адаптации коллег](colleague-adaptation.md). PyMuPDF может растеризовать иначе, чем Poppler; пиксельные эталоны сравнивайте только при одинаковом растеризаторе и масштабе.
