@@ -1,0 +1,83 @@
+﻿slide,id,family,variant,layout,master,theme,status,text_fields,image_fields,table_fields,chart_fields,visual_status
+1,original-01,instructions,Серый с фото,ppt/slideLayouts/slideLayout1.xml,ppt/slideMasters/slideMaster1.xml,ppt/theme/theme1.xml,inventory,0,0,0,0,not-reviewed
+2,original-02,instructions,3 фото,ppt/slideLayouts/slideLayout41.xml,ppt/slideMasters/slideMaster7.xml,ppt/theme/theme7.xml,inventory,2,0,0,0,not-reviewed
+3,original-03,instructions,Призыв к действию,ppt/slideLayouts/slideLayout68.xml,ppt/slideMasters/slideMaster11.xml,ppt/theme/theme11.xml,inventory,2,1,0,0,not-reviewed
+4,original-04,icons,Текстовый 2,ppt/slideLayouts/slideLayout66.xml,ppt/slideMasters/slideMaster10.xml,ppt/theme/theme10.xml,inventory,1,0,0,0,not-reviewed
+5,original-05,icons,Текстовый 2,ppt/slideLayouts/slideLayout66.xml,ppt/slideMasters/slideMaster10.xml,ppt/theme/theme10.xml,inventory,1,0,0,0,not-reviewed
+6,original-06,cover,Серый с фото,ppt/slideLayouts/slideLayout1.xml,ppt/slideMasters/slideMaster1.xml,ppt/theme/theme1.xml,implemented,3,1,0,0,needs-review-after-user-feedback
+7,original-07,cover,Красный с фото,ppt/slideLayouts/slideLayout2.xml,ppt/slideMasters/slideMaster1.xml,ppt/theme/theme1.xml,implemented,3,1,0,0,needs-review-after-user-feedback
+8,original-08,cover,Серый с мокапами,ppt/slideLayouts/slideLayout3.xml,ppt/slideMasters/slideMaster1.xml,ppt/theme/theme1.xml,implemented,5,2,0,0,needs-review-after-user-feedback
+9,original-09,cover,Серый с ноутбуком,ppt/slideLayouts/slideLayout4.xml,ppt/slideMasters/slideMaster1.xml,ppt/theme/theme1.xml,implemented,3,1,0,0,needs-review-after-user-feedback
+10,original-10,cover,Серый с лого,ppt/slideLayouts/slideLayout5.xml,ppt/slideMasters/slideMaster1.xml,ppt/theme/theme1.xml,implemented,3,0,0,0,needs-review-after-user-feedback
+11,original-11,cover,Серый с лого мини,ppt/slideLayouts/slideLayout6.xml,ppt/slideMasters/slideMaster1.xml,ppt/theme/theme1.xml,implemented,3,0,0,0,needs-review-after-user-feedback
+12,original-12,cover,Серый с фото мини,ppt/slideLayouts/slideLayout7.xml,ppt/slideMasters/slideMaster1.xml,ppt/theme/theme1.xml,implemented,3,1,0,0,agent-reviewed-revision-awaiting-user
+13,original-13,cover,Красный с фото мини,ppt/slideLayouts/slideLayout8.xml,ppt/slideMasters/slideMaster1.xml,ppt/theme/theme1.xml,implemented,3,1,0,0,needs-review-after-user-feedback
+14,original-14,photo-pair,2 фото,ppt/slideLayouts/slideLayout40.xml,ppt/slideMasters/slideMaster7.xml,ppt/theme/theme7.xml,implemented,5,2,0,0,agent-reviewed-revision-awaiting-user
+15,original-15,stages,4 этапа в ряд,ppt/slideLayouts/slideLayout9.xml,ppt/slideMasters/slideMaster2.xml,ppt/theme/theme2.xml,implemented,13,4,0,0,needs-review-after-user-feedback
+16,original-16,stages,4 этапа в 2 столбца,ppt/slideLayouts/slideLayout10.xml,ppt/slideMasters/slideMaster2.xml,ppt/theme/theme2.xml,implemented,13,0,0,0,agent-reviewed-revision-awaiting-user
+17,original-17,metrics,3 в ряд с большой цифройё,ppt/slideLayouts/slideLayout11.xml,ppt/slideMasters/slideMaster2.xml,ppt/theme/theme2.xml,implemented,8,0,0,0,needs-review-after-user-feedback
+18,original-18,stages,3 в ряд,ppt/slideLayouts/slideLayout12.xml,ppt/slideMasters/slideMaster2.xml,ppt/theme/theme2.xml,implemented,10,0,0,0,agent-reviewed-revision-awaiting-user
+19,original-19,stages,4 этапа с большими цифрами,ppt/slideLayouts/slideLayout13.xml,ppt/slideMasters/slideMaster2.xml,ppt/theme/theme2.xml,implemented,13,4,0,0,needs-review-after-user-feedback
+20,original-20,stages,5 этапов,ppt/slideLayouts/slideLayout14.xml,ppt/slideMasters/slideMaster2.xml,ppt/theme/theme2.xml,implemented,18,5,0,0,needs-review-after-user-feedback
+21,original-21,stages,6 этапов,ppt/slideLayouts/slideLayout15.xml,ppt/slideMasters/slideMaster2.xml,ppt/theme/theme2.xml,implemented,19,6,0,0,needs-review-after-user-feedback
+22,original-22,stages,6 этапов мини,ppt/slideLayouts/slideLayout16.xml,ppt/slideMasters/slideMaster2.xml,ppt/theme/theme2.xml,implemented,20,6,0,0,needs-review-after-user-feedback
+23,original-23,stages,8 этапов,ppt/slideLayouts/slideLayout17.xml,ppt/slideMasters/slideMaster2.xml,ppt/theme/theme2.xml,implemented,17,8,0,0,needs-review-after-user-feedback
+24,original-24,path,4 шага,ppt/slideLayouts/slideLayout18.xml,ppt/slideMasters/slideMaster3.xml,ppt/theme/theme3.xml,implemented,13,8,0,0,needs-review-after-user-feedback
+25,original-25,path,8 шагов,ppt/slideLayouts/slideLayout19.xml,ppt/slideMasters/slideMaster3.xml,ppt/theme/theme3.xml,implemented,25,1,0,0,needs-review-after-user-feedback
+26,original-26,path,2 части по 4 шага,ppt/slideLayouts/slideLayout20.xml,ppt/slideMasters/slideMaster3.xml,ppt/theme/theme3.xml,implemented,24,11,0,0,needs-review-after-user-feedback
+27,original-27,path,Путь: 10 шагов,ppt/slideLayouts/slideLayout21.xml,ppt/slideMasters/slideMaster3.xml,ppt/theme/theme3.xml,implemented,51,0,0,0,needs-review-after-user-feedback
+28,original-28,path,Путь: 8 шагов,ppt/slideLayouts/slideLayout22.xml,ppt/slideMasters/slideMaster3.xml,ppt/theme/theme3.xml,implemented,41,0,0,0,needs-review-after-user-feedback
+29,original-29,path,Путь: 6 шагов,ppt/slideLayouts/slideLayout23.xml,ppt/slideMasters/slideMaster3.xml,ppt/theme/theme3.xml,implemented,31,0,0,0,needs-review-after-user-feedback
+30,original-30,people,3 человека,ppt/slideLayouts/slideLayout24.xml,ppt/slideMasters/slideMaster4.xml,ppt/theme/theme4.xml,implemented,16,6,0,0,needs-review-after-user-feedback
+31,original-31,people,Отдел,ppt/slideLayouts/slideLayout25.xml,ppt/slideMasters/slideMaster4.xml,ppt/theme/theme4.xml,implemented,15,8,0,0,needs-review-after-user-feedback
+32,original-32,people,10 человек,ppt/slideLayouts/slideLayout26.xml,ppt/slideMasters/slideMaster4.xml,ppt/theme/theme4.xml,implemented,21,10,0,0,needs-review-after-user-feedback
+33,original-33,message,Бабл сообщения,ppt/slideLayouts/slideLayout27.xml,ppt/slideMasters/slideMaster4.xml,ppt/theme/theme4.xml,implemented,5,3,0,0,needs-review-after-user-feedback
+34,original-34,devices,Ноутбук,ppt/slideLayouts/slideLayout28.xml,ppt/slideMasters/slideMaster5.xml,ppt/theme/theme5.xml,implemented,3,2,0,0,needs-review-after-user-feedback
+35,original-35,devices,4 телефона,ppt/slideLayouts/slideLayout29.xml,ppt/slideMasters/slideMaster5.xml,ppt/theme/theme5.xml,implemented,17,7,0,0,needs-review-after-user-feedback
+36,original-36,devices,1 телефон,ppt/slideLayouts/slideLayout30.xml,ppt/slideMasters/slideMaster5.xml,ppt/theme/theme5.xml,implemented,18,11,0,0,needs-review-after-user-feedback
+37,original-37,devices,Ноутбук и буллеты,ppt/slideLayouts/slideLayout31.xml,ppt/slideMasters/slideMaster5.xml,ppt/theme/theme5.xml,implemented,13,1,0,0,needs-review-after-user-feedback
+38,original-38,devices,Ноутбук и 3 буллета,ppt/slideLayouts/slideLayout32.xml,ppt/slideMasters/slideMaster5.xml,ppt/theme/theme5.xml,implemented,4,4,0,0,needs-review-after-user-feedback
+39,original-39,devices,Мокапы,ppt/slideLayouts/slideLayout33.xml,ppt/slideMasters/slideMaster5.xml,ppt/theme/theme5.xml,implemented,9,5,0,0,needs-review-after-user-feedback
+40,original-40,metrics,3 цифры,ppt/slideLayouts/slideLayout34.xml,ppt/slideMasters/slideMaster6.xml,ppt/theme/theme6.xml,implemented,8,0,0,0,needs-review-after-user-feedback
+41,original-41,metrics,4 цифры,ppt/slideLayouts/slideLayout35.xml,ppt/slideMasters/slideMaster6.xml,ppt/theme/theme6.xml,implemented,9,4,0,0,needs-review-after-user-feedback
+42,original-42,metrics,1 цифра и плашка,ppt/slideLayouts/slideLayout36.xml,ppt/slideMasters/slideMaster6.xml,ppt/theme/theme6.xml,implemented,11,4,0,0,needs-review-after-user-feedback
+43,original-43,blocks,6 блоков,ppt/slideLayouts/slideLayout37.xml,ppt/slideMasters/slideMaster6.xml,ppt/theme/theme6.xml,implemented,27,18,0,0,needs-review-after-user-feedback
+44,original-44,blocks,4 блока,ppt/slideLayouts/slideLayout38.xml,ppt/slideMasters/slideMaster6.xml,ppt/theme/theme6.xml,implemented,13,8,0,0,needs-review-after-user-feedback
+45,original-45,blocks,3 блока,ppt/slideLayouts/slideLayout39.xml,ppt/slideMasters/slideMaster6.xml,ppt/theme/theme6.xml,implemented,21,17,0,0,needs-review-after-user-feedback
+46,original-46,photo-cards,3 фото,ppt/slideLayouts/slideLayout41.xml,ppt/slideMasters/slideMaster7.xml,ppt/theme/theme7.xml,implemented,7,3,0,0,needs-review-after-user-feedback
+47,original-47,photo-cards,4 фото,ppt/slideLayouts/slideLayout42.xml,ppt/slideMasters/slideMaster7.xml,ppt/theme/theme7.xml,implemented,9,4,0,0,needs-review-after-user-feedback
+48,original-48,photo-cards,3 фото и белые плашки,ppt/slideLayouts/slideLayout43.xml,ppt/slideMasters/slideMaster7.xml,ppt/theme/theme7.xml,implemented,7,6,0,0,needs-review-after-user-feedback
+49,original-49,photo-cards,3 фото и красные плашки,ppt/slideLayouts/slideLayout44.xml,ppt/slideMasters/slideMaster7.xml,ppt/theme/theme7.xml,implemented,7,6,0,0,needs-review-after-user-feedback
+50,original-50,photo-cards,1 фото и 2 красных плашки,ppt/slideLayouts/slideLayout45.xml,ppt/slideMasters/slideMaster7.xml,ppt/theme/theme7.xml,implemented,7,3,0,0,needs-review-after-user-feedback
+51,original-51,photo-cards,1 фото и 2 серых плашки,ppt/slideLayouts/slideLayout46.xml,ppt/slideMasters/slideMaster7.xml,ppt/theme/theme7.xml,implemented,13,4,0,0,needs-review-after-user-feedback
+52,original-52,photo-cards,2 фото и 2 серых плашки,ppt/slideLayouts/slideLayout47.xml,ppt/slideMasters/slideMaster7.xml,ppt/theme/theme7.xml,implemented,13,5,0,0,needs-review-after-user-feedback
+53,original-53,photo-cards,2 фото и 2 плашки,ppt/slideLayouts/slideLayout48.xml,ppt/slideMasters/slideMaster7.xml,ppt/theme/theme7.xml,implemented,5,6,0,0,needs-review-after-user-feedback
+54,original-54,photo-cards,5 плашек и 1 фото,ppt/slideLayouts/slideLayout49.xml,ppt/slideMasters/slideMaster7.xml,ppt/theme/theme7.xml,implemented,6,11,0,0,needs-review-after-user-feedback
+55,original-55,photo-story,1 фото и текст,ppt/slideLayouts/slideLayout50.xml,ppt/slideMasters/slideMaster7.xml,ppt/theme/theme7.xml,implemented,2,1,0,0,needs-review-after-user-feedback
+56,original-56,photo-story,Фото на весь слайд,ppt/slideLayouts/slideLayout51.xml,ppt/slideMasters/slideMaster7.xml,ppt/theme/theme7.xml,implemented,0,1,0,0,needs-review-after-user-feedback
+57,original-57,columns,2 колонки и телефон,ppt/slideLayouts/slideLayout52.xml,ppt/slideMasters/slideMaster8.xml,ppt/theme/theme8.xml,implemented,17,13,0,0,needs-review-after-user-feedback
+58,original-58,columns,4 колонки,ppt/slideLayouts/slideLayout53.xml,ppt/slideMasters/slideMaster8.xml,ppt/theme/theme8.xml,implemented,17,12,0,0,needs-review-after-user-feedback
+59,original-59,charts,3 диаграммы,ppt/slideLayouts/slideLayout54.xml,ppt/slideMasters/slideMaster9.xml,ppt/theme/theme9.xml,implemented,7,0,0,3,needs-review-after-user-feedback
+60,original-60,charts,1 диаграмма,ppt/slideLayouts/slideLayout55.xml,ppt/slideMasters/slideMaster9.xml,ppt/theme/theme9.xml,implemented,21,3,0,1,needs-review-after-user-feedback
+61,original-61,charts,2 диаграммы,ppt/slideLayouts/slideLayout56.xml,ppt/slideMasters/slideMaster9.xml,ppt/theme/theme9.xml,implemented,19,2,0,2,needs-review-after-user-feedback
+62,original-62,charts,диаграмма и 4 плашки,ppt/slideLayouts/slideLayout57.xml,ppt/slideMasters/slideMaster9.xml,ppt/theme/theme9.xml,implemented,11,9,0,1,needs-review-after-user-feedback
+63,original-63,charts,диаграмма и 2 маленьких диаграммы,ppt/slideLayouts/slideLayout58.xml,ppt/slideMasters/slideMaster9.xml,ppt/theme/theme9.xml,implemented,12,5,0,3,needs-review-after-user-feedback
+64,original-64,charts,Широкая диаграмма,ppt/slideLayouts/slideLayout59.xml,ppt/slideMasters/slideMaster9.xml,ppt/theme/theme9.xml,implemented,11,4,0,1,needs-review-after-user-feedback
+65,original-65,charts,4 плашки и диаграмма,ppt/slideLayouts/slideLayout60.xml,ppt/slideMasters/slideMaster9.xml,ppt/theme/theme9.xml,implemented,10,4,0,1,needs-review-after-user-feedback
+66,original-66,tables,Таблица,ppt/slideLayouts/slideLayout61.xml,ppt/slideMasters/slideMaster9.xml,ppt/theme/theme9.xml,implemented,1,0,1,0,needs-review-after-user-feedback
+67,original-67,tables,Таблица и текст,ppt/slideLayouts/slideLayout62.xml,ppt/slideMasters/slideMaster9.xml,ppt/theme/theme9.xml,implemented,3,1,1,0,needs-review-after-user-feedback
+68,original-68,text,3 буллета,ppt/slideLayouts/slideLayout63.xml,ppt/slideMasters/slideMaster10.xml,ppt/theme/theme10.xml,implemented,7,0,0,0,needs-review-after-user-feedback
+69,original-69,text,5 буллетов,ppt/slideLayouts/slideLayout64.xml,ppt/slideMasters/slideMaster10.xml,ppt/theme/theme10.xml,implemented,11,2,0,0,needs-review-after-user-feedback
+70,original-70,text,Текстовый 1,ppt/slideLayouts/slideLayout65.xml,ppt/slideMasters/slideMaster10.xml,ppt/theme/theme10.xml,implemented,7,0,0,0,needs-review-after-user-feedback
+71,original-71,text,Текстовый 2,ppt/slideLayouts/slideLayout66.xml,ppt/slideMasters/slideMaster10.xml,ppt/theme/theme10.xml,implemented,2,0,0,0,needs-review-after-user-feedback
+72,original-72,hero,Большая цифра,ppt/slideLayouts/slideLayout67.xml,ppt/slideMasters/slideMaster11.xml,ppt/theme/theme11.xml,implemented,2,0,0,0,needs-review-after-user-feedback
+73,original-73,closing,Призыв к действию,ppt/slideLayouts/slideLayout68.xml,ppt/slideMasters/slideMaster11.xml,ppt/theme/theme11.xml,implemented,2,1,0,0,needs-review-after-user-feedback
+74,original-74,complex,Сложный 1,ppt/slideLayouts/slideLayout69.xml,ppt/slideMasters/slideMaster12.xml,ppt/theme/theme12.xml,implemented,18,15,0,1,needs-review-after-user-feedback
+75,original-75,complex,Сложный 2,ppt/slideLayouts/slideLayout70.xml,ppt/slideMasters/slideMaster12.xml,ppt/theme/theme12.xml,implemented,29,4,0,1,needs-review-after-user-feedback
+76,original-76,complex,Сложный 3,ppt/slideLayouts/slideLayout71.xml,ppt/slideMasters/slideMaster12.xml,ppt/theme/theme12.xml,implemented,28,12,0,1,needs-review-after-user-feedback
+77,original-77,complex,Сложный 4,ppt/slideLayouts/slideLayout72.xml,ppt/slideMasters/slideMaster12.xml,ppt/theme/theme12.xml,implemented,25,7,0,1,needs-review-after-user-feedback
+78,original-78,complex,Сложный 5,ppt/slideLayouts/slideLayout73.xml,ppt/slideMasters/slideMaster12.xml,ppt/theme/theme12.xml,implemented,26,12,0,0,needs-review-after-user-feedback
+79,original-79,complex,Сложный 6,ppt/slideLayouts/slideLayout74.xml,ppt/slideMasters/slideMaster12.xml,ppt/theme/theme12.xml,implemented,11,1,0,1,needs-review-after-user-feedback
+80,original-80,complex,Сложный 7,ppt/slideLayouts/slideLayout75.xml,ppt/slideMasters/slideMaster12.xml,ppt/theme/theme12.xml,implemented,17,14,0,0,needs-review-after-user-feedback
+81,original-81,complex,Сложный 8,ppt/slideLayouts/slideLayout76.xml,ppt/slideMasters/slideMaster12.xml,ppt/theme/theme12.xml,implemented,14,5,0,1,needs-review-after-user-feedback
+82,original-82,complex,Сложный 9,ppt/slideLayouts/slideLayout77.xml,ppt/slideMasters/slideMaster12.xml,ppt/theme/theme12.xml,implemented,21,12,0,0,needs-review-after-user-feedback

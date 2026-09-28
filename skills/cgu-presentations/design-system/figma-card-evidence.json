@@ -1,0 +1,348 @@
+{
+  "canvas": [
+    1920,
+    1080
+  ],
+  "slides": [
+    {
+      "node_id": "1:4500",
+      "slide": "7",
+      "cards": [
+        {
+          "node_id": "1:4483",
+          "radius_px": 72,
+          "width_px": 1760,
+          "height_px": 920
+        }
+      ],
+      "text_sizes_px": [
+        24,
+        92,
+        32
+      ]
+    },
+    {
+      "node_id": "174:81",
+      "slide": "13",
+      "cards": [
+        {
+          "node_id": "174:98",
+          "radius_px": 32,
+          "width_px": 412,
+          "height_px": 684
+        },
+        {
+          "node_id": "174:105",
+          "radius_px": 32,
+          "width_px": 412,
+          "height_px": 684
+        },
+        {
+          "node_id": "174:112",
+          "radius_px": 32,
+          "width_px": 412,
+          "height_px": 684
+        },
+        {
+          "node_id": "174:119",
+          "radius_px": 32,
+          "width_px": 412,
+          "height_px": 684
+        }
+      ],
+      "text_sizes_px": [
+        62,
+        24,
+        32,
+        22
+      ]
+    },
+    {
+      "node_id": "174:127",
+      "slide": "14",
+      "cards": [
+        {
+          "node_id": "174:144",
+          "radius_px": 44,
+          "width_px": 848,
+          "height_px": 326
+        },
+        {
+          "node_id": "174:148",
+          "radius_px": 44,
+          "width_px": 848,
+          "height_px": 326
+        },
+        {
+          "node_id": "174:152",
+          "radius_px": 44,
+          "width_px": 848,
+          "height_px": 326
+        },
+        {
+          "node_id": "174:156",
+          "radius_px": 44,
+          "width_px": 848,
+          "height_px": 326
+        }
+      ],
+      "text_sizes_px": [
+        62,
+        224,
+        32,
+        20,
+        24
+      ]
+    },
+    {
+      "node_id": "1:4907",
+      "slide": "19",
+      "cards": [
+        {
+          "node_id": "1:4887",
+          "radius_px": 32,
+          "width_px": 848,
+          "height_px": 330
+        },
+        {
+          "node_id": "1:4892",
+          "radius_px": 32,
+          "width_px": 848,
+          "height_px": 330
+        },
+        {
+          "node_id": "1:4897",
+          "radius_px": 32,
+          "width_px": 848,
+          "height_px": 330
+        },
+        {
+          "node_id": "1:4902",
+          "radius_px": 32,
+          "width_px": 848,
+          "height_px": 330
+        }
+      ],
+      "text_sizes_px": [
+        62,
+        25.999998092651367,
+        32,
+        22,
+        24
+      ]
+    },
+    {
+      "node_id": "1:4704",
+      "slide": "16",
+      "cards": [],
+      "text_sizes_px": [
+        62,
+        32,
+        22,
+        102,
+        24
+      ]
+    },
+    {
+      "node_id": "1:7238",
+      "slide": "50",
+      "cards": [
+        {
+          "node_id": "1:7217",
+          "radius_px": 44,
+          "width_px": 538,
+          "height_px": 538
+        },
+        {
+          "node_id": "1:7221",
+          "radius_px": 44,
+          "width_px": 538,
+          "height_px": 538
+        },
+        {
+          "node_id": "1:7225",
+          "radius_px": 44,
+          "width_px": 538,
+          "height_px": 538
+        }
+      ],
+      "text_sizes_px": [
+        62,
+        18,
+        32,
+        22,
+        24
+      ]
+    }
+  ],
+  "colors": [
+    {
+      "name": "Light gray",
+      "values": {
+        "1:0": {
+          "r": 0.9529411792755127,
+          "g": 0.9490196108818054,
+          "b": 0.9490196108818054,
+          "a": 1
+        }
+      }
+    },
+    {
+      "name": "White",
+      "values": {
+        "1:0": {
+          "r": 1,
+          "g": 1,
+          "b": 1,
+          "a": 1
+        }
+      }
+    },
+    {
+      "name": "Black",
+      "values": {
+        "1:0": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        }
+      }
+    },
+    {
+      "name": "Red",
+      "values": {
+        "1:0": {
+          "r": 0.9411764740943909,
+          "g": 0.03529411926865578,
+          "b": 0.21960784494876862,
+          "a": 1
+        }
+      }
+    },
+    {
+      "name": "Color",
+      "values": {
+        "1:0": {
+          "r": 1,
+          "g": 1,
+          "b": 1,
+          "a": 1
+        }
+      }
+    },
+    {
+      "name": "Background/Card red - 10",
+      "values": {
+        "1:0": {
+          "r": 0.9686274528503418,
+          "g": 0.5176470875740051,
+          "b": 0.6078431606292725,
+          "a": 1
+        }
+      }
+    },
+    {
+      "name": "Text/Secondary",
+      "values": {
+        "1:0": {
+          "r": 0.3577411472797394,
+          "g": 0.3577411472797394,
+          "b": 0.3577411472797394,
+          "a": 1
+        }
+      }
+    },
+    {
+      "name": "Text/red",
+      "values": {
+        "1:0": {
+          "r": 0.9411764740943909,
+          "g": 0.03529411926865578,
+          "b": 0.21960784494876862,
+          "a": 1
+        }
+      }
+    },
+    {
+      "name": "Text/Primary",
+      "values": {
+        "1:0": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        }
+      }
+    },
+    {
+      "name": "Background/card red",
+      "values": {
+        "1:0": {
+          "r": 0.9411764740943909,
+          "g": 0.03529411926865578,
+          "b": 0.21960784494876862,
+          "a": 1
+        }
+      }
+    },
+    {
+      "name": "Background/card white",
+      "values": {
+        "1:0": {
+          "r": 1,
+          "g": 1,
+          "b": 1,
+          "a": 1
+        }
+      }
+    },
+    {
+      "name": "Text/White - 50",
+      "values": {
+        "1:0": {
+          "r": 1,
+          "g": 1,
+          "b": 1,
+          "a": 0.5
+        }
+      }
+    },
+    {
+      "name": "Background/Card Gray",
+      "values": {
+        "1:0": {
+          "r": 0.9529411792755127,
+          "g": 0.9490196108818054,
+          "b": 0.9490196108818054,
+          "a": 1
+        }
+      }
+    },
+    {
+      "name": "Text/White",
+      "values": {
+        "1:0": {
+          "r": 1,
+          "g": 1,
+          "b": 1,
+          "a": 1
+        }
+      }
+    },
+    {
+      "name": "Background/light red",
+      "values": {
+        "1:0": {
+          "r": 1,
+          "g": 0.9247108101844788,
+          "b": 0.950591504573822,
+          "a": 1
+        }
+      }
+    }
+  ],
+  "source": "https://www.figma.com/slides/BB3uTU52R50uF0sP36HG8G",
+  "read_only": true,
+  "scope": "Measured selected reference nodes; not a claim of 87 implemented Figma adapters."
+}

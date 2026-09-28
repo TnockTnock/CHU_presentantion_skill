@@ -26,6 +26,7 @@ def sha(path):
 def catalog(source, out, runtime=None):
     source,out=Path(source).resolve(),Path(out).resolve()
     paths=portable_paths(runtime,render=True)
+    if not paths['pdftoppm']:raise ValueError('Reference catalog requires Poppler; PyMuPDF fallback is available for deck rendering only')
     if out == source or source in out.parents:
         raise ValueError('Output must be outside source folder')
     out.mkdir(parents=True,exist_ok=True)
