@@ -28,3 +28,6 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Build portable PPTX without renderer
         run: python skills/cgu-presentations/scripts/run.py demo --backend portable --no-render --out work/ci-demo
+
+      - name: Build all original template adapters
+        run: python skills/cgu-presentations/scripts/run.py build skills/cgu-presentations/examples/original-all.json --backend portable --no-render --out work/ci-original

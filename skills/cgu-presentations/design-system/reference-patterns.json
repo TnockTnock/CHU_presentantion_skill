@@ -9,7 +9,14 @@
       "reuse": "adapted-composition",
       "composition": "2–4 показателя одной темы, единицы и период у каждого.",
       "constraints": "Не копировать вывод, если показатели относятся к разным основаниям.",
-      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed.",
+      "original_candidates": [
+        "original-40",
+        "original-41",
+        "original-42",
+        "original-72"
+      ],
+      "original_match": "structural-analogue-requires-review"
     },
     {
       "key": "roadmap",
@@ -19,7 +26,14 @@
       "reuse": "adapted-composition",
       "composition": "3–6 последовательных этапов с периодом и результатом.",
       "constraints": "Положение этапа не кодирует длительность. Для длительности нужна временная шкала.",
-      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed.",
+      "original_candidates": [
+        "original-24",
+        "original-27",
+        "original-28",
+        "original-29"
+      ],
+      "original_match": "structural-analogue-requires-review"
     },
     {
       "key": "comparison",
@@ -29,7 +43,12 @@
       "reuse": "adapted-composition",
       "composition": "Две колонки и одинаковые критерии по строкам.",
       "constraints": "Цвет не должен подменять доказательство, что один вариант лучше.",
-      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed.",
+      "original_candidates": [
+        "original-57",
+        "original-58"
+      ],
+      "original_match": "structural-analogue-requires-review"
     },
     {
       "key": "timeline",
@@ -39,7 +58,9 @@
       "reuse": "reference-only",
       "composition": "Задачи по строкам, общая шкала времени, сроки окончания.",
       "constraints": "Нужны реальные даты начала и окончания; не растягивать полосы декоративно.",
-      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed.",
+      "original_candidates": [],
+      "original_match": "not-mapped"
     },
     {
       "key": "architecture-layers",
@@ -49,7 +70,9 @@
       "reuse": "reference-only",
       "composition": "Уровни системы по вертикали, сквозные ограничения отдельно.",
       "constraints": "Сохранить направление управления и обмена данными; не смешивать роли и технологии.",
-      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed.",
+      "original_candidates": [],
+      "original_match": "not-mapped"
     },
     {
       "key": "architecture-hub",
@@ -59,7 +82,9 @@
       "reuse": "generic-builder",
       "composition": "Центральный узел, участники вокруг, явный смысл каждой связи.",
       "constraints": "Общая схема поддерживается; композиция конкретного референса требует ручной карты узлов.",
-      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed.",
+      "original_candidates": [],
+      "original_match": "not-mapped"
     },
     {
       "key": "metrics-matrix",
@@ -69,7 +94,9 @@
       "reuse": "reference-only",
       "composition": "Повторяемые пары подпись–значение в общей сетке.",
       "constraints": "Для 5–8 показателей нужна отдельная композиция; текущий kpi_grid ограничен четырьмя.",
-      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed.",
+      "original_candidates": [],
+      "original_match": "not-mapped"
     },
     {
       "key": "branching",
@@ -79,7 +106,9 @@
       "reuse": "generic-builder",
       "composition": "Один предмет и несколько направлений; связи показывают принадлежность.",
       "constraints": "Толщина связи не означает объём без соответствующих данных.",
-      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed.",
+      "original_candidates": [],
+      "original_match": "not-mapped"
     },
     {
       "key": "map-commentary",
@@ -89,7 +118,9 @@
       "reuse": "reference-only",
       "composition": "Крупная карта и узкая колонка объяснений, легенда и период.",
       "constraints": "Карта является предоставленным изображением; аналитические зоны не генерировать.",
-      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed.",
+      "original_candidates": [],
+      "original_match": "not-mapped"
     },
     {
       "key": "status-register",
@@ -99,7 +130,9 @@
       "reuse": "reference-only",
       "composition": "Краткие показатели сверху, таблица проблем и сроков снизу.",
       "constraints": "Не переносить плотную таблицу целиком на экран; подробности вынести в приложение.",
-      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed.",
+      "original_candidates": [],
+      "original_match": "not-mapped"
     },
     {
       "key": "text-blocks-numbered_columns",
@@ -111,7 +144,9 @@
       "composition": "Три равнозначных тезиса с крупными номерами. Номера показывают порядок чтения, а не причинную связь.",
       "constraints": "Вместимость и правила: references/text-blocks.md. Все примеры нейтральные.",
       "preview": "previews/text-blocks-numbered_columns.png",
-      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed.",
+      "original_candidates": [],
+      "original_match": "not-mapped"
     },
     {
       "key": "text-blocks-cards_grid",
@@ -123,7 +158,9 @@
       "composition": "Пять самостоятельных пунктов. Две нижние карточки шире; не используй их площадь как код важности.",
       "constraints": "Вместимость и правила: references/text-blocks.md. Все примеры нейтральные.",
       "preview": "previews/text-blocks-cards_grid.png",
-      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed.",
+      "original_candidates": [],
+      "original_match": "not-mapped"
     },
     {
       "key": "text-blocks-columns_callout",
@@ -135,7 +172,9 @@
       "composition": "Три наблюдения и одна итоговая мысль. Плашка объединяет содержание карточек.",
       "constraints": "Вместимость и правила: references/text-blocks.md. Все примеры нейтральные.",
       "preview": "previews/text-blocks-columns_callout.png",
-      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed.",
+      "original_candidates": [],
+      "original_match": "not-mapped"
     },
     {
       "key": "text-blocks-split_panel",
@@ -147,7 +186,9 @@
       "composition": "Короткий контекст слева, основной тезис справа, дополнительное пояснение внизу. Последовательность из источника упрощена до текстовой плашки.",
       "constraints": "Вместимость и правила: references/text-blocks.md. Все примеры нейтральные.",
       "preview": "previews/text-blocks-split_panel.png",
-      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed.",
+      "original_candidates": [],
+      "original_match": "not-mapped"
     },
     {
       "key": "text-blocks-metrics_band",
@@ -159,7 +200,9 @@
       "composition": "Четыре независимых показателя в сетке 2 × 2 и общий вывод. Разные единицы допустимы только с явными подписями.",
       "constraints": "Вместимость и правила: references/text-blocks.md. Все примеры нейтральные.",
       "preview": "previews/text-blocks-metrics_band.png",
-      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed.",
+      "original_candidates": [],
+      "original_match": "not-mapped"
     },
     {
       "key": "text-blocks-text_columns",
@@ -171,7 +214,9 @@
       "composition": "Три развёрнутых блока с абзацами. Перенесён принцип равных колонок; иконки, тематические рубрики и исходное содержание исключены.",
       "constraints": "Вместимость и правила: references/text-blocks.md. Все примеры нейтральные.",
       "preview": "previews/text-blocks-text_columns.png",
-      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed."
+      "source_policy": "Original source locator is stored only in local curated.json; content and personal data are not distributed.",
+      "original_candidates": [],
+      "original_match": "not-mapped"
     }
   ]
 }

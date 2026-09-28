@@ -64,6 +64,11 @@ def run(cmd, env=None):
 
 def build(specfile, out, runtime=None, presentation_skill=None, render=True, backend="auto"):
     specfile, out = Path(specfile).resolve(), Path(out).resolve()
+    original=json.loads(specfile.read_text(encoding='utf-8'))
+    if original.get('schema_version')=='cgu-original-deck/1':
+        from original_cli import build_project
+        if backend=='codex':raise ValueError('Original template adapters require --backend portable or auto')
+        return build_project(specfile,out,render)
     deck = validate(json.loads(specfile.read_text(encoding='utf-8')))
     from content_review import ledger_report, write_reports
     ledger_report(deck,specfile.parent)
@@ -144,16 +149,28 @@ def build(specfile, out, runtime=None, presentation_skill=None, render=True, bac
 
 def main():
     ap=argparse.ArgumentParser(description=__doc__)
-    ap.add_argument('command',choices=['doctor','validate','build','demo'])
+    ap.add_argument('command',choices=['doctor','validate','build','demo','original-catalog','original-select'])
     ap.add_argument('spec',nargs='?')
     ap.add_argument('--out',type=Path)
     ap.add_argument('--backend',choices=['auto','portable','codex'],default='auto')
+    ap.add_argument('--fields',type=int,default=1);ap.add_argument('--images',type=int,default=0);ap.add_argument('--text-length',type=int,default=0);ap.add_argument('--previous-family');ap.add_argument('--data-type',choices=['text','chart','table','image'])
     ap.add_argument('--runtime');ap.add_argument('--presentation-skill');ap.add_argument('--no-render',action='store_true')
     a=ap.parse_args()
     try:
+        if a.command=='original-catalog':
+            from original_cli import catalog
+            print(catalog(a.out or SKILL/'assets/catalog/original'));return
+        if a.command=='original-select':
+            from original_template import select
+            print(json.dumps(select(a.spec or 'reference',a.fields,a.images,a.text_length,a.previous_family,data_type=a.data_type),ensure_ascii=False,indent=2));return
         if a.command=='validate':
             if not a.spec:ap.error('validate requires a spec file')
-            deck=validate(json.loads(Path(a.spec).read_text(encoding='utf-8')))
+            original=json.loads(Path(a.spec).read_text(encoding='utf-8'))
+            if original.get('schema_version')=='cgu-original-deck/1':
+                from original_build import validate as validate_original
+                validate_original(original,Path(a.spec).resolve().parent)
+                print(json.dumps({'valid':True,'slides':len(original['slides'])}));return
+            deck=validate(original)
             from content_review import ledger_report
             ledger_report(deck,Path(a.spec).resolve().parent)
             print(json.dumps({'valid':True,'slides':len(deck['slides'])}));return

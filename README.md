@@ -2,15 +2,18 @@
 
 Создавайте презентации ЦГУ / ДИТ по своим отчётам: фирменный PPTX-шаблон, Golos Text, редактируемые схемы, графики и таблицы. Вы описываете задачу агенту, он готовит содержание и собирает файл.
 
+**[QA оригинальных адаптеров: результаты и ограничения](skills/cgu-presentations/references/original-qa.md)**
+
 **[Открыть руководство пользователя →](skills/cgu-presentations/references/user-guide.md)**
 
 ## Что вы получите
 
 - Редактируемый PPTX и текстовый сценарий; при настроенном экспорте — PDF и превью слайдов.
+- [Каталог оригинального шаблона](skills/cgu-presentations/assets/catalog/original/index.html): 82 страницы, 77 макетов, 12 образцов; 77 адаптеров полей в 18 семействах. [Сборка и ограничения](skills/cgu-presentations/references/original-template.md).
 - 12 базовых типов и 20 новых смысловых композиций: временные шкалы, профили спикеров, карты тем, дерево решений и другие.
 - 6 нейтральных шаблонов текстовых блоков: [посмотреть PDF](skills/cgu-presentations/assets/library/text-blocks.pdf) · [скачать PPTX](skills/cgu-presentations/assets/library/text-blocks.pptx).
 - Golos Text: заголовки SemiBold 600, цифры Bold 700, основной текст Regular 400.
-- Общий пакет для Codex, Claude Code, Cursor, Gemini CLI, GitHub Copilot и других агентов с доступом к файлам и Python.
+- Общий пакет для Codex, Claude Code, Hermes, Cursor, Gemini CLI, GitHub Copilot и других агентов с доступом к файлам и Python.
 
 Скилл — папка с инструкциями и ресурсами, а не отдельный чат или приложение. Он не устанавливает AI-агент. Для сборки PPTX нужен Python 3.9+; для PDF/PNG дополнительно LibreOffice и Poppler. Специальные API-ключи сборщику не нужны.
 

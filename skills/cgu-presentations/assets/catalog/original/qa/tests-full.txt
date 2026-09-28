@@ -1,0 +1,55 @@
+test_chart_category_length_mismatch (test_builder.BuilderContractTests.test_chart_category_length_mismatch) ... ok
+test_chart_values_preserve_zero_and_negative (test_builder.BuilderContractTests.test_chart_values_preserve_zero_and_negative) ... ok
+test_demo_is_valid (test_builder.BuilderContractTests.test_demo_is_valid) ... ok
+test_diagram_dangling_edge_and_overlapping_nodes (test_builder.BuilderContractTests.test_diagram_dangling_edge_and_overlapping_nodes) ... ok
+test_font_normalization_preserves_package_and_original (test_builder.BuilderContractTests.test_font_normalization_preserves_package_and_original) ... ok
+test_non_demo_requires_resolved_sources (test_builder.BuilderContractTests.test_non_demo_requires_resolved_sources) ... ok
+test_unknown_fields_are_not_silently_ignored (test_builder.BuilderContractTests.test_unknown_fields_are_not_silently_ignored) ... ok
+test_semantics_and_reversed_arrow_detection (test_builder.BuiltDeckTests.test_semantics_and_reversed_arrow_detection) ... ok
+test_all_semantic_layouts_are_editable_and_reusable (test_content_review.ContentReviewTests.test_all_semantic_layouts_are_editable_and_reusable) ... ok
+test_composition_capacity_and_dangling_edge_rejected (test_content_review.ContentReviewTests.test_composition_capacity_and_dangling_edge_rejected) ... ok
+test_diversity_respects_justified_series (test_content_review.ContentReviewTests.test_diversity_respects_justified_series) ... ok
+test_kpi_preserves_sign_currency_scale_and_context (test_content_review.ContentReviewTests.test_kpi_preserves_sign_currency_scale_and_context) ... ok
+test_ledger_rejects_loss_changed_text_notes_and_fake_appendix (test_content_review.ContentReviewTests.test_ledger_rejects_loss_changed_text_notes_and_fake_appendix) ... ok
+test_registry_references_resolve (test_content_review.ContentReviewTests.test_registry_references_resolve) ... ok
+test_scene_preserves_required_fields (test_content_review.ContentReviewTests.test_scene_preserves_required_fields) ... ok
+test_selector_considers_neighbor_and_text_capacity (test_content_review.ContentReviewTests.test_selector_considers_neighbor_and_text_capacity) ... ok
+test_verified_claims_require_verification (test_content_review.ContentReviewTests.test_verified_claims_require_verification) ... ok
+test_calculated_source_needs_formula (test_library.LibraryTests.test_calculated_source_needs_formula) ... ok
+test_label_geometry_and_unknown_target (test_library.LibraryTests.test_label_geometry_and_unknown_target) ... ok
+test_mismatched_comparison_rows (test_library.LibraryTests.test_mismatched_comparison_rows) ... ok
+test_native_values_labels_and_roadmap_edges (test_library.LibraryTests.test_native_values_labels_and_roadmap_edges) ... ok
+test_new_compositions_and_repeated_layout (test_library.LibraryTests.test_new_compositions_and_repeated_layout) ... ok
+test_object_policy_does_not_accept_slide_only_evidence (test_library.LibraryTests.test_object_policy_does_not_accept_slide_only_evidence) ... ok
+test_object_sources_resolve_and_conflicts_block (test_library.LibraryTests.test_object_sources_resolve_and_conflicts_block) ... ok
+test_registry_and_tampered_binding (test_library.LibraryTests.test_registry_and_tampered_binding) ... ok
+test_search_deduplicates_and_resolves_local_preview (test_library.LibraryTests.test_search_deduplicates_and_resolves_local_preview) ... ok
+test_detects_changed_chart_and_table_values (test_original.OriginalTests.test_detects_changed_chart_and_table_values) ... ok
+test_detects_inheritance_corruption (test_original.OriginalTests.test_detects_inheritance_corruption) ... ok
+test_diversity_and_semantic_selection (test_original.OriginalTests.test_diversity_and_semantic_selection) ... ok
+test_every_adapter_preserves_editable_content_and_inheritance (test_original.OriginalTests.test_every_adapter_preserves_editable_content_and_inheritance) ... ok
+test_invalid_fields_overflow_and_source_slots_rejected (test_original.OriginalTests.test_invalid_fields_overflow_and_source_slots_rejected) ... ok
+test_inventory_and_per_adapter_schema (test_original.OriginalTests.test_inventory_and_per_adapter_schema) ... ok
+test_native_tables_charts_and_workbooks (test_original.OriginalTests.test_native_tables_charts_and_workbooks) ... ok
+test_photo_crop_and_source_mask (test_original.OriginalTests.test_photo_crop_and_source_mask) ... ok
+test_reuse_reverse_order_and_inherited_field_independence (test_original.OriginalTests.test_reuse_reverse_order_and_inherited_field_independence) ... ok
+test_all_source_pixels_and_regression_detection (test_original.OriginalVisualTests.test_all_source_pixels_and_regression_detection) ... ok
+test_independent_diverse_render_against_filled_baseline (test_original.OriginalVisualTests.test_independent_diverse_render_against_filled_baseline) ... ok
+test_all_examples_build_without_codex_or_third_party_packages (test_portable.PortableTests.test_all_examples_build_without_codex_or_third_party_packages) ... ok
+test_auto_falls_back_only_at_capability_resolution (test_portable.PortableTests.test_auto_falls_back_only_at_capability_resolution) ... ok
+test_font_measurement_rejects_overflow_and_missing_glyph (test_portable.PortableTests.test_font_measurement_rejects_overflow_and_missing_glyph) ... ok
+test_package_excludes_local_and_work_files_and_installs_all_profiles (test_portable.PortableTests.test_package_excludes_local_and_work_files_and_installs_all_profiles) ... ok
+test_package_rejects_symlinks_to_external_files (test_portable.PortableTests.test_package_rejects_symlinks_to_external_files) ... ok
+test_missing_image_is_reported (test_resources.TemplateTests.test_missing_image_is_reported) ... ok
+test_slide_order_comes_from_presentation_relationships (test_resources.TemplateTests.test_slide_order_comes_from_presentation_relationships) ... ok
+test_templates_match_manifest_and_inventory (test_resources.TemplateTests.test_templates_match_manifest_and_inventory) ... ok
+test_editable_blocks_typography_and_corruption_detection (test_text_blocks.TextBlocksTests.test_editable_blocks_typography_and_corruption_detection) ... ok
+test_missing_callout_and_wrong_fields (test_text_blocks.TextBlocksTests.test_missing_callout_and_wrong_fields) ... ok
+test_numeric_runs_preserve_text_color_size_and_other_weights (test_text_blocks.TextBlocksTests.test_numeric_runs_preserve_text_color_size_and_other_weights) ... ok
+test_object_evidence_covers_items_and_conclusion (test_text_blocks.TextBlocksTests.test_object_evidence_covers_items_and_conclusion) ... ok
+test_variants_and_capacities (test_text_blocks.TextBlocksTests.test_variants_and_capacities) ... ok
+
+----------------------------------------------------------------------
+Ran 50 tests in 9.977s
+
+OK

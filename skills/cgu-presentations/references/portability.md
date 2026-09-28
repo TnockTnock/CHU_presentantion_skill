@@ -76,3 +76,13 @@ python3 scripts/run.py build /path/to/deck.json --backend portable --out /path/t
 ## Семантические композиции
 
 Кроме 12 базовых типов, тип `composition` предоставляет 20 именованных композиций. Для него `auto` выбирает переносимый Python-сборщик; явный `--backend codex` выдаёт понятную ошибку. Существующие 12 типов поддерживают оба сборщика. Каталог и ограничения: [semantic-layouts.md](semantic-layouts.md).
+
+## Hermes
+
+Используйте личный каталог Hermes, сохраняя всю папку скилла:
+
+```bash
+python3 scripts/skill_package.py install --dest "$HOME/.hermes/skills/cgu-presentations"
+```
+
+После установки попросите агента прочитать SKILL.md и собрать `examples/original-all.json` через portable. Проверены установка файлов и общий Python-сборщик; запуск внутри каждого агентского клиента отдельно не проверен. Оригинальные композиции используют свой переносимый адаптер независимо от auto-выбора движка прежнего формата.

@@ -1,0 +1,468 @@
+{
+  "tested": 77,
+  "passed": 77,
+  "results": [
+    {
+      "source_slide": 6,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 7,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 8,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 9,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 10,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 11,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 12,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 13,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 14,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 15,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 16,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 17,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 18,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 19,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 20,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 21,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 22,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 23,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 24,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 25,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 26,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 27,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 28,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 29,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 30,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 31,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 32,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 33,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 34,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 35,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 36,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 37,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 38,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 39,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 40,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 41,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 42,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 43,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 44,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 45,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 46,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 47,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 48,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 49,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 50,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 51,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 52,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 53,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 54,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 55,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 56,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 57,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 58,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 59,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 60,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 61,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 62,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 63,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 64,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 65,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 66,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 67,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 68,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 69,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 70,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 71,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 72,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 73,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 74,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 75,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 76,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 77,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 78,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 79,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 80,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 81,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    },
+    {
+      "source_slide": 82,
+      "passed": true,
+      "bbox": null,
+      "mean_error": 0.0
+    }
+  ]
+}
