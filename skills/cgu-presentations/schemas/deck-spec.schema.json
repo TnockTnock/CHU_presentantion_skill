@@ -111,6 +111,36 @@
           },
           "items": {
             "type": "array"
+          },
+          "next_layout": {
+            "type": "string"
+          },
+          "emphasis": {
+            "type": "string"
+          },
+          "relationship": {
+            "type": "string"
+          },
+          "information_density": {
+            "type": "string"
+          },
+          "visual_asset": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "narrative_role": {
+            "type": "string"
+          },
+          "model_bindings": {
+            "type": "array"
+          },
+          "note_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         },
         "allOf": [
@@ -148,6 +178,16 @@
     },
     "content_ledger": {
       "$ref": "content-ledger.schema.json"
+    },
+    "content_model": {
+      "$ref": "content-model.schema.json"
+    },
+    "readiness_policy": {
+      "enum": [
+        "production",
+        "usable",
+        "experimental"
+      ]
     }
   }
 }

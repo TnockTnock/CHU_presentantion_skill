@@ -8,7 +8,7 @@ from zipfile import ZipFile
 from xml.etree import ElementTree as ET
 from audit_template import audit, NS
 
-STATUSES={'preserved','condensed','appendix','excluded'}
+STATUSES={'preserved','condensed','merged','moved_to_appendix','appendix','excluded'}
 STATEMENTS={'verified','quote','source_report','analysis','question'}
 
 def pointer(obj,path):
@@ -57,7 +57,7 @@ def validate_editorial(deck):
         if s.get('intent') and s['intent'] not in ('metrics','comparison','sequence','hierarchy','process','causality','decision','profile','reference'):raise ValueError('Unknown slide intent')
         if s.get('statement_type') and s['statement_type'] not in STATEMENTS:raise ValueError('Unknown statement type')
         if s.get('statement_type')=='verified' and not all(ids[r].get('verified_at') and ids[r].get('verification_url') for r in s.get('source_ids',[])):raise ValueError('Verified claim needs dated verification URLs')
-        if deck.get('review_policy')=='strict' and s['kind'] in ('kpi','kpi_grid') and not s.get('metric_bindings'):raise ValueError('Strict KPI requires metric bindings')
+        if deck.get('review_policy')=='strict' and s.get('kind') in ('kpi','kpi_grid') and not s.get('metric_bindings'):raise ValueError('Strict KPI requires metric bindings')
         if s.get('image') and s['image']['source_id'] not in ids:raise ValueError('Unresolved image source')
         for b in s.get('metric_bindings',[]):
             if set(b)!={'pointer','metric'}:raise ValueError('Invalid metric binding')
@@ -99,8 +99,8 @@ def ledger_report(deck,base):
             if p.split('/')[1] in ('notes','footer','source_ids','object_sources','metric_bindings','takeaway','selection_reason'):raise ValueError('Ledger destination must be visible content')
             actual=strings(pointer(s,p))
             if not t.get('text') or t['text'] not in actual:raise ValueError('Ledger target text missing')
-            if entry['status'] in ('preserved','appendix') and facts[fid]['text'] not in actual:raise ValueError('Preserved source text changed')
-            if entry['status']=='appendix' and s.get('section')!='appendix':raise ValueError('Appendix fact targets main deck')
+            if entry['status'] in ('preserved','appendix','moved_to_appendix') and facts[fid]['text'] not in actual:raise ValueError('Preserved source text changed')
+            if entry['status'] in ('appendix','moved_to_appendix') and s.get('section')!='appendix':raise ValueError('Appendix fact targets main deck')
         report.append(dict(entry,source_text=facts[fid]['text'],source_location=facts[fid]['location']))
     if seen!=set(facts):raise ValueError('Unaccounted source facts: '+', '.join(sorted(set(facts)-seen)))
     return {'status':'passed','inventory_sha256':cfg['inventory_sha256'],'source_sha256':inv.get('source_sha256'),'total':len(facts),'counts':{k:sum(e['status']==k for e in entries) for k in sorted(STATUSES)},'entries':report,'limitation':'Coverage is checked against inventoried paragraphs. Atomic fact segmentation and semantic equivalence require human/agent review.'}
@@ -109,7 +109,7 @@ def write_reports(deck,base,out):
     report=ledger_report(deck,base)
     (out/'qa/content-ledger.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
     rows=['# Журнал сохранности содержания','',str(report.get('counts',{})),'']
-    for e in report['entries']:rows+=['## '+e['fact_id']+' · '+e['status'],e['source_location'],e['source_text'],'Решение: '+e['reason'],'Назначение: '+', '.join(t['slide_id']+t['pointer'] for t in e.get('targets',[])),'']
+    for e in report['entries']:rows+=['## '+e['fact_id']+' · '+e['status'],e['source_location'],e['source_text'],'Решение: '+e['reason'],'Итоговая формулировка: '+strings([t['text'] for t in e.get('targets',[])]),'Назначение: '+', '.join(t['slide_id']+t['pointer'] for t in e.get('targets',[])),'']
     (out/'qa/content-ledger.md').write_text('\n'.join(rows),encoding='utf-8')
     if deck.get('content_ledger'):
         (out/'content/source-archive.json').write_bytes((Path(base)/deck['content_ledger']['inventory']).read_bytes())

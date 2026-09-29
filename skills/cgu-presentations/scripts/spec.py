@@ -11,7 +11,7 @@ def validate(deck):
         require(isinstance(value, str) and bool(value.strip()), f'{label}: nonempty text required')
         require(len(value) <= limit, f'{label}: maximum {limit} characters; shorten or split the slide')
     require(isinstance(deck, dict), 'Root must be an object')
-    require(not (set(deck) - {'schema_version','title','demo','sources','slides','evidence_policy','review_policy','content_ledger'}), 'Unknown root fields')
+    require(not (set(deck) - {'schema_version','title','demo','sources','slides','evidence_policy','review_policy','content_ledger','content_model','readiness_policy'}), 'Unknown root fields')
     require(deck.get('evidence_policy','slide') in ('slide','object'), 'Unknown evidence policy')
     require(deck.get('schema_version') == 'cgu-presentations/2', 'Expected schema_version cgu-presentations/2')
     text(deck.get('title'), 100, 'title')
@@ -38,7 +38,7 @@ def validate(deck):
         text(s.get('title'), 85, prefix + ' title')
         extra = {'cover':{'subtitle'}, 'cards':{'items'}, 'kpi':{'value','label','detail_title','detail'}, 'text':{'body'}, 'process':{'steps'}, 'diagram':{'nodes','edges'}, 'chart':{'chart_type','categories','series','unit'}, 'table':{'columns','rows'}}
         extra.update(kpi_grid={'items'},comparison={'columns'},roadmap={'steps'},text_blocks={'variant','items','callout'},composition={'layout','items','caveat','connections','center','image'})
-        require(not (set(s) - {'id','kind','title','source_ids','notes','footer','object_sources','intent','takeaway','statement_type','selection_reason','repeat_reason','section','metric_bindings'} - extra[kind]), prefix + ': unknown fields')
+        require(not (set(s) - {'id','kind','title','source_ids','notes','footer','object_sources','intent','takeaway','statement_type','selection_reason','repeat_reason','section','metric_bindings','model_bindings','purpose','relationship','emphasis','information_density','narrative_role','visual_asset','next_layout','note_ids'} - extra[kind]), prefix + ': unknown fields')
         for key,limit in [('notes',10000),('footer',120)]:
             if key in s: require(isinstance(s[key],str) and len(s[key])<=limit, prefix + ': invalid '+key)
         refs = s.get('source_ids', [])
@@ -171,4 +171,6 @@ def validate(deck):
     require(len(slide_ids)==len(set(slide_ids)), 'Duplicate slide id')
     from content_review import validate_editorial
     validate_editorial(deck)
+    from content_model import validate_deck
+    validate_deck(deck)
     return deck

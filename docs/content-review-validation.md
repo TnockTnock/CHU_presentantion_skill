@@ -1,3 +1,5 @@
+> Исторический протокол предыдущей версии. Текущий выпуск: [current-validation.md](current-validation.md).
+
 # Проверка CHU Presentation Skill — 26 сентября 2026
 
 ## Реализовано

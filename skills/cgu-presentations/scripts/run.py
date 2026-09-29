@@ -74,6 +74,10 @@ def build(specfile, out, runtime=None, presentation_skill=None, render=True, bac
     for folder in ['content','build','qa','preview','output']:(out/folder).mkdir()
     shutil.copy2(specfile,out/'content/deck-spec.json')
     coverage=write_reports(deck,specfile.parent,out)
+    from content_model import write_report
+    write_report(deck,out)
+    from planning import write_storyboard
+    write_storyboard(deck,out)
     saved=copy.deepcopy(deck)
     if saved.get('content_ledger'):saved['content_ledger']['inventory']='source-archive.json'
     for slide in saved['slides']:
@@ -92,6 +96,8 @@ def build(specfile, out, runtime=None, presentation_skill=None, render=True, bac
         from portable_build import build as portable_build
         portable_build(deck,out)
     pptx = out/'output/presentation.pptx'
+    from provenance_notes import write as write_notes
+    write_notes(deck,pptx)
     report = audit(pptx)
     (out/'qa/package-audit.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
     semantic=verify(deck,pptx)
@@ -134,14 +140,29 @@ def build(specfile, out, runtime=None, presentation_skill=None, render=True, bac
 
 def main():
     ap=argparse.ArgumentParser(description=__doc__)
-    ap.add_argument('command',choices=['doctor','validate','build','demo','render','original-catalog','original-select'])
+    ap.add_argument('command',choices=['doctor','validate','build','demo','render','original-catalog','original-select','content-validate','feedback','original-init'])
     ap.add_argument('spec',nargs='?')
     ap.add_argument('--out',type=Path)
     ap.add_argument('--backend',choices=['auto','portable','codex'],default='auto')
     ap.add_argument('--fields',type=int,default=1);ap.add_argument('--images',type=int,default=0);ap.add_argument('--text-length',type=int,default=0);ap.add_argument('--previous-family');ap.add_argument('--data-type',choices=['text','chart','table','image'])
+    ap.add_argument('--allow-experimental',action='store_true')
+    ap.add_argument('--layouts',nargs='+');ap.add_argument('--feedback-file',type=Path)
+    ap.add_argument('--relationship');ap.add_argument('--narrative-role');ap.add_argument('--takeaway');ap.add_argument('--emphasis');ap.add_argument('--information-density',default='medium');ap.add_argument('--visual-asset');ap.add_argument('--previous-layouts',nargs='*',default=[]);ap.add_argument('--next-layout')
     ap.add_argument('--runtime');ap.add_argument('--presentation-skill');ap.add_argument('--no-render',action='store_true')
     a=ap.parse_args()
     try:
+        if a.command=='original-init':
+            from original_starter import initialize
+            if not a.out:ap.error('original-init requires --out')
+            print(json.dumps(initialize(a.out,a.layouts,a.allow_experimental),ensure_ascii=False,indent=2));return
+        if a.command=='content-validate':
+            from content_model import validate_model
+            if not a.spec:ap.error('content-validate requires JSON')
+            print(json.dumps({'valid':True,'items':len(validate_model(json.loads(Path(a.spec).read_text(encoding='utf-8'))))}));return
+        if a.command=='feedback':
+            from planning import record_feedback
+            if not a.spec or not a.out:ap.error('feedback requires JSON and --out local feedback.jsonl')
+            record_feedback(json.loads(Path(a.spec).read_text(encoding='utf-8')),a.out);return
         if a.command=='render':
             if not a.spec or not a.out:ap.error('render requires a PPTX and --out')
             from render_deck import render_only
@@ -151,7 +172,7 @@ def main():
             print(catalog(a.out or SKILL/'assets/catalog/original'));return
         if a.command=='original-select':
             from original_template import select
-            print(json.dumps(select(a.spec or 'reference',a.fields,a.images,a.text_length,a.previous_family,data_type=a.data_type),ensure_ascii=False,indent=2));return
+            print(json.dumps(select(a.spec or 'reference',a.fields,a.images,a.text_length,a.previous_family,data_type=a.data_type,allow_experimental=a.allow_experimental,relationship=a.relationship,narrative_role=a.narrative_role,takeaway=a.takeaway,emphasis=a.emphasis,information_density=a.information_density,visual_asset=a.visual_asset,previous_layouts=a.previous_layouts,next_layout=a.next_layout,feedback=[json.loads(line) for line in a.feedback_file.read_text(encoding='utf-8').splitlines() if line.strip()] if a.feedback_file else []),ensure_ascii=False,indent=2));return
         if a.command=='validate':
             if not a.spec:ap.error('validate requires a spec file')
             original=json.loads(Path(a.spec).read_text(encoding='utf-8'))

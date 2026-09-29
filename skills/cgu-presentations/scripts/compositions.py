@@ -22,7 +22,9 @@ def validate_composition(s):
         if set(e)!={'from','to'} or any(type(e[k]) is not int or not 0<=e[k]<len(items) for k in e) or e['from']==e['to']:raise ValueError('Invalid composition connection')
     if s.get('image'):
         im=s['image']
-        if s['layout']!='speaker_profile' or set(im)!={'path','sha256','source_id','alt','identity_status'} or im['identity_status'] not in ('source-caption','verified'):raise ValueError('Profile image needs provenance and identity status')
+        from image_adapter import validate as validate_image
+        validate_image(im)
+        if s['layout']!='speaker_profile' or (not {'path','sha256','source_id','alt','identity_status'}<=set(im) or set(im)-{'path','sha256','source_id','alt','identity_status','fit','focus'}) or im['identity_status'] not in ('source-caption','verified'):raise ValueError('Profile image needs provenance and identity status')
 
 def scene(s):
     """Return text/background/node/edge primitives. No rasterized evidence."""

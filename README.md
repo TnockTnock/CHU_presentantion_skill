@@ -1,5 +1,7 @@
 # Презентации ЦГУ — скилл для AI-агентов
 
+**Пакет для тестирования коллегами:** [начать здесь](skills/cgu-presentations/references/START-HERE.md). [Текущая проверка и ограничения](docs/current-validation.md). Корпоративные композиции — основной путь; общие демо не являются примером точного воспроизведения шаблона.
+
 Создавайте презентации ЦГУ / ДИТ по своим отчётам: фирменный PPTX-шаблон, Golos Text, редактируемые схемы, графики и таблицы. Вы описываете задачу агенту, он готовит содержание и собирает файл.
 
 **[QA оригинальных адаптеров: результаты и ограничения](skills/cgu-presentations/references/original-qa.md)**
@@ -28,7 +30,7 @@
 
 Можно поручить установку агенту:
 
-> Установи cgu-presentations из https://github.com/TnockTnock/CHU_presentantion_skill, папка skills/cgu-presentations, в текущий проект для моего агента. Прочитай references/user-guide.md, проверь Python и собери демо через portable без рендеринга. Покажи пути к установленному скиллу и PPTX.
+> Установи cgu-presentations из https://github.com/TnockTnock/CHU_presentantion_skill, папка skills/cgu-presentations, в текущий проект для моего агента. Прочитай references/user-guide.md, проверь Python и создай original-init --out starter и собери starter/deck.json через portable без рендеринга. Покажи пути к установленному скиллу и PPTX.
 
 После установки:
 
@@ -48,7 +50,7 @@
 
 ## Что проверено
 
-Portable-сборка и автоматические тесты прошли на Windows, Linux и macOS. Визуально проверен 21 слайд на macOS. [Протокол проверки](docs/portable-validation.md) · [CI](https://github.com/TnockTnock/CHU_presentantion_skill/actions/runs/36122590598).
+Предыдущий выпуск: portable-сборка и автоматические тесты прошли на Windows, Linux и macOS. Текущие изменения проверяются отдельно, результаты — в current-validation.md. Визуально проверен 21 слайд на macOS. [Протокол проверки](docs/portable-validation.md) · [CI](https://github.com/TnockTnock/CHU_presentantion_skill/actions/runs/36122590598).
 
 Каждый клиент и каждая модель отдельно не тестировались. Скилл не гарантирует одинаковое качество содержания у всех моделей. Для полноценной сборки агенту нужны файлы и выполнение команд; текстовый чат может подготовить только содержание и инструкции. Ручная проверка редактирования в Microsoft PowerPoint пока не проводилась.
 

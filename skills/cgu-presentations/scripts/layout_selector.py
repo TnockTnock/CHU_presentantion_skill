@@ -22,7 +22,13 @@ def candidates(s,previous=None):
     # Alternate base adapters are valid options, not automatic content conversions.
     alternatives={'metrics':['kpi_grid','kpi'],'sequence':['roadmap','process'],'process':['diagram','process'],'hierarchy':['diagram','text'],'comparison':['comparison','table'],'decision':['diagram','table'],'profile':['text','text_blocks'],'reference':['text','text_blocks'],'causality':['process','diagram']}
     ordered=sorted(fitting,key=lambda x:(family({'kind':'composition','layout':x['key'],'items':[{}]*count})==previous,x['key']))
-    result=[{'layout':x['key'],'family':x['family'],'reason':x['purpose']} for x in ordered]
+    result=[]
+    for x in ordered:
+        capacity=count/x['max_items']
+        repeated=family({'kind':'composition','layout':x['key'],'items':[{}]*count})==previous
+        parts={'semantic_fit':.4,'capacity_fit':round(.25*capacity,3),'visual_diversity':0 if repeated else .2,'contract_fit':.15}
+        result.append({'layout':x['key'],'family':x['family'],'reason':x['purpose'],'score':round(sum(parts.values()),3),'score_components':parts,'production_status':'experimental','warning':'Candidate for explicit review; no production acceptance recorded'})
+    result.sort(key=lambda r:(-r['score'],r['layout']))
     result += [{'layout':x,'family':x,'reason':'Alternative adapter; adapt fields and revalidate capacity before use'} for x in alternatives.get(intent,[]) ]
     return result[:3]
 def diversity(deck):

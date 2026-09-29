@@ -97,17 +97,12 @@ def inventory():
                 p=part['part'];parts.append({'part':p,'kind':label,'name':part['name'],'sha256':digest(z.read(p)),'relationships':relationships(z,p),'fonts':part['fonts'],'explicit_rgb_colors':part['explicit_rgb_colors'],'objects':part['fields']})
     return {'schema_version':'cgu-original-catalog/1','source_sha256':SHA,'counts':{'slides':82,'layouts':77,'masters':12,'candidates':77,'families':len({r['family'] for r in records[5:]}),'distinct_geometry_signatures':len(groups)},'slides':records,'parts':parts,'limits':['Geometry-signature equality is not proof of identical visual design.','Family classification requires visual review; status does not imply designer approval.']}
 
-def select(intent,fields=1,images=0,text_length=0,previous=None,limit=3,data_type=None):
-    choices=[]
-    for r in load()['slides'][5:]:
-        if r['intent']!=intent or r['status'] not in ('implemented','tested'):continue
-        if data_type in ('chart','table','image') and not r['editable_counts'][data_type]:continue
-        if data_type=='text' and (r['editable_counts']['chart'] or r['editable_counts']['table']):continue
-        body=[s for s in r['slots'] if s['role'] in ('body','heading','value')]
-        if len(body)<fields or r['editable_counts']['image']<images or sum(s['max_chars'] for s in body)<text_length:continue
-        score=abs(len(body)-fields)+ (8 if previous==r['family'] else 0)
-        choices.append((score,r['source_slide'],r))
-    return [{'id':r['id'],'source_slide':r['source_slide'],'family':r['family'],'reason':r['selection'],'status':r['status']} for _,_,r in sorted(choices)[:limit]]
+def select(intent,fields=1,images=0,text_length=0,previous=None,limit=3,data_type=None,allow_experimental=False,**context):
+    from planning import rank
+    previous_layouts=list(context.get('previous_layouts',[]))
+    if previous and not previous_layouts:
+        previous_layouts=[r['id'] for r in load()['slides'][5:] if r['family']==previous][:1]
+    return rank(dict(intent=intent,fields=fields,images=images,text_length=text_length,data_type=data_type or 'text',**context),previous_layouts,context.get('next_layout'),allow_experimental,context.get('feedback',[]))[:limit]
 
 if __name__=='__main__':
     REGISTRY.write_text(json.dumps(inventory(),ensure_ascii=False,indent=2),encoding='utf-8')

@@ -34,7 +34,9 @@
               "preserved",
               "condensed",
               "appendix",
-              "excluded"
+              "excluded",
+              "merged",
+              "moved_to_appendix"
             ]
           },
           "reason": {

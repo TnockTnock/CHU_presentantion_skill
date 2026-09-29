@@ -47,13 +47,13 @@ def example(record):
 
 def validate(deck,base=Path('.')):
     if not isinstance(deck,dict) or deck.get('schema_version')!='cgu-original-deck/1':raise ValueError('Expected cgu-original-deck/1')
-    if set(deck)-{'schema_version','title','demo','slides','sources'}:raise ValueError('Unknown original-deck field')
+    if set(deck)-{'schema_version','title','demo','slides','sources','content_model','content_ledger','review_policy','evidence_policy','readiness_policy'}:raise ValueError('Unknown original-deck field')
     if not isinstance(deck.get('title'),str) or not deck['title'].strip():raise ValueError('Nonempty deck title required')
     if not isinstance(deck.get('slides'),list) or not 1<=len(deck['slides'])<=160:raise ValueError('Need 1–160 slides')
     cat={r['id']:r for r in load()['slides'][5:]};seen=set();metrics=Metrics(SKILL)
     for slide in deck['slides']:
         if not isinstance(slide,dict):raise ValueError('Slide must be an object')
-        if set(slide)-{'id','layout_id','takeaway','fields','notes','source_ids','repeat_reason'}:raise ValueError('Unknown slide field')
+        if set(slide)-{'id','layout_id','takeaway','fields','notes','source_ids','repeat_reason','object_sources','metric_bindings','model_bindings','intent','statement_type','selection_reason','section','purpose','relationship','emphasis','information_density','narrative_role','visual_asset','next_layout','note_ids'}:raise ValueError('Unknown slide field')
         if not isinstance(slide.get('id'),str) or slide['id'] in seen:raise ValueError('Slide IDs must be unique strings')
         seen.add(slide['id'])
         if slide.get('layout_id') not in cat:raise ValueError('Instructions/icons cannot be executable layouts')
@@ -65,7 +65,9 @@ def validate(deck,base=Path('.')):
             from original_style import effective_slot
             s=effective_slot(r,slots[key]);role=s['role'];box=s['box_pt']
             if role=='image':
-                if not isinstance(value,dict) or set(value)!={'path','sha256','alt'}:raise ValueError('Image needs path, sha256, alt')
+                if not isinstance(value,dict) or (not {'path','sha256','alt'}<=set(value) or set(value)-{'path','sha256','alt','fit','focus'}):raise ValueError('Image needs path, sha256, alt')
+                from image_adapter import validate as validate_image
+                validate_image(value)
                 p=Path(base)/value['path']
                 if digest(p.read_bytes())!=value['sha256']:raise ValueError('Image checksum mismatch')
                 image_size(p.read_bytes())
@@ -85,6 +87,9 @@ def validate(deck,base=Path('.')):
             else:
                 if not isinstance(value,str) or not value.strip() or len(value)>s['max_chars']:raise ValueError('Invalid text capacity: '+r['id']+'/'+key)
                 check_text(metrics,s,value)
+    from content_model import validate_deck
+    from content_review import validate_editorial, ledger_report
+    validate_deck(deck);validate_editorial(deck);ledger_report(deck,base)
     return deck
 
 
@@ -177,7 +182,13 @@ def build(deck,destination,base=Path('.'),raw=False):
                     picture(tree,sid,rid,b,*image_size(data),value['alt']);kind='image';dest='../media/'+posixpath.basename(asset)
                     # Fill the original photo window, preserving aspect via explicit center crop.
                     pic=tree[-1];sp=pic.find('p:spPr',NS);xf=sp.find('a:xfrm',NS);xf.find('a:off',NS).attrib.update(x=str(round(b[0]*9525)),y=str(round(b[1]*9525)));xf.find('a:ext',NS).attrib.update(cx=str(round(b[2]*9525)),cy=str(round(b[3]*9525)))
-                    iw,ih=image_size(data);ratio=(b[2]/b[3])/(iw/ih);crop=el('a:srcRect',l=round(max(0,1-ratio)*50000),r=round(max(0,1-ratio)*50000),t=round(max(0,1-1/ratio)*50000),b=round(max(0,1-1/ratio)*50000));pic.find('p:blipFill',NS).insert(1,crop);pic.find('p:blipFill/a:stretch/a:fillRect',NS).attrib.update(l='0',r='0',t='0',b='0')
+                    from image_adapter import crop
+                    if value.get('fit','cover')=='cover':
+                        iw,ih=image_size(data);rect=el('a:srcRect',**crop(iw,ih,b[2],b[3],value.get('focus',[.5,.5])));pic.find('p:blipFill',NS).insert(1,rect);pic.find('p:blipFill/a:stretch/a:fillRect',NS).attrib.update(l='0',r='0',t='0',b='0')
+                    else:
+                        iw,ih=image_size(data);factor=min(b[2]/iw,b[3]/ih);nw,nh=iw*factor,ih*factor
+                        xf.find('a:off',NS).attrib.update(x=str(round((b[0]+(b[2]-nw)/2)*9525)),y=str(round((b[1]+(b[3]-nh)/2)*9525)))
+                        xf.find('a:ext',NS).attrib.update(cx=str(round(nw*9525)),cy=str(round(nh*9525)))
                     for source_shape in [m[slot['idx']] for m in maps if slot['idx'] in m]:
                         geom=source_shape.find('p:spPr/a:prstGeom',NS)
                         if geom is None:geom=source_shape.find('p:spPr/a:custGeom',NS)
@@ -213,6 +224,9 @@ def build(deck,destination,base=Path('.'),raw=False):
     destination=Path(destination);destination.parent.mkdir(parents=True,exist_ok=True)
     with ZipFile(destination,'w',ZIP_DEFLATED) as z:
         for n,data in parts.items():z.writestr(n,data)
+    if not raw:
+        from provenance_notes import write
+        write(deck,destination)
     report=verify(deck,destination,raw);return report
 
 

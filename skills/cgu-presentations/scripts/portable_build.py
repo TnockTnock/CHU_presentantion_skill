@@ -94,7 +94,7 @@ def build(deck,out):
                     if hashlib.sha256(data).hexdigest()!=v['sha256']:raise ValueError('Profile image SHA mismatch')
                     ext='png' if data.startswith(b'\x89PNG') else 'jpeg';profile_asset=f'ppt/media/profile-{i}.{ext}';parts[profile_asset]=data
                     if not any(e.get('Extension')==ext for e in ct):el('ct:Default',ct,Extension=ext,ContentType='image/'+ext)
-                    counter+=1;picture(tree,counter,'rIdProfile',v['box'],*image_size(data),v['alt'])
+                    counter+=1;picture(tree,counter,'rIdProfile',v['box'],*image_size(data),v['alt'],v.get('fit','contain'),v.get('focus',[.5,.5]))
             for v in primitives:
                 if v['type']=='edge':link(node_ids[v['start']],node_ids[v['end']],v['from_side'],v['to_side'])
         elif kind=='text':label('body',d['body'],100,290,1630,620,30)
@@ -161,7 +161,8 @@ def build(deck,out):
         if kind=='chart':el('rel:Relationship',rels,Id='rIdCguChart',Type=NS['r']+'/chart',Target=f'../charts/chart{i}.xml')
         notes=el('p:notes');nt=el('p:spTree',el('p:cSld',notes));gn=el('p:nvGrpSpPr',nt);el('p:cNvPr',gn,id=1,name='');el('p:cNvGrpSpPr',gn);el('p:nvPr',gn);el('p:grpSpPr',nt)
         ids=set(d.get('source_ids',[]))|{v for values in d.get('object_sources',{}).values() for v in values};sources=[s['location'] for s in deck.get('sources',[]) if s['id'] in ids]
-        note='\n\n'.join([d.get('notes',''),'Все данные вымышлены.' if deck.get('demo') else '']+['Источник: '+v for v in sources]+[f'Данные {ptr}: '+', '.join(v) for ptr,v in d.get('object_sources',{}).items()])
+        from content_model import notes_text
+        note=notes_text(deck,d)
         ns=shape(nt,2,'Notes',[0,0,1000,1000],note,12);el('p:ph',ns.find('p:nvSpPr/p:nvPr',NS),type='body',idx=1)
         np=f'ppt/notesSlides/notesSlide{i}.xml';parts[np]=xml(notes);content_type(np,'presentationml.notesSlide')
         nr=el('rel:Relationships');el('rel:Relationship',nr,Id='rIdSlide',Type=NS['r']+'/slide',Target=f'../slides/slide{i}.xml');parts[f'ppt/notesSlides/_rels/notesSlide{i}.xml.rels']=xml(nr)

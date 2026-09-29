@@ -110,7 +110,7 @@ class OriginalTests(unittest.TestCase):
         for s in d['slides']:s['repeat_reason']='Обоснованная серия'
         self.assertEqual(diversity(d)['warnings'],0)
         # Statuses become selectable only after implementation, never from inventory.
-        choices=select('metrics',fields=1);self.assertGreaterEqual(len(choices),2);self.assertTrue(all(x['status'] in ('implemented','tested') for x in choices))
+        choices=select('metrics',fields=1,allow_experimental=True);self.assertGreaterEqual(len(choices),2);self.assertTrue(all(x['status'] in ('implemented','tested') for x in choices))
 
 class OriginalVisualTests(unittest.TestCase):
     @unittest.skipUnless(__import__('os').environ.get('CGU_ORIGINAL_RENDER_ROOT'),'Original render fixtures are opt-in')

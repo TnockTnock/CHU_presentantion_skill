@@ -1,3 +1,5 @@
+> Исторический протокол предыдущей версии. Текущий выпуск: [current-validation.md](current-validation.md).
+
 # Проверка v1 — 23.09.2026
 
 Окружение: macOS, Codex Desktop bundled runtime 26.905.11957, JavaScript Artifact Tool, bundled LibreOffice и Poppler. Python-проверки используют стандартную библиотеку.

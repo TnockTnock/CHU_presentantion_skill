@@ -1059,7 +1059,29 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "opening"
+      ],
+      "density": "medium",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 8,
+        "rejected": 3,
+        "not_applicable": 4,
+        "rendered": 8,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-07",
@@ -1373,7 +1395,29 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "opening"
+      ],
+      "density": "medium",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 8,
+        "rejected": 3,
+        "not_applicable": 4,
+        "rendered": 8,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-08",
@@ -1835,7 +1879,29 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "opening"
+      ],
+      "density": "medium",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-09",
@@ -2146,7 +2212,29 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "opening"
+      ],
+      "density": "medium",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 8,
+        "rejected": 3,
+        "not_applicable": 4,
+        "rendered": 8,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-10",
@@ -2427,7 +2515,29 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "opening"
+      ],
+      "density": "medium",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 3,
+        "rejected": 3,
+        "not_applicable": 9,
+        "rendered": 3,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-11",
@@ -2708,7 +2818,29 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "opening"
+      ],
+      "density": "medium",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 4,
+        "rejected": 2,
+        "not_applicable": 9,
+        "rendered": 4,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-12",
@@ -3020,7 +3152,7 @@
         "capacity_boundaries": "not-exhaustively-tested",
         "filled_full_size_review": "reviewed-after-figma-comparison"
       },
-      "visual_status": "agent-reviewed-revision-awaiting-user",
+      "visual_status": "reviewed",
       "presentation_overrides": {
         "ph-0": {
           "box_pt": [
@@ -3042,6 +3174,28 @@
           "font_pt": 24,
           "max_chars": 90
         }
+      },
+      "binding_status": "tested",
+      "previous_visual_status": "agent-reviewed-revision-awaiting-user",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "usable",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "opening"
+      ],
+      "density": "medium",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
       }
     },
     {
@@ -3354,7 +3508,29 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "opening"
+      ],
+      "density": "medium",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-14",
@@ -3725,7 +3901,7 @@
         "capacity_boundaries": "not-exhaustively-tested",
         "filled_full_size_review": "reviewed-after-figma-comparison"
       },
-      "visual_status": "agent-reviewed-revision-awaiting-user",
+      "visual_status": "reviewed",
       "presentation_overrides": {
         "ph-62": {
           "box_pt": [
@@ -3803,6 +3979,30 @@
             0
           ]
         }
+      },
+      "binding_status": "tested",
+      "previous_visual_status": "agent-reviewed-revision-awaiting-user",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "usable",
+      "relationships": [
+        "comparison"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "medium",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
       }
     },
     {
@@ -4475,7 +4675,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "sequence"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-16",
@@ -5148,7 +5372,7 @@
         "capacity_boundaries": "not-exhaustively-tested",
         "filled_full_size_review": "reviewed-after-figma-comparison"
       },
-      "visual_status": "agent-reviewed-revision-awaiting-user",
+      "visual_status": "reviewed",
       "presentation_overrides": {
         "ph-34": {
           "box_pt": [
@@ -5362,6 +5586,30 @@
             0
           ]
         }
+      },
+      "binding_status": "tested",
+      "previous_visual_status": "agent-reviewed-revision-awaiting-user",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "usable",
+      "relationships": [
+        "sequence"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 3,
+        "rejected": 3,
+        "not_applicable": 9,
+        "rendered": 3,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
       }
     },
     {
@@ -5764,7 +6012,30 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "evidence",
+        "analysis"
+      ],
+      "density": "medium",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 3,
+        "rejected": 3,
+        "not_applicable": 9,
+        "rendered": 3,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-18",
@@ -6227,7 +6498,7 @@
         "capacity_boundaries": "not-exhaustively-tested",
         "filled_full_size_review": "reviewed-after-figma-comparison"
       },
-      "visual_status": "agent-reviewed-revision-awaiting-user",
+      "visual_status": "reviewed",
       "presentation_overrides": {
         "ph-11": {
           "box_pt": [
@@ -6367,6 +6638,30 @@
             0
           ]
         }
+      },
+      "binding_status": "tested",
+      "previous_visual_status": "agent-reviewed-revision-awaiting-user",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "usable",
+      "relationships": [
+        "sequence"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "medium",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 4,
+        "rejected": 2,
+        "not_applicable": 9,
+        "rendered": 4,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
       }
     },
     {
@@ -7039,7 +7334,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "sequence"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-20",
@@ -7891,7 +8210,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "sequence"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-21",
@@ -8803,7 +9146,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "sequence"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-22",
@@ -9745,7 +10112,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "sequence"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-23",
@@ -10656,7 +11047,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "sequence"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-24",
@@ -11449,7 +11864,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "process"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "decorative",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-25",
@@ -12394,7 +12833,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "process"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "decorative",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-26",
@@ -13608,7 +14071,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "process"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "decorative",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-27",
@@ -15299,7 +15786,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "process"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "decorative",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 3,
+        "rejected": 3,
+        "not_applicable": 9,
+        "rendered": 3,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-28",
@@ -16690,7 +17201,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "process"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "decorative",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 3,
+        "rejected": 3,
+        "not_applicable": 9,
+        "rendered": 3,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-29",
@@ -17781,7 +18316,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "process"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "decorative",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 3,
+        "rejected": 3,
+        "not_applicable": 9,
+        "rendered": 3,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-30",
@@ -18602,7 +19161,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "hierarchy"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "decorative",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-31",
@@ -19453,7 +20036,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "hierarchy"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "decorative",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-32",
@@ -20544,7 +21151,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "hierarchy"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "decorative",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-33",
@@ -20946,7 +21577,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "medium",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-34",
@@ -21257,7 +21912,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "medium",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 8,
+        "rejected": 3,
+        "not_applicable": 4,
+        "rendered": 8,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-35",
@@ -22138,7 +22817,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-36",
@@ -23170,7 +23873,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-37",
@@ -23752,7 +24479,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-38",
@@ -24153,7 +24904,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "medium",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-39",
@@ -24705,7 +25480,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-40",
@@ -25107,7 +25906,30 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "evidence",
+        "analysis"
+      ],
+      "density": "medium",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 3,
+        "rejected": 3,
+        "not_applicable": 9,
+        "rendered": 3,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-41",
@@ -25659,7 +26481,30 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "evidence",
+        "analysis"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-42",
@@ -26272,7 +27117,30 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "evidence",
+        "analysis"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-43",
@@ -27785,7 +28653,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "comparison"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-44",
@@ -28578,7 +29470,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "comparison"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-45",
@@ -29880,7 +30796,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "comparison"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-46",
@@ -30311,7 +31251,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "medium",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-47",
@@ -30862,7 +31826,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-48",
@@ -31413,7 +32401,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 8,
+        "rejected": 3,
+        "not_applicable": 4,
+        "rendered": 8,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-49",
@@ -31965,7 +32977,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 8,
+        "rejected": 3,
+        "not_applicable": 4,
+        "rendered": 8,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-50",
@@ -32427,7 +33463,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "medium",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-51",
@@ -33100,7 +34160,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-52",
@@ -33803,7 +34887,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-53",
@@ -34295,7 +35403,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "medium",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-54",
@@ -34966,7 +36098,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 8,
+        "rejected": 3,
+        "not_applicable": 4,
+        "rendered": 8,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-55",
@@ -35217,7 +36373,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "medium",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 8,
+        "rejected": 3,
+        "not_applicable": 4,
+        "rendered": 8,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-56",
@@ -35407,7 +36587,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "low",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 10,
+        "rejected": 1,
+        "not_applicable": 4,
+        "rendered": 10,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-57",
@@ -36469,7 +37673,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "comparison"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-58",
@@ -37501,7 +38729,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "comparison"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 8,
+        "rejected": 3,
+        "not_applicable": 4,
+        "rendered": 8,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-59",
@@ -37962,7 +39214,30 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "evidence",
+        "analysis"
+      ],
+      "density": "medium",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 5,
+        "rejected": 3,
+        "not_applicable": 7,
+        "rendered": 5,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-60",
@@ -38874,7 +40149,30 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "evidence",
+        "analysis"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 9,
+        "rejected": 4,
+        "not_applicable": 2,
+        "rendered": 9,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-61",
@@ -39726,7 +41024,30 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "evidence",
+        "analysis"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 9,
+        "rejected": 4,
+        "not_applicable": 2,
+        "rendered": 9,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-62",
@@ -40518,7 +41839,30 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "evidence",
+        "analysis"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 9,
+        "rejected": 4,
+        "not_applicable": 2,
+        "rendered": 9,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-63",
@@ -41280,7 +42624,30 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "evidence",
+        "analysis"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 9,
+        "rejected": 4,
+        "not_applicable": 2,
+        "rendered": 9,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-64",
@@ -41924,7 +43291,30 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "evidence",
+        "analysis"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 9,
+        "rejected": 4,
+        "not_applicable": 2,
+        "rendered": 9,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-65",
@@ -42538,7 +43928,30 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "evidence",
+        "analysis"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 9,
+        "rejected": 4,
+        "not_applicable": 2,
+        "rendered": 9,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-66",
@@ -42759,7 +44172,30 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "comparison"
+      ],
+      "narrative_roles": [
+        "evidence",
+        "analysis"
+      ],
+      "density": "low",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 6,
+        "rejected": 2,
+        "not_applicable": 7,
+        "rendered": 6,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-67",
@@ -43070,7 +44506,30 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "comparison"
+      ],
+      "narrative_roles": [
+        "evidence",
+        "analysis"
+      ],
+      "density": "medium",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 9,
+        "rejected": 4,
+        "not_applicable": 2,
+        "rendered": 9,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-68",
@@ -43445,7 +44904,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "medium",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 3,
+        "rejected": 3,
+        "not_applicable": 9,
+        "rendered": 3,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-69",
@@ -44000,7 +45483,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-70",
@@ -44372,7 +45879,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "medium",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 3,
+        "rejected": 3,
+        "not_applicable": 9,
+        "rendered": 3,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-71",
@@ -44593,7 +46124,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "low",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 4,
+        "rejected": 2,
+        "not_applicable": 9,
+        "rendered": 4,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-72",
@@ -44815,7 +46370,30 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "evidence",
+        "analysis"
+      ],
+      "density": "low",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 3,
+        "rejected": 3,
+        "not_applicable": 9,
+        "rendered": 3,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-73",
@@ -44976,7 +46554,30 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "independent"
+      ],
+      "narrative_roles": [
+        "closing",
+        "action"
+      ],
+      "density": "low",
+      "diagram_status": "not-applicable",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-74",
@@ -46153,7 +47754,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "hierarchy"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "decorative",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 9,
+        "rejected": 4,
+        "not_applicable": 2,
+        "rendered": 9,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-75",
@@ -47339,7 +48964,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "hierarchy"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "decorative",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 9,
+        "rejected": 4,
+        "not_applicable": 2,
+        "rendered": 9,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-76",
@@ -48732,7 +50381,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "hierarchy"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "decorative",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 9,
+        "rejected": 4,
+        "not_applicable": 2,
+        "rendered": 9,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-77",
@@ -49885,7 +51558,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "hierarchy"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "decorative",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 9,
+        "rejected": 4,
+        "not_applicable": 2,
+        "rendered": 9,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-78",
@@ -51187,7 +52884,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "hierarchy"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "decorative",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-79",
@@ -51738,7 +53459,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "hierarchy"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "decorative",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 9,
+        "rejected": 4,
+        "not_applicable": 2,
+        "rendered": 9,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-80",
@@ -52830,7 +54575,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "hierarchy"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "decorative",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-81",
@@ -53594,7 +55363,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "hierarchy"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "decorative",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 9,
+        "rejected": 4,
+        "not_applicable": 2,
+        "rendered": 9,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     },
     {
       "id": "original-82",
@@ -54745,7 +56538,31 @@
         "powerpoint": "not-tested",
         "capacity_boundaries": "not-exhaustively-tested"
       },
-      "visual_status": "needs-review-after-user-feedback"
+      "visual_status": "unreviewed",
+      "binding_status": "tested",
+      "previous_visual_status": "needs-review-after-user-feedback",
+      "content_status": "stress-tested",
+      "powerpoint_status": "not-tested",
+      "production_status": "experimental",
+      "relationships": [
+        "hierarchy"
+      ],
+      "narrative_roles": [
+        "context",
+        "reference",
+        "appendix"
+      ],
+      "density": "high",
+      "diagram_status": "decorative",
+      "stress_evidence": {
+        "cases": 15,
+        "accepted": 7,
+        "rejected": 4,
+        "not_applicable": 4,
+        "rendered": 7,
+        "visual_review": "unreviewed",
+        "report": "qa/content-stress.json"
+      }
     }
   ],
   "parts": [

@@ -137,11 +137,15 @@ def chart_xml(d,colors):
     transform(root);return root
 
 
-def picture(tree,id,rid,box,width,height,alt):
+def picture(tree,id,rid,box,width,height,alt,fit="contain",focus=(.5,.5)):
     x,y,w,h=box;scale=min(w/width,h/height);nw,nh=width*scale,height*scale
     pic=el('p:pic',tree);nv=el('p:nvPicPr',pic);el('p:cNvPr',nv,id=id,name='profile-image',descr=alt);el('a:picLocks',el('p:cNvPicPr',nv),noChangeAspect=1);el('p:nvPr',nv)
     bf=el('p:blipFill',pic);el('a:blip',bf,**{tag('r:embed'):rid});el('a:fillRect',el('a:stretch',bf))
     sp=el('p:spPr',pic);pos(sp,[x+(w-nw)/2,y+(h-nh)/2,nw,nh]);el('a:avLst',el('a:prstGeom',sp,prst='rect'))
+    if fit=='cover':
+        from image_adapter import crop
+        xf=sp.find('a:xfrm',NS);sp.remove(xf);pos(sp,box)
+        bf.insert(1,el('a:srcRect',**crop(width,height,w,h,focus)))
 
 def image_size(data):
     import struct

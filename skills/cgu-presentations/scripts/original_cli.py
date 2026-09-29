@@ -27,9 +27,15 @@ def build_project(spec,out,do_render=True,runtime=None):
     if out.exists() and any(out.iterdir()):raise ValueError('Use empty output directory')
     deck=json.loads(spec.read_text(encoding='utf-8'));validate(deck,spec.parent)
     for folder in ['output','content','qa']:(out/folder).mkdir(parents=True,exist_ok=True)
+    from content_review import write_reports
+    from content_model import write_report
+    write_reports(deck,spec.parent,out);write_report(deck,out)
+    from planning import write_storyboard
+    write_storyboard(deck,out)
     report=build(deck,out/'output/presentation.pptx',spec.parent)
     if report['errors']:raise ValueError('; '.join(report['errors']))
     saved=copy.deepcopy(deck)
+    if saved.get('content_ledger'):saved['content_ledger']['inventory']='source-archive.json'
     for slide in saved['slides']:
         for value in slide['fields'].values():
             if isinstance(value,dict) and 'path' in value:
@@ -52,6 +58,8 @@ def catalog(out):
     with (out/'coverage.csv').open('w',encoding='utf-8-sig',newline='') as f:
         w=csv.writer(f,lineterminator="\n");w.writerow(['slide','id','family','variant','layout','master','theme','status','text_fields','image_fields','table_fields','chart_fields','visual_status'])
         for r in data['slides']:w.writerow([r['source_slide'],r['id'],r['family'],r['name'],r['layout_part'],r['master_part'],r['theme_part'],r['status'],sum(r['editable_counts'][k] for k in ['title','heading','body','value']),r['editable_counts']['image'],r['editable_counts']['table'],r['editable_counts']['chart'],r.get('visual_status','not-reviewed')])
+    from catalog_view import write
+    write(out)
     return out
 
 def compare_images(expected,actual):
